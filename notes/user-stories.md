@@ -13,7 +13,6 @@
     - phone number
     - email
     - password
-    - account type (drop down with options)
 - User can log in.
 
 # Feed screen
@@ -75,6 +74,12 @@
     - Last initial
     - Number of trips taken
     - *Optional*: Star rating
+
+## *Optional* Accept ride request screen (modal)
+- User sees option to request payment through venmo.
+
+## *Optional* Accept ride offering screen (modal)
+- User sees option to pay through venmo.
 
 ## *Optional* Trip history screen
 - User can see list of trips
