@@ -1,7 +1,5 @@
 # Rideshare stories
 
-
-
 ## Launch screen/AppIcon
 - User sees app icon in home screen and styled launch screen.
 
@@ -33,15 +31,15 @@
 
 ## Create ride offering screen
 - User can specify
+    - pickup *Optionally can use current location to specify pickup*
     - destination
-    - pickup
     - seats available
     - cost (or alternative form of payment)
     - *Optional* negotiable? if so, users can message poster to discuss alternate pickup/destination/cost
 
 ## Create ride request screen
 - User can specify
-    - pickup
+    - pickup *Optionally can use current location to specify pickup*
     - destination
     - amount willing to pay (or alternative form of payment)
     - *Optional* negotiable? if so, users can message poster to discuss alternate pickup/destination/cost
@@ -94,13 +92,15 @@
 - Messsages
 - Profile
 
-## *Optional* Account details screen
+## Account details screen
 - User can see their own
     - First name
     - Last name
     - Phone number
     - Email
     - Password (hidden)
+    - Profile picture
+        - By touching the profile picture, users can open the camera or pick a camera from the camera roll.
 - User can edit their
     - Email
 
