@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Et-kQ-AVp">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="7S6-e3-moy">
+            <objects>
+                <viewController id="5Et-kQ-AVp" customClass="LoginViewController" customModule="rideshare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mc4-2a-qnS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="tempLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Q9i-w6-00s">
+                                <rect key="frame" x="147" y="164" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="He2-I5-ndd"/>
+                                    <constraint firstAttribute="width" constant="120" id="z8e-8f-fT1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rideshare" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jG9-7I-ext">
+                                <rect key="frame" x="139" y="300" width="136.5" height="37.5"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p0o-zv-oW5">
+                                <rect key="frame" x="16" y="357.5" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qy8-41-DpU">
+                                <rect key="frame" x="16" y="501.5" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZM-re-fu2">
+                                <rect key="frame" x="20" y="411.5" width="109.5" height="30"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQR-D8-cBT">
+                                <rect key="frame" x="20" y="555.5" width="100.5" height="30"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rx3-un-fYu">
+                                <rect key="frame" x="70" y="605.5" width="71" height="42"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
+                                <state key="normal" title="Log in">
+                                    <color key="titleColor" systemColor="secondaryLabelColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QmZ-3u-8Yv">
+                                <rect key="frame" x="258" y="604" width="86" height="42"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
+                                <state key="normal" title="Sign up">
+                                    <color key="titleColor" systemColor="secondaryLabelColor"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hIW-if-Sfk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CZM-re-fu2" firstAttribute="top" secondItem="p0o-zv-oW5" secondAttribute="bottom" constant="20" id="3KB-op-1Jm"/>
+                            <constraint firstItem="rx3-un-fYu" firstAttribute="top" secondItem="VQR-D8-cBT" secondAttribute="bottom" constant="20" id="5eU-mg-8h9"/>
+                            <constraint firstItem="hIW-if-Sfk" firstAttribute="trailing" secondItem="QmZ-3u-8Yv" secondAttribute="trailing" constant="70" id="8d4-pI-jw2"/>
+                            <constraint firstItem="Q9i-w6-00s" firstAttribute="top" secondItem="hIW-if-Sfk" secondAttribute="top" constant="120" id="9Ve-Jy-zFA"/>
+                            <constraint firstItem="jG9-7I-ext" firstAttribute="centerX" secondItem="Mc4-2a-qnS" secondAttribute="centerX" id="FKr-mI-cvN"/>
+                            <constraint firstItem="VQR-D8-cBT" firstAttribute="leading" secondItem="hIW-if-Sfk" secondAttribute="leading" constant="20" id="FYO-yo-Qbm"/>
+                            <constraint firstItem="Qy8-41-DpU" firstAttribute="top" secondItem="CZM-re-fu2" secondAttribute="bottom" constant="60" id="Jvn-Xu-bT2"/>
+                            <constraint firstItem="hIW-if-Sfk" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VQR-D8-cBT" secondAttribute="bottom" constant="20" id="Ky4-AE-B5x"/>
+                            <constraint firstItem="hIW-if-Sfk" firstAttribute="trailing" secondItem="p0o-zv-oW5" secondAttribute="trailing" constant="16" id="Rxf-UG-paU"/>
+                            <constraint firstItem="QmZ-3u-8Yv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rx3-un-fYu" secondAttribute="trailing" constant="100" id="SyB-tQ-7sE"/>
+                            <constraint firstItem="p0o-zv-oW5" firstAttribute="leading" secondItem="hIW-if-Sfk" secondAttribute="leading" constant="16" id="T7G-VM-ddO"/>
+                            <constraint firstItem="VQR-D8-cBT" firstAttribute="top" secondItem="Qy8-41-DpU" secondAttribute="bottom" constant="20" id="axa-nf-79O"/>
+                            <constraint firstItem="hIW-if-Sfk" firstAttribute="trailing" secondItem="Qy8-41-DpU" secondAttribute="trailing" constant="16" id="cBp-JG-4Sb"/>
+                            <constraint firstItem="p0o-zv-oW5" firstAttribute="top" secondItem="jG9-7I-ext" secondAttribute="bottom" constant="20" id="dCE-Ev-3ME"/>
+                            <constraint firstItem="jG9-7I-ext" firstAttribute="top" secondItem="Q9i-w6-00s" secondAttribute="bottom" constant="16" id="fHN-6f-Fs3"/>
+                            <constraint firstItem="QmZ-3u-8Yv" firstAttribute="top" secondItem="Qy8-41-DpU" secondAttribute="bottom" constant="68.5" id="fqE-Jr-XI8"/>
+                            <constraint firstItem="CZM-re-fu2" firstAttribute="leading" secondItem="hIW-if-Sfk" secondAttribute="leading" constant="20" id="mW3-6A-xWz"/>
+                            <constraint firstItem="rx3-un-fYu" firstAttribute="leading" secondItem="hIW-if-Sfk" secondAttribute="leading" constant="70" id="o17-mj-G0g"/>
+                            <constraint firstItem="Q9i-w6-00s" firstAttribute="centerX" secondItem="Mc4-2a-qnS" secondAttribute="centerX" id="ozZ-VM-3qY"/>
+                            <constraint firstItem="Qy8-41-DpU" firstAttribute="leading" secondItem="hIW-if-Sfk" secondAttribute="leading" constant="16" id="zgy-KX-r1k"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9jw-w4-0W5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-536" y="-284"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tempLogo" width="60" height="60"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
