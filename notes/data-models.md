@@ -7,7 +7,7 @@
 - School Email
 - Password
 - Trip history (list of all ride requests and offerings, both created and accepted)
-  . reviews on previous rides
+- reviews on previous rides
 
 
 ## Trips
