@@ -28,3 +28,17 @@
 
 #### What is blocking me
 - n/a
+
+## 11/03/2020
+### Taha
+#### What I did
+- Made small edits to the Data Model
+  - Changed email to school email for Users
+  - Added "How many seats required?", "Will they be bringing pets/luggage etc?", "Special requests?" to Ride requests.
+  - Added "Special requests?" to Ride offerings.
+
+#### What I am working on next
+- doing research on backend tools to use
+
+#### What is blocking me
+- n/a
