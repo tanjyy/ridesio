@@ -18,6 +18,8 @@
 - *Optional*: User can click button to open settings menu (like on Uber/Lyft).
 - User can view their profile in a profile tab.
 - *Optional*: User can see all ride offerings and requests in a single view.
+- *Optional*: User can sort rides by different criteria (distance, cost)
+- *Optional*: User can search for rides
 
 ## Feed: Ride request screen
 - User can see a list of all nearby ride requests.
