@@ -4,9 +4,10 @@
 - First name
 - Last name
 - Phone number
-- Email
+- School Email
 - Password
 - Trip history (list of all ride requests and offerings, both created and accepted)
+  . reviews on previous rides
 
 
 ## Trips
@@ -17,6 +18,8 @@
 - Pickup
 - Destination
 - Amount willing to pay
+- How many seats required?
+- Will they be bringing pets/luggage etc?
 - *Optional* negotiable?
 
 
