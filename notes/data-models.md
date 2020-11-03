@@ -20,6 +20,7 @@
 - Amount willing to pay
 - How many seats required?
 - Will they be bringing pets/luggage etc?
+- Special requests? 
 - *Optional* negotiable?
 
 
@@ -28,6 +29,7 @@
 - Destination
 - Seats available
 - Cost (or alternative form of payment)
+- Special requests? 
 - *Optional* negotiable?
 
 
