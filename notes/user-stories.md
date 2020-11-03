@@ -7,7 +7,8 @@
 - User sees a login screen when opening the app for the first time (like Lyft/Uber)
 - User stays logged in across restarts and goes straight to the Feed Screen.
 - User can sign up to create a new account.
-    - full name
+    - first name
+    - last name
     - phone number
     - email
     - password
@@ -94,7 +95,7 @@
 - Messsages
 - Profile
 
-## Account details screen
+## *Optional* Account details screen
 - User can see their own
     - First name
     - Last name
