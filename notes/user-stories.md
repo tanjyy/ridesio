@@ -22,7 +22,7 @@
 - *Optional*: User can sort rides by different criteria (distance, cost)
 - *Optional*: User can search for rides
 
-## Feed: Ride request screen
+## *Optional* Feed: Ride request screen
 - User can see a list of all nearby ride requests.
 - User can create a new ride request.
 - User can accept a nearby ride request.
@@ -40,7 +40,7 @@
     - cost (or alternative form of payment)
     - *Optional* negotiable? if so, users can message poster to discuss alternate pickup/destination/cost
 
-## Create ride request screen
+## *Optional* Create ride request screen
 - User can specify
     - pickup *Optionally can use current location to specify pickup*
     - destination
@@ -58,7 +58,7 @@
 - User can accept offering.
 - *Optional* User can message poster of offering.
 
-## Ride request details Screen
+## *Optional* Ride request details Screen
 - User sees
     - pickup
     - destination
