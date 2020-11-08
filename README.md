@@ -1,104 +1,174 @@
-# codepath-group-project
+# Ridesio
 
 ## Table of Contents
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
+2. [Schema](#Schema)
 
 ## Overview
 ### Description
-**NAME** is a rideshare bulletin board iOS app for college campuses that lets users request or post upcoming rides. **NAME** provides a communal, sustainable way of ridesharing for college students.
-
-___
-*UPDATE FROM HERE ONWARDS, this was copied from the [example provided by codepath](https://hackmd.io/MTD5HxGBRtSdcEJ08kT63w?both)*
-
-When evaluating ideas, you can consider the following:
-
-Mobile: How uniquely mobile is the product experience?
-    What makes your app more than a glorified website?
-    Try for 2 or more of these: maps, camera, location, audio, sensors, push, real-time, etc
-Story: How compelling is the story around this app once completed?
-    How clear is the value of this app to your audience?
-    How well would your friends or peers respond to this product idea?
-Market: How large or unique is the market for this app?
-    What's the size and scale of your potential user base?
-    Does this app provide huge value to a niche group of people?
-    Do you have a well-defined audience of people for this app?
-Habit: How habit-forming or addictive is this app?
-    How frequently would an average user open and use this app?
-    Does an average user just consume your app or do they create?
-Scope: How well-formed is the scope for this app?
-    How technically challenging will it be to complete this app by the end of the program?
-    Is a stripped-down version of this app still interesting to build?
-    How clearly defined is the product you want to build?
+Ridesio is a rideshare bulletin board iOS app for college campuses that lets users request or post upcoming rides. Ridesio provides a communal, sustainable way of ridesharing for college students.
 
 
 ### App Evaluation
-- **Category:** Social Networking / Music
-- **Mobile:** This app would be primarily developed for mobile but would perhaps be just as viable on a computer, such as tinder or other similar apps. Functionality wouldn't be limited to mobile devices, however mobile version could potentially have more features.
-- **Story:** Analyzes users music choices, and connects them to other users with similar choices. The user can then decide to message this person and befriend them if wanted.
-- **Market:** Any individual could choose to use this app, and to keep it a safe environment, people would be organized into age groups.
-- **Habit:** This app could be used as often or unoften as the user wanted depending on how deep their social life is, and what exactly they're looking for.
-- **Scope:** First we would start with pairing people based on music taste, then perhaps this could evolve into a music sharing application as well to broaden its usage. Large potential for use with spotify, apple music, or other music streaming applications.
+- **Category:**
+- **Mobile:**
+- **Story:**
+- **Market:**
+- **Habit:**
+- **Scope:**
 
 ## Product Spec
-### 1. User Stories (Required and Optional)
 
-**Required Must-have Stories**
+### 1. User Stories (Required and Optional) and Screen Archetypes
 
-* User logs in to access previous chats and preference settings
-* User picks what their favorite artist/genre/etc. (Think Spotify interface)
-* Matches have a chat window to get to know each other, with the ability to skip music and unmatch (Tinder Style).
-* Profile pages for each user
-* Settings (Accesibility, Notification, General, etc.)
+#### Launch screen/AppIcon
+- User sees app icon in home screen and styled launch screen.
 
-**Optional Nice-to-have Stories**
+#### Get started Screen
+- User sees a login screen when opening the app for the first time (like Lyft/Uber)
+- User stays logged in across restarts and goes straight to the Feed Screen.
+- User can sign up to create a new account.
+    - first name
+    - last name
+    - phone number
+    - school email address (*Optional* verify this somehow with institution)
+    - password
+    - profile picture (can upload from camera or camera roll)
+- User can log in.
 
-* Log of past songs/people with album art covers matching
-* Page of most played songs (i.e. songs that most users are connecting through)
-* Profile Add-On: Top music choices, etc.
-* Optional Shuffle Button (i.e. random encounter/random song)
-* Listening/Encounter Queue
+#### Feed screen (both ride request and ride offering)
+- User can click button to open settings menu (like on Uber/Lyft).
+- User can view their profile in a profile tab.
+- *Optional*: User can see all ride offerings and requests in a single view.
+- *Optional*: User can sort rides by different criteria (distance, cost)
+- *Optional*: User can search for rides
 
-### 2. Screen Archetypes
+#### Feed: Ride offering screen
+- User can see a list of all nearby ride offerings.
+- User can create a new ride offering.
+- User can accept a nearby ride offering.
+- User can click a ride offering to see the details page.
+- User sees button that links to their own profile.
 
-* Login 
-* Register - User signs up or logs into their account
-   * Upon Download/Reopening of the application, the user is prompted to log in to gain access to their profile information to be properly matched with another person. 
-   * ...
-* Messaging Screen - Chat for users to communicate (direct 1-on-1)
-   * Upon selecting music choice users matched and message screen opens
-* Profile Screen 
-   * Allows user to upload a photo and fill in information that is interesting to them and others
-* Song Selection Screen.
-   * Allows user to be able to choose their desired song, artist, genre of preference and begin listening and interacting with others.
-* Settings Screen
-   * Lets people change language, and app notification settings.
+#### Create ride offering screen
+- User can specify
+    - pickup *Optionally can use current location to specify pickup*
+    - destination
+    - *Optional* seats available (for v2 have confirmation/messaging through app and auto update seats available)
+    - cost (or alternative form of payment)
+    - special requests/conditions (i.e. no pets? luggage? etc)
+    - *Optional* negotiable? if so, users can message poster to discuss alternate pickup/destination/cost
 
-### 3. Navigation
+#### Ride offering details Screen
+- User sees
+    - pickup
+    - destination
+    - *Optional* seats available (for v2 have confirmation/messaging through app and auto update seats available)
+    - *Optional*: map data (like on Uber or Lyft)
+    - cost (or alternative form of payment)
+    - special requests/conditions (i.e. no pets? luggage? etc)
+    - *Optional* negotiable? if so, users can message poster to discuss alternate pickup/destination/cost
+- User can press button to contact poster of offering.
+    - "To confirm your trip, email poster and let them know how many seats you need."
+- Creator of ride offering can edit details.
+- *Optional* User can message poster of offering.
+
+#### Profile screen (for others)
+- User can see
+    - Profile picture
+    - First name
+    - Last initial
+    - *Optional* Number of trips taken (add when the userbase is more established)
+    - Trips currently being offered (slightly different UI so that it's clear this isn't the main feed)
+    - *Optional*: Star rating
+
+#### Settings screen
+- Account details
+- *Optional* Messsages
+- User can log out
+
+#### Account details screen (user's own profile)
+- User can see their own
+    - First name
+    - Last name
+    - Phone number
+    - Email
+    - Profile picture
+        - By touching the profile picture, users can open the camera or pick a camera from the camera roll.
+- *Optional* User can edit their email
+- *Optional* Trip History (past rides)
+- Upcoming trips (same as on profile screen for others)
+    - User can click trip to go to details page.
+- *Optional* Driver sees requests to book their ride offerings.
+    - *Optional* Driver can confirm booking.
+    - *Optional* This propagates back to the user.
+
+#### *Optional* Feed: Ride request screen
+- User can see a list of all nearby ride requests.
+- User can create a new ride request.
+- User can accept a nearby ride request.
+
+#### *Optional* Create ride request screen
+- User can specify
+    - pickup *Optionally can use current location to specify pickup*
+    - destination
+    - amount willing to pay (or alternative form of payment)
+    - *Optional* negotiable? if so, users can message poster to discuss alternate pickup/destination/cost
+
+#### *Optional* Ride request details Screen
+- User sees
+    - pickup
+    - destination
+    - *Optional*: map data (like on Uber or Lyft)
+    - amount willing to pay (or alternative form of payment)
+    - negotiable? if so, users can message poster to discuss alternate pickup/destination/cost
+- User can accept request.
+- *Optional* User can message poster of request.
+
+#### *Optional* Trip history screen
+- User can see list of trips
+    - Date, whether driver or rider, origin, destination.
+- User can click a trip to see the details of the trip
+
+#### *Optional* Trip details screen
+- User can see map data of trip (*optional*), date and time, cost, origin, destination, people they rode with.
+
+#### *Optional* Messages screen
+- More details to come
+
+#### *Optional* Message details screen
+- More details to come
+
+#### *Optional* Rating screen
+- After completing a trip, user can rate their experience (need to dig into this more - would each passenger rate only the driver? and driver rate each passenger? or does everyone have opportunity to rate everyone?)
+
+
+### 2. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* Music selection
-* Profile
-* Settings
+* Ride Offerings (and requests) Feed
+* **Optional** Messages
+* Create New Ride Offering Button
+* User Profile (account details)
 
-Optional:
-* Music/Encounter Queue
-* Discover (Top Choices)
-
-**Flow Navigation** (Screen to Screen)
-* Forced Log-in -> Account creation if no log in is available
-* Music Selection (Or Queue if Optional) -> Jumps to Chat
-* Profile -> Text field to be modified. 
-* Settings -> Toggle settings
 
 ## Wireframes
-<img src="https://i.imgur.com/9CrjH1K.jpg" width=800><br>
 
-### [BONUS] Digital Wireframes & Mockups
-<img src="https://i.imgur.com/lYHn37F.jpg" height=200>
+### [Hand Drawn Sketch](https://github.com/tanjyy/ridesio/blob/main/notes/Ride%20share%20wireframes.pdf")
+
+### Digital Wireframes & Mockups
+![Post Ride](https://raw.githubusercontent.com/tanjyy/ridesio/main/notes/MVP-wireframes.png?token=AEJ776WKYADX5ZOMPOZDJVK7U5IIG)
 
 ### [BONUS] Interactive Prototype
-<img src="https://i.imgur.com/AiKfE5g.gif" width=200>
 
+## Schema 
+[This section will be completed in Unit 9]
+### Models
+[Add table of models]
+### Networking
+- [Add list of network requests by screen ]
+- [Create basic snippets for each Parse network request]
+- [OPTIONAL: List endpoints if using existing API such as Yelp]
