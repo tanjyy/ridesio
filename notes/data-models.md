@@ -22,7 +22,7 @@
 - *Optional* negotiable?
 
 ## *Optional* Messages
-- NOT SURE HOW THIS WOULD WORK
+- NOT SURE HOW THIS WOULD WORK, THINK ABOUT THIS LATER
 
 **do we want ride requests and ride offerings to coalesce to a single trip type?**
 
