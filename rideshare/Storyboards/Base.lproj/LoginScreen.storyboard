@@ -52,9 +52,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rx3-un-fYu">
-                                <rect key="frame" x="70" y="605.5" width="81" height="42"/>
+                                <rect key="frame" x="70" y="605.5" width="71" height="42"/>
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
-                                <state key="normal" title="Sign In">
+                                <state key="normal" title="Log in">
                                     <color key="titleColor" systemColor="secondaryLabelColor"/>
                                 </state>
                             </button>
