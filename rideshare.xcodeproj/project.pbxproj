@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45266175CFB098CA7FB83DFC /* Pods_rideshareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF0CB0EA57EE68C07BE5E0B /* Pods_rideshareTests.framework */; };
+		48815E4D255CEC7C003927D0 /* RideOfferings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48815E4C255CEC7C003927D0 /* RideOfferings.storyboard */; };
 		703E0AF3A3E85A466695D7C3 /* Pods_rideshare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E22A1D47B076A00234AF5FB /* Pods_rideshare.framework */; };
 		73D8A580E223BCEB97009AAA /* Pods_rideshare_rideshareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE7941CC011BD32589D7E76 /* Pods_rideshare_rideshareUITests.framework */; };
 		A34CDDF5254DB92900153A26 /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A34CDDF3254DB92900153A26 /* LoginScreen.storyboard */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		043127EACA48CF0C1047517C /* Pods-rideshareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshareTests.debug.xcconfig"; path = "Target Support Files/Pods-rideshareTests/Pods-rideshareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0BF0CB0EA57EE68C07BE5E0B /* Pods_rideshareTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rideshareTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48815E4C255CEC7C003927D0 /* RideOfferings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RideOfferings.storyboard; sourceTree = "<group>"; };
 		6EC6106B182843B56A51E3CC /* Pods-rideshare-rideshareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshare-rideshareUITests.release.xcconfig"; path = "Target Support Files/Pods-rideshare-rideshareUITests/Pods-rideshare-rideshareUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F74A1F4BA3DF5D2E3509D3F /* Pods-rideshare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshare.debug.xcconfig"; path = "Target Support Files/Pods-rideshare/Pods-rideshare.debug.xcconfig"; sourceTree = "<group>"; };
 		825AFF90E0B4AB9BCAC059D7 /* Pods-rideshare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshare.release.xcconfig"; path = "Target Support Files/Pods-rideshare/Pods-rideshare.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				A3EBDC1B2547C3180019B31B /* Main.storyboard */,
 				A34CDDF3254DB92900153A26 /* LoginScreen.storyboard */,
 				A3EBDC202547C3190019B31B /* LaunchScreen.storyboard */,
+				48815E4C255CEC7C003927D0 /* RideOfferings.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				A3EBDC1F2547C3190019B31B /* Assets.xcassets in Resources */,
 				A34CDDF5254DB92900153A26 /* LoginScreen.storyboard in Resources */,
 				A3EBDC1D2547C3180019B31B /* Main.storyboard in Resources */,
+				48815E4D255CEC7C003927D0 /* RideOfferings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
