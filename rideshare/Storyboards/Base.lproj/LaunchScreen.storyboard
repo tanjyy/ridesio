@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Bold-slnt=0.ttf">
+            <string>Inter-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -18,13 +23,25 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="4bN-of-gIA">
                                 <rect key="frame" x="108" y="305" width="198" height="166"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="166" id="0YD-bK-kyF"/>
+                                    <constraint firstAttribute="width" constant="198" id="5dO-PP-lyr"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ridesio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCE-eA-csF">
+                                <rect key="frame" x="98.5" y="501" width="217" height="73"/>
+                                <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="60"/>
+                                <color key="textColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4bN-of-gIA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-60" id="DdY-zw-0bh"/>
+                            <constraint firstItem="MCE-eA-csF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ise-4g-MIO"/>
                             <constraint firstItem="4bN-of-gIA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dnn-Gr-bTU"/>
+                            <constraint firstItem="MCE-eA-csF" firstAttribute="top" secondItem="4bN-of-gIA" secondAttribute="bottom" constant="30" id="xgn-tp-hQu"/>
                         </constraints>
                     </view>
                 </viewController>
