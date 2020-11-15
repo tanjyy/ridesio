@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		20AAD66B25608B8100DFB63F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AAD66A25608B8100DFB63F /* LoginViewController.swift */; };
+		20AAD6782560A90300DFB63F /* NewRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AAD6772560A90300DFB63F /* NewRideViewController.swift */; };
+		20AAD67D2560AE6C00DFB63F /* RideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AAD67C2560AE6C00DFB63F /* RideDetailsViewController.swift */; };
 		45266175CFB098CA7FB83DFC /* Pods_rideshareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF0CB0EA57EE68C07BE5E0B /* Pods_rideshareTests.framework */; };
 		703E0AF3A3E85A466695D7C3 /* Pods_rideshare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E22A1D47B076A00234AF5FB /* Pods_rideshare.framework */; };
 		73D8A580E223BCEB97009AAA /* Pods_rideshare_rideshareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE7941CC011BD32589D7E76 /* Pods_rideshare_rideshareUITests.framework */; };
@@ -52,6 +54,8 @@
 		043127EACA48CF0C1047517C /* Pods-rideshareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshareTests.debug.xcconfig"; path = "Target Support Files/Pods-rideshareTests/Pods-rideshareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0BF0CB0EA57EE68C07BE5E0B /* Pods_rideshareTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rideshareTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AAD66A25608B8100DFB63F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = rideshare/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		20AAD6772560A90300DFB63F /* NewRideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewRideViewController.swift; path = rideshare/NewRideViewController.swift; sourceTree = SOURCE_ROOT; };
+		20AAD67C2560AE6C00DFB63F /* RideDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RideDetailsViewController.swift; path = rideshare/RideDetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		6EC6106B182843B56A51E3CC /* Pods-rideshare-rideshareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshare-rideshareUITests.release.xcconfig"; path = "Target Support Files/Pods-rideshare-rideshareUITests/Pods-rideshare-rideshareUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F74A1F4BA3DF5D2E3509D3F /* Pods-rideshare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshare.debug.xcconfig"; path = "Target Support Files/Pods-rideshare/Pods-rideshare.debug.xcconfig"; sourceTree = "<group>"; };
 		825AFF90E0B4AB9BCAC059D7 /* Pods-rideshare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshare.release.xcconfig"; path = "Target Support Files/Pods-rideshare/Pods-rideshare.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				A3EBDC1B2547C3180019B31B /* Main.storyboard */,
+				20AAD67C2560AE6C00DFB63F /* RideDetailsViewController.swift */,
+				20AAD6772560A90300DFB63F /* NewRideViewController.swift */,
 				A34CDDF3254DB92900153A26 /* LoginScreen.storyboard */,
 				20AAD66A25608B8100DFB63F /* LoginViewController.swift */,
 				A3EBDC202547C3190019B31B /* LaunchScreen.storyboard */,
@@ -492,7 +498,9 @@
 				20AAD66B25608B8100DFB63F /* LoginViewController.swift in Sources */,
 				A34CDDFA254DB95E00153A26 /* LoginViewController.swift in Sources */,
 				A3EBDC162547C3180019B31B /* AppDelegate.swift in Sources */,
+				20AAD67D2560AE6C00DFB63F /* RideDetailsViewController.swift in Sources */,
 				A3EBDC182547C3180019B31B /* SceneDelegate.swift in Sources */,
+				20AAD6782560A90300DFB63F /* NewRideViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

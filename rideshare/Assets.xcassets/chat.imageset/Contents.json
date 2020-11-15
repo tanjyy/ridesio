@@ -1,11 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "chat.png",
+      "filename" : "chat-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "chat.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

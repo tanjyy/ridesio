@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "car-1.png",
+      "filename" : "ic_arrow.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "car.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
