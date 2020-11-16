@@ -1,0 +1,7 @@
+## Agenda
+- [ ] Git workflow (branches, PRs, commits, issues)
+- [ ] discuss navigation through the app (create new architecture together and use as baseline for all future work)
+- [ ] sprints/stories for v0 release (i.e. demo day)
+    - [ ] create milestones and do sprint planning on task board
+- [ ] schema & data models
+    - [ ] update README w/ data models and networking requests
