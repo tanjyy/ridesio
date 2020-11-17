@@ -1,13 +1,13 @@
 //
-//  LoginViewController.swift
+//  RideDetailsViewController.swift
 //  rideshare
 //
-//  Created by Nashir Janmohamed on 10/31/20.
+//  Created by Yao Yin on 11/14/20.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class RideDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
