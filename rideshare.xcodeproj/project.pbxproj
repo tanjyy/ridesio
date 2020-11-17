@@ -16,7 +16,6 @@
 		703E0AF3A3E85A466695D7C3 /* Pods_rideshare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E22A1D47B076A00234AF5FB /* Pods_rideshare.framework */; };
 		73D8A580E223BCEB97009AAA /* Pods_rideshare_rideshareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE7941CC011BD32589D7E76 /* Pods_rideshare_rideshareUITests.framework */; };
 		A34CDDF5254DB92900153A26 /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A34CDDF3254DB92900153A26 /* LoginScreen.storyboard */; };
-		A34CDDFA254DB95E00153A26 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34CDDF9254DB95E00153A26 /* LoginViewController.swift */; };
 		A3A7066A2560668300A597BD /* Inter-Thin-slnt=0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3A706612560668200A597BD /* Inter-Thin-slnt=0.ttf */; };
 		A3A7066B2560668300A597BD /* Inter-ExtraBold-slnt=0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3A706622560668200A597BD /* Inter-ExtraBold-slnt=0.ttf */; };
 		A3A7066C2560668300A597BD /* Inter-Light-slnt=0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3A706632560668200A597BD /* Inter-Light-slnt=0.ttf */; };
@@ -66,7 +65,6 @@
 		82E04AB6D89A2E92DEC6B6A9 /* Pods-rideshare-rideshareUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshare-rideshareUITests.debug.xcconfig"; path = "Target Support Files/Pods-rideshare-rideshareUITests/Pods-rideshare-rideshareUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E22A1D47B076A00234AF5FB /* Pods_rideshare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rideshare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A34CDDF4254DB92900153A26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginScreen.storyboard; sourceTree = "<group>"; };
-		A34CDDF9254DB95E00153A26 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A3A706612560668200A597BD /* Inter-Thin-slnt=0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Thin-slnt=0.ttf"; path = "rideshare/Fonts/Inter-Thin-slnt=0.ttf"; sourceTree = SOURCE_ROOT; };
 		A3A706622560668200A597BD /* Inter-ExtraBold-slnt=0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-ExtraBold-slnt=0.ttf"; path = "rideshare/Fonts/Inter-ExtraBold-slnt=0.ttf"; sourceTree = SOURCE_ROOT; };
 		A3A706632560668200A597BD /* Inter-Light-slnt=0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Light-slnt=0.ttf"; path = "rideshare/Fonts/Inter-Light-slnt=0.ttf"; sourceTree = SOURCE_ROOT; };
@@ -159,7 +157,6 @@
 				20AAD67C2560AE6C00DFB63F /* RideDetailsViewController.swift */,
 				20AAD6772560A90300DFB63F /* NewRideViewController.swift */,
 				20AAD66A25608B8100DFB63F /* LoginViewController.swift */,
-				A34CDDF9254DB95E00153A26 /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -504,7 +501,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				20AAD66B25608B8100DFB63F /* LoginViewController.swift in Sources */,
-				A34CDDFA254DB95E00153A26 /* LoginViewController.swift in Sources */,
 				A3EBDC162547C3180019B31B /* AppDelegate.swift in Sources */,
 				20AAD67D2560AE6C00DFB63F /* RideDetailsViewController.swift in Sources */,
 				A3EBDC182547C3180019B31B /* SceneDelegate.swift in Sources */,
