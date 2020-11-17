@@ -13,6 +13,15 @@
 		20AAD682256369BF00DFB63F /* NewRide.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20AAD681256369BF00DFB63F /* NewRide.storyboard */; };
 		20AAD687256369E100DFB63F /* RideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20AAD686256369E100DFB63F /* RideDetails.storyboard */; };
 		45266175CFB098CA7FB83DFC /* Pods_rideshareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF0CB0EA57EE68C07BE5E0B /* Pods_rideshareTests.framework */; };
+		48D44A812563721900E02BB7 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D44A7E2563721900E02BB7 /* AccountDetailsViewController.swift */; };
+		48D44A822563721900E02BB7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D44A7F2563721900E02BB7 /* ProfileViewController.swift */; };
+		48D44A832563721900E02BB7 /* RideOfferingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D44A802563721900E02BB7 /* RideOfferingsViewController.swift */; };
+		48D44A8A2563724800E02BB7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D44A872563724800E02BB7 /* Profile.storyboard */; };
+		48D44A8B2563724800E02BB7 /* AccountDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D44A882563724800E02BB7 /* AccountDetails.storyboard */; };
+		48D44A8C2563724800E02BB7 /* RideOfferings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D44A892563724800E02BB7 /* RideOfferings.storyboard */; };
+		48D44A932563725800E02BB7 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D44A902563725800E02BB7 /* ProfileTableViewCell.swift */; };
+		48D44A942563725800E02BB7 /* RideOfferingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D44A912563725800E02BB7 /* RideOfferingTableViewCell.swift */; };
+		48D44A952563725800E02BB7 /* AccountDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D44A922563725800E02BB7 /* AccountDetailsTableViewCell.swift */; };
 		703E0AF3A3E85A466695D7C3 /* Pods_rideshare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E22A1D47B076A00234AF5FB /* Pods_rideshare.framework */; };
 		73D8A580E223BCEB97009AAA /* Pods_rideshare_rideshareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE7941CC011BD32589D7E76 /* Pods_rideshare_rideshareUITests.framework */; };
 		A34CDDF5254DB92900153A26 /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A34CDDF3254DB92900153A26 /* LoginScreen.storyboard */; };
@@ -59,6 +68,15 @@
 		20AAD67C2560AE6C00DFB63F /* RideDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RideDetailsViewController.swift; path = rideshare/Controllers/RideDetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		20AAD681256369BF00DFB63F /* NewRide.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewRide.storyboard; sourceTree = "<group>"; };
 		20AAD686256369E100DFB63F /* RideDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RideDetails.storyboard; sourceTree = "<group>"; };
+		48D44A7E2563721900E02BB7 /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
+		48D44A7F2563721900E02BB7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		48D44A802563721900E02BB7 /* RideOfferingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideOfferingsViewController.swift; sourceTree = "<group>"; };
+		48D44A872563724800E02BB7 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		48D44A882563724800E02BB7 /* AccountDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AccountDetails.storyboard; sourceTree = "<group>"; };
+		48D44A892563724800E02BB7 /* RideOfferings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RideOfferings.storyboard; sourceTree = "<group>"; };
+		48D44A902563725800E02BB7 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		48D44A912563725800E02BB7 /* RideOfferingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideOfferingTableViewCell.swift; sourceTree = "<group>"; };
+		48D44A922563725800E02BB7 /* AccountDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		6EC6106B182843B56A51E3CC /* Pods-rideshare-rideshareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshare-rideshareUITests.release.xcconfig"; path = "Target Support Files/Pods-rideshare-rideshareUITests/Pods-rideshare-rideshareUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F74A1F4BA3DF5D2E3509D3F /* Pods-rideshare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshare.debug.xcconfig"; path = "Target Support Files/Pods-rideshare/Pods-rideshare.debug.xcconfig"; sourceTree = "<group>"; };
 		825AFF90E0B4AB9BCAC059D7 /* Pods-rideshare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshare.release.xcconfig"; path = "Target Support Files/Pods-rideshare/Pods-rideshare.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +150,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4838C90025637164003C4C5C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				48D44A922563725800E02BB7 /* AccountDetailsTableViewCell.swift */,
+				48D44A902563725800E02BB7 /* ProfileTableViewCell.swift */,
+				48D44A912563725800E02BB7 /* RideOfferingTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A34CDDEF254DB8C900153A26 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +170,9 @@
 		A3986FEB254DB73800210C3E /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				48D44A882563724800E02BB7 /* AccountDetails.storyboard */,
+				48D44A872563724800E02BB7 /* Profile.storyboard */,
+				48D44A892563724800E02BB7 /* RideOfferings.storyboard */,
 				A3EBDC1B2547C3180019B31B /* Main.storyboard */,
 				20AAD686256369E100DFB63F /* RideDetails.storyboard */,
 				20AAD681256369BF00DFB63F /* NewRide.storyboard */,
@@ -154,6 +185,9 @@
 		A3986FEC254DB74C00210C3E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				48D44A7E2563721900E02BB7 /* AccountDetailsViewController.swift */,
+				48D44A7F2563721900E02BB7 /* ProfileViewController.swift */,
+				48D44A802563721900E02BB7 /* RideOfferingsViewController.swift */,
 				20AAD67C2560AE6C00DFB63F /* RideDetailsViewController.swift */,
 				20AAD6772560A90300DFB63F /* NewRideViewController.swift */,
 				20AAD66A25608B8100DFB63F /* LoginViewController.swift */,
@@ -209,6 +243,7 @@
 		A3EBDC142547C3180019B31B /* rideshare */ = {
 			isa = PBXGroup;
 			children = (
+				4838C90025637164003C4C5C /* Views */,
 				A3BF3053255CE0D200167216 /* Fonts */,
 				A34CDDEF254DB8C900153A26 /* Networking */,
 				A3986FEB254DB73800210C3E /* Storyboards */,
@@ -362,12 +397,15 @@
 				A3EBDC222547C3190019B31B /* LaunchScreen.storyboard in Resources */,
 				A3EBDC1F2547C3190019B31B /* Assets.xcassets in Resources */,
 				A34CDDF5254DB92900153A26 /* LoginScreen.storyboard in Resources */,
+				48D44A8C2563724800E02BB7 /* RideOfferings.storyboard in Resources */,
 				A3A706712560668300A597BD /* Inter-Regular-slnt=0.ttf in Resources */,
 				A3A7066B2560668300A597BD /* Inter-ExtraBold-slnt=0.ttf in Resources */,
 				A3A7066D2560668300A597BD /* Inter-ExtraLight-slnt=0.ttf in Resources */,
 				A3A706722560668300A597BD /* Inter-Black-slnt=0.ttf in Resources */,
 				A3A7066F2560668300A597BD /* Inter-Medium-slnt=0.ttf in Resources */,
 				20AAD682256369BF00DFB63F /* NewRide.storyboard in Resources */,
+				48D44A8B2563724800E02BB7 /* AccountDetails.storyboard in Resources */,
+				48D44A8A2563724800E02BB7 /* Profile.storyboard in Resources */,
 				A3A706702560668300A597BD /* Inter-Bold-slnt=0.ttf in Resources */,
 				A3EBDC1D2547C3180019B31B /* Main.storyboard in Resources */,
 				A3A7066A2560668300A597BD /* Inter-Thin-slnt=0.ttf in Resources */,
@@ -501,10 +539,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				20AAD66B25608B8100DFB63F /* LoginViewController.swift in Sources */,
+				48D44A942563725800E02BB7 /* RideOfferingTableViewCell.swift in Sources */,
 				A3EBDC162547C3180019B31B /* AppDelegate.swift in Sources */,
 				20AAD67D2560AE6C00DFB63F /* RideDetailsViewController.swift in Sources */,
+				48D44A952563725800E02BB7 /* AccountDetailsTableViewCell.swift in Sources */,
+				48D44A932563725800E02BB7 /* ProfileTableViewCell.swift in Sources */,
 				A3EBDC182547C3180019B31B /* SceneDelegate.swift in Sources */,
+				48D44A822563721900E02BB7 /* ProfileViewController.swift in Sources */,
 				20AAD6782560A90300DFB63F /* NewRideViewController.swift in Sources */,
+				48D44A832563721900E02BB7 /* RideOfferingsViewController.swift in Sources */,
+				48D44A812563721900E02BB7 /* AccountDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
