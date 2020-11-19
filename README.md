@@ -233,13 +233,25 @@ myRides.saveInBackground()
 #### Post ride screen
 - (Create/POST) Create new ride offering
 ``` Swift
-let gameScore = PFObject(className:"GameScore")
-gameScore["score"] = 1337
-gameScore["playerName"] = "Sean Plott"
-gameScore["cheatMode"] = false
-gameScore.saveInBackground { (succeeded, error)  in
-    if (succeeded) {
-        // The object has been saved.
+let ride = PFObject(className:"Rides")
+ride["pickup_location"] = pickup_location.text
+ride["destination_location"] = destination_location.text
+
+ride["departure"] = departure.text
+ride[arrival"] = arrival.text
+ride["departure2"] = departure2.text
+ride[arrival2"] = arrival2.text
+
+let imageData = profile_picture.image!.pngData()
+let file = PFFileObject(data: imageData)
+
+ride["profile_picture"] = file
+ride["driver_name"] = PFUser.current()["name"]
+ride["ride_description"] = ride_description.text
+
+ride.saveInBackground { (success, error)  in
+    if (success) {
+       self.dismiss(animated: true, completion: nil)
     } else {
         // There was a problem, check error.description
     }
