@@ -11,7 +11,7 @@
 - No request, but apply new filters and reload feed screen (which makes a GET request for all rides matching filters)
 
 ## Post ride screen
-- (Create/POST) Create new ride offering **should fail if user already booked this ride/user is not email-verified**
+- (Create/POST) Create new ride offering **should fail if user is not email-verified**
 
 ## Ride details screen
 - (Read/GET) Get profile of poster
