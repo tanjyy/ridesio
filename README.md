@@ -250,11 +250,13 @@ gameScore.saveInBackground { (succeeded, error)  in
 - (Read/GET) Get profile of poster
 ``` Swift
 let query = PFQuery(className:"User")
-query.getObjectInBackground(withId: "xWMyZEGZ") { (user, error) in
-    if error == nil {
+query.whereKey("driver_name", equalTo: PFUser.current()["id"])
+query.getObjectInBackground { (user, error) in
+    if user != nil {
         // Success!
-    } else {
-        // Fail!
+    } 
+    else {
+        print ("Error: \(error.localizedDescription)")
     }
 }
 ```
