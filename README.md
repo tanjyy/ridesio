@@ -299,7 +299,24 @@ myRides.saveInBackground()
 ```
 
 ### Models
-[Add table of models]
+- Users
+    - user_id
+    - profile_picture
+    - first_name
+    - last_name
+    - phone_number
+    - school_email
+    - password
+    - trip_history (array of trip_id) (list of all ride requests and offerings, both created and accepted)
+- Ride offerings (trips)
+    - id
+    - driver_user_id
+    - pickup_location
+    - dropoff_location
+    - seats_available **optional**
+    - cost (or alternative form of payment)
+    - description
+
 ### Networking
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
