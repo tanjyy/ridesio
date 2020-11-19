@@ -165,7 +165,131 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
+### Log in screen
+- (Create/POST) User signup
+``` Swift
+func myMethod() {
+  var user = PFUser()
+  user.username = "myUsername"
+  user.password = "myPassword"
+  user.email = "email@example.com"
+  // other fields can be set just like with PFObject
+  user["phone"] = "415-392-0202"
+
+  user.signUpInBackground {
+    (succeeded: Bool, error: Error?) -> Void in
+    if let error = error {
+      let errorString = error.localizedDescription
+      // Show the errorString somewhere and let the user try again.
+    } else {
+      // Hooray! Let them use the app now.
+    }
+  }
+}
+```
+- (Read/GET) User login
+``` Swift
+PFUser.logInWithUsername(inBackground:"myname", password:"mypass") {
+  (user: PFUser?, error: Error?) -> Void in
+  if user != nil {
+    // Do stuff after successful login.
+  } else {
+    // The login failed. Check error to see why.
+  }
+}
+```
+
+### Feed screen
+- (Read/GET) Query all rides *optionally satisfying filters*
+``` Swift
+// Using PFQuery
+query.whereKey("playerName", notEqualTo: "Michael Yabuti")
+query.whereKey("playerAge", greaterThan: 18)
+
+// Using NSPredicate
+let predicate = NSPredicate(format:"playerName != 'Michael Yabuti' AND playerAge > 18")
+let query = PFQuery(className: "GameScore", predicate: predicate)
+```
+- (Create/POST) Book ride
+``` Swift
+// Create the post
+let myRide = get ride info
+// Create the comment
+let myRides = get list of my rides
+myRides["ride"] = myRide
+myRides.saveInBackground()
+```
+
+### Filters screen
+- No request, but apply new filters and reload feed screen (which makes a GET request for all rides matching filters)
+
+### Post ride screen
+- (Create/POST) Create new ride offering
+``` Swift
+let gameScore = PFObject(className:"GameScore")
+gameScore["score"] = 1337
+gameScore["playerName"] = "Sean Plott"
+gameScore["cheatMode"] = false
+gameScore.saveInBackground { (succeeded, error)  in
+    if (succeeded) {
+        // The object has been saved.
+    } else {
+        // There was a problem, check error.description
+    }
+}
+```
+
+### Ride details screen
+- (Read/GET) Get profile of poster
+``` Swift
+let query = PFQuery(className:"User")
+query.getObjectInBackground(withId: "xWMyZEGZ") { (user, error) in
+    if error == nil {
+        // Success!
+    } else {
+        // Fail!
+    }
+}
+```
+- (Create/POST) Book ride
+``` Swift
+// Create the post
+let myRide = get ride info
+// Create the comment
+let myRides = get list of my rides
+myRides["ride"] = myRide
+myRides.saveInBackground()
+```
+
+### Profile (of other users) screen
+- (Read/GET) Query all rides of which this user is a poster
+``` Swift
+// Using PFQuery
+query.whereKey("user", equalTo: PFUser.current()["id"])
+query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+    if let error = error {
+        // Log details of the failure
+        print(error.localizedDescription)
+    } else if let objects = objects {
+        // The find succeeded.
+        print("Successfully retrieved \(objects.count) scores.")
+        // Do something with the found objects
+        for object in objects {
+            print(object.objectId as Any)
+        }
+    }
+}
+```
+- (Create/POST) Book ride
+``` Swift
+// Create the post
+let myRide = get ride info
+// Create the comment
+let myRides = get list of my rides
+myRides["ride"] = myRide
+myRides.saveInBackground()
+```
+
 ### Models
 [Add table of models]
 ### Networking
