@@ -205,20 +205,16 @@ PFUser.logInWithUsername(inBackground:"myname", password:"mypass") {
 #### Feed screen
 - (Read/GET) Query all rides *optionally satisfying filters*
 ``` Swift
-let query = PFQuery(className:"GameScore")
-query.whereKey("playerName", equalTo:"Sean Plott")
-query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
-    if let error = error {
-        // Log details of the failure
-        print(error.localizedDescription)
-    } else if let objects = objects {
-        // The find succeeded.
-        print("Successfully retrieved \(objects.count) scores.")
-        // Do something with the found objects
-        for object in objects {
-            print(object.objectId as Any)
-        }
+let query = PFQuery(className:"Rides")
+query.whereKey("destination", equalTo:"New York")
+query.includeKey("poster")
+query.findObjectsInBackground { (objects: rides, error: error) in
+    if rides != nil {
+        self.rides = rides!
+        self.tableView.reloadData()
     }
+    else
+        print ("Error: \(error.localizedDescription)")
 }
 ```
 - (Create/POST) Book ride
@@ -275,20 +271,15 @@ myRides.saveInBackground()
 #### Profile (of other users) screen
 - (Read/GET) Query all rides of which this user is a poster
 ``` Swift
-// Using PFQuery
+let query = PFQuery(className:"Rides")
 query.whereKey("user", equalTo: PFUser.current()["id"])
-query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
-    if let error = error {
-        // Log details of the failure
-        print(error.localizedDescription)
-    } else if let objects = objects {
-        // The find succeeded.
-        print("Successfully retrieved \(objects.count) scores.")
-        // Do something with the found objects
-        for object in objects {
-            print(object.objectId as Any)
-        }
+query.findObjectsInBackground { (objects: rides, error: error) in
+    if rides != nil {
+        self.rides = rides!
+        self.tableView.reloadData()
     }
+    else
+        print ("Error: \(error.localizedDescription)")
 }
 ```
 - (Create/POST) Book ride
