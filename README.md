@@ -164,10 +164,11 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
 
 ### [BONUS] Interactive Prototype
 
-## Networking
+## Schema
+### Networking
 **Not currently planning on using any 3rd party API endpoints, only Parse**
 
-### Log in screen
+#### Log in screen
 - (Create/POST) User signup
 ``` Swift
 func myMethod() {
@@ -201,7 +202,7 @@ PFUser.logInWithUsername(inBackground:"myname", password:"mypass") {
 }
 ```
 
-### Feed screen
+#### Feed screen
 - (Read/GET) Query all rides *optionally satisfying filters*
 ``` Swift
 let query = PFQuery(className:"GameScore")
@@ -230,10 +231,10 @@ myRides["ride"] = myRide
 myRides.saveInBackground()
 ```
 
-### Filters screen
+#### Filters screen
 - No request, but apply new filters and reload feed screen (which makes a GET request for all rides matching filters)
 
-### Post ride screen
+#### Post ride screen
 - (Create/POST) Create new ride offering
 ``` Swift
 let gameScore = PFObject(className:"GameScore")
@@ -249,7 +250,7 @@ gameScore.saveInBackground { (succeeded, error)  in
 }
 ```
 
-### Ride details screen
+#### Ride details screen
 - (Read/GET) Get profile of poster
 ``` Swift
 let query = PFQuery(className:"User")
@@ -271,7 +272,7 @@ myRides["ride"] = myRide
 myRides.saveInBackground()
 ```
 
-### Profile (of other users) screen
+#### Profile (of other users) screen
 - (Read/GET) Query all rides of which this user is a poster
 ``` Swift
 // Using PFQuery
@@ -300,7 +301,7 @@ myRides["ride"] = myRide
 myRides.saveInBackground()
 ```
 
-## Models
+### Models
 - Users
     - user_id
     - profile_picture
@@ -315,6 +316,6 @@ myRides.saveInBackground()
     - driver_user_id
     - pickup_location
     - dropoff_location
-    - seats_available **optional**
+    - seats_available
     - cost (or alternative form of payment)
     - description
