@@ -164,7 +164,9 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
 
 ### [BONUS] Interactive Prototype
 
-## Schema 
+## Networking
+**Not currently planning on using any 3rd party API endpoints, only Parse**
+
 ### Log in screen
 - (Create/POST) User signup
 ``` Swift
@@ -298,7 +300,7 @@ myRides["ride"] = myRide
 myRides.saveInBackground()
 ```
 
-### Models
+## Models
 - Users
     - user_id
     - profile_picture
@@ -316,8 +318,3 @@ myRides.saveInBackground()
     - seats_available **optional**
     - cost (or alternative form of payment)
     - description
-
-### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
