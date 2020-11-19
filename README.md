@@ -202,13 +202,21 @@ PFUser.logInWithUsername(inBackground:"myname", password:"mypass") {
 ### Feed screen
 - (Read/GET) Query all rides *optionally satisfying filters*
 ``` Swift
-// Using PFQuery
-query.whereKey("playerName", notEqualTo: "Michael Yabuti")
-query.whereKey("playerAge", greaterThan: 18)
-
-// Using NSPredicate
-let predicate = NSPredicate(format:"playerName != 'Michael Yabuti' AND playerAge > 18")
-let query = PFQuery(className: "GameScore", predicate: predicate)
+let query = PFQuery(className:"GameScore")
+query.whereKey("playerName", equalTo:"Sean Plott")
+query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+    if let error = error {
+        // Log details of the failure
+        print(error.localizedDescription)
+    } else if let objects = objects {
+        // The find succeeded.
+        print("Successfully retrieved \(objects.count) scores.")
+        // Do something with the found objects
+        for object in objects {
+            print(object.objectId as Any)
+        }
+    }
+}
 ```
 - (Create/POST) Book ride
 ``` Swift
