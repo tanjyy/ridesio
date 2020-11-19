@@ -4,7 +4,7 @@
 - (Read/GET) User login **should fail if username is not taken/password is wrong**
 
 ## Feed screen
-- (Read/GET) Query all rides satisfying filters (use default filter settings if none applied, i.e. within radius of 20 miles)
+- (Read/GET) Query all rides *optionally satisfying filters* (use default filter settings if none applied, i.e. within radius of 20 miles)
 - (Create/POST) Book ride **should fail if user already booked this ride/user is not email-verified** *discuss not booking from the feed screen, have it only on the details screen*
 
 ## Filters screen
