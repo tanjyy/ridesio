@@ -18,7 +18,7 @@
 - (Create/POST) Book ride **should fail if user already booked this ride (which includes if they are the poster)/user is not email-verified**
 
 ## Account details/personal profile screen
-- (Update/PUT) Update ride details of your posting
+- **Optional** (Update/PUT) Update ride details of your posting 
 
 ## Profile (of other users) screen (touching one's own profile photo should lead to account details screen, not here)
 - (Read/GET) Query all rides of which this user is a poster
