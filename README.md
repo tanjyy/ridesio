@@ -216,16 +216,7 @@ query.findObjectsInBackground { (objects: rides, error: error) in
     else
         print ("Error: \(error.localizedDescription)")
 }
-```
-- (Create/POST) Book ride
-``` Swift
-// Create the post
-let myRide = get ride info
-// Create the comment
-let myRides = get list of my rides
-myRides["ride"] = myRide
-myRides.saveInBackground()
-```
+
 
 #### Filters screen
 - No request, but apply new filters and reload feed screen (which makes a GET request for all rides matching filters)
