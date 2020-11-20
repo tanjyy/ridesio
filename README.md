@@ -216,7 +216,7 @@ query.findObjectsInBackground { (objects: rides, error: error) in
     else
         print ("Error: \(error.localizedDescription)")
 }
-
+```
 
 #### Filters screen
 - No request, but apply new filters and reload feed screen (which makes a GET request for all rides matching filters)
@@ -252,8 +252,9 @@ ride.saveInBackground { (success, error)  in
 #### Ride details screen
 - (Read/GET) Get profile of poster
 ``` Swift
+let user = ride["poster"]
 let query = PFQuery(className:"User")
-query.whereKey("driver_name", equalTo: PFUser.current()["id"])
+query.whereKey("id", equalTo: user["id"])
 query.getObjectInBackground { (user, error) in
     if user != nil {
         // Success!
