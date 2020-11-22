@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,6 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        if PFUser.current() == nil {
+            print("no one logged in")
+            let storyboard = UIStoryboard(name: "LoginScreen", bundle: nil)
+            let loginNavigationController = storyboard.instantiateViewController(identifier: "LoginScreen")
+            window?.rootViewController = loginNavigationController
+        } else {
+            print("someone is logged in")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabBarController = storyboard.instantiateViewController(identifier: "TabBar")
+            window?.rootViewController = tabBarController
+        }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
