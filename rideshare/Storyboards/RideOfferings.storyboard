@@ -183,7 +183,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="navigationBar" destination="czl-eh-moM" id="BCN-zd-o8s"/>
                         <outlet property="rideOfferingsTableView" destination="ijk-Op-vVd" id="XiH-Vm-wLP"/>
                     </connections>
                 </viewController>

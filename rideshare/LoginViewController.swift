@@ -15,7 +15,37 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onSignUp(_ sender: Any) {
+        let successfulSignIn = true
+        
+        // TODO: implement sign in functionality
+        
+        if successfulSignIn {
+            transitionToMain()
+        } else {
+            print("something went wrong")
+        }
+    }
+    
+    @IBAction func onSignIn(_ sender: Any) {
+        let successfulSignIn = true
+        
+        // TODO: implement sign in functionality
+        
+        if successfulSignIn {
+            transitionToMain()
+        } else {
+            print("something went wrong")
+        }
+    }
+    
+    func transitionToMain() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "TabBar")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
