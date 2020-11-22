@@ -24,25 +24,25 @@
             </objects>
             <point key="canvasLocation" x="-459" y="-354"/>
         </scene>
-        <!--RideOfferings-->
+        <!--RideOfferingsNavigation-->
         <scene sceneID="ecJ-lT-4Bc">
             <objects>
-                <viewControllerPlaceholder storyboardName="RideOfferings" referencedIdentifier="RideOfferings" id="8e3-c6-kZu" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="RideOfferings" referencedIdentifier="RideOfferingsNavigation" id="8e3-c6-kZu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="d8w-BS-o6g"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDN-m3-OhV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="97" y="-429"/>
+            <point key="canvasLocation" x="137" y="-430"/>
         </scene>
-        <!--AccountDetails-->
+        <!--AccountDetailsNavigation-->
         <scene sceneID="kq2-f0-nYp">
             <objects>
-                <viewControllerPlaceholder storyboardName="AccountDetails" referencedIdentifier="AccountDetails" id="2zs-M3-oX2" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="AccountDetails" referencedIdentifier="AccountDetailsNavigation" id="2zs-M3-oX2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="aHU-dV-ngL"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="av0-C7-rIq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="97" y="-255"/>
+            <point key="canvasLocation" x="143" y="-255"/>
         </scene>
     </scenes>
 </document>

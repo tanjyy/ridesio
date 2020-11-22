@@ -11,7 +11,7 @@
         <!--Ride Offerings-->
         <scene sceneID="xEL-FS-ZAG">
             <objects>
-                <viewController title="Ride Offerings" id="9e1-1V-dKg" customClass="RideOfferingsViewController" customModule="rideshare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RideOfferings" title="Ride Offerings" id="9e1-1V-dKg" customClass="RideOfferingsViewController" customModule="rideshare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E5q-n6-J4T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,9 +55,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uQe-fJ-U9y">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uQe-fJ-U9y">
                                                     <rect key="frame" x="20" y="94" width="50" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="6bI-Zj-nVI"/>
                                                         <constraint firstAttribute="height" constant="50" id="m8h-wy-QCO"/>
@@ -174,11 +175,17 @@
                             <constraint firstItem="ijk-Op-vVd" firstAttribute="top" secondItem="Cj4-3S-KxQ" secondAttribute="bottom" constant="8" symbolic="YES" id="uhZ-xZ-JhF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="czl-eh-moM">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape" catalog="system" id="1fh-p7-P4V">
+                    <navigationItem key="navigationItem" title="Ride Offerings" id="czl-eh-moM">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="gearshape" catalog="system" id="1fh-p7-P4V">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="iWv-vG-lwm" kind="show" id="LNT-Pd-6g9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="tp7-5a-LjR">
+                            <color key="tintColor" systemColor="systemBlueColor"/>
+                            <connections>
+                                <action selector="onNewRideButton:" destination="9e1-1V-dKg" id="doF-Qg-Jao"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -204,7 +211,7 @@
         <scene sceneID="ujQ-oz-Jji">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z33-Z6-ych" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController storyboardIdentifier="RideOfferings" title="Ride Offerings" automaticallyAdjustsScrollViewInsets="NO" id="0fh-1W-Srv" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RideOfferingsNavigation" title="Ride Offerings" automaticallyAdjustsScrollViewInsets="NO" id="0fh-1W-Srv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xNL-wU-oen">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -221,6 +228,7 @@
     </scenes>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

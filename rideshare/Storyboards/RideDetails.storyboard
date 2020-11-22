@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mrw-TA-n5B">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +16,7 @@
         <!--Ride Details View Controller-->
         <scene sceneID="aCT-1Y-x9E">
             <objects>
-                <viewController id="Mrw-TA-n5B" customClass="RideDetailsViewController" customModule="rideshare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RideDetails" id="Mrw-TA-n5B" customClass="RideDetailsViewController" customModule="rideshare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ROG-Z5-5sg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,17 +96,21 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="79P-cG-2Uk">
-                                <rect key="frame" x="32" y="218" width="350" height="200"/>
+                                <rect key="frame" x="32" y="218" width="350" height="201"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PLh-HR-uoO">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="moN-lV-y6K">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="moN-lV-y6K">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="epC-xU-myF"/>
                                                     <constraint firstAttribute="height" constant="50" id="n0G-UQ-oEl"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="uOu-5K-9WS" appends="YES" id="3kC-n7-bZg"/>
+                                                </connections>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7R-7R-pdN">
                                                 <rect key="frame" x="66" y="15" width="284" height="20.5"/>
@@ -119,20 +123,16 @@
                                             <constraint firstItem="B7R-7R-pdN" firstAttribute="leading" secondItem="moN-lV-y6K" secondAttribute="trailing" constant="16" id="75p-Ah-13d"/>
                                         </constraints>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="frF-47-pgj">
-                                        <rect key="frame" x="0.0" y="50" width="350" height="100"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="9NX-K9-gft"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcd-iY-hXq">
+                                        <rect key="frame" x="0.0" y="70" width="350" height="61"/>
                                         <string key="text">We will leave from the commons at 8 am.
 50$ per person, or compensation with gas. Price Negotiable.</string>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qv1-MN-7im">
-                                        <rect key="frame" x="0.0" y="150" width="350" height="50"/>
+                                        <rect key="frame" x="0.0" y="151" width="350" height="50"/>
                                         <color key="backgroundColor" red="0.1843137255" green="0.50196078430000002" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="1aR-68-2vR"/>
@@ -141,10 +141,14 @@
                                         <state key="normal" title="Book Ride">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onBookRide:" destination="Mrw-TA-n5B" eventType="touchUpInside" id="XAh-ib-gLX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="frF-47-pgj" secondAttribute="trailing" id="tE9-zd-zDQ"/>
+                                    <constraint firstItem="tcd-iY-hXq" firstAttribute="top" secondItem="PLh-HR-uoO" secondAttribute="bottom" constant="20" id="78F-Pk-Zl2"/>
+                                    <constraint firstItem="Qv1-MN-7im" firstAttribute="top" secondItem="tcd-iY-hXq" secondAttribute="bottom" constant="20" id="dyc-tc-4kF"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -164,6 +168,11 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2d-PW-LBZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="uOu-5K-9WS">
+                    <connections>
+                        <action selector="onClickProfilePic:" destination="Mrw-TA-n5B" id="0Rw-ty-2HF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1500.0000000000002" y="-336.16071428571428"/>
         </scene>
@@ -171,9 +180,6 @@
     <resources>
         <image name="ic_route" width="84" height="14"/>
         <image name="ic_route_back" width="84" height="14"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
