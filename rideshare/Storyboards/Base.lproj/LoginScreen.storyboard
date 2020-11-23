@@ -163,7 +163,7 @@
                     <connections>
                         <outlet property="passwordField" destination="Qy8-41-DpU" id="7eq-As-DMy"/>
                         <outlet property="usernameField" destination="p0o-zv-oW5" id="rtI-Of-J1e"/>
-                        <segue destination="7Si-zM-hDU" kind="presentation" identifier="signUpSegue" modalPresentationStyle="fullScreen" id="11c-Lg-3Fw"/>
+                        <segue destination="7Si-zM-hDU" kind="presentation" identifier="" modalPresentationStyle="fullScreen" id="11c-Lg-3Fw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9jw-w4-0W5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
