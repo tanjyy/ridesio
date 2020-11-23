@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +20,18 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onSignUp(_ sender: Any) {
-        let successfulSignIn = true
+        let user = PFUser()
         
-        // TODO: implement sign in functionality
+        user.username = usernameField.text
+        user.password = passwordField.text
         
-        if successfulSignIn {
-            transitionToMain()
-        } else {
-            print("something went wrong")
+        user.signUpInBackground { (success, error) in
+            if (success) {
+                self.performSegue(withIdentifier: "signUpSegue" , sender: nil)
+            }
+            else {
+                print("Error: \(String(describing: error?.localizedDescription))")
+            }
         }
     }
     

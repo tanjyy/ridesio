@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Et-kQ-AVp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Et-kQ-AVp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="40" id="Fyh-En-PQR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qy8-41-DpU">
                                 <rect key="frame" x="32" y="253" width="350" height="40"/>
@@ -65,7 +65,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="onSignIn:" destination="5Et-kQ-AVp" eventType="touchUpInside" id="n0Q-gv-TIF"/>
+                                    <action selector="onSignIn:" destination="5Et-kQ-AVp" eventType="touchUpInside" id="z1m-CP-0p3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63C-8i-xJX">
@@ -160,10 +160,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Get Started" id="rNF-qY-jQU"/>
+                    <connections>
+                        <outlet property="passwordField" destination="Qy8-41-DpU" id="7eq-As-DMy"/>
+                        <outlet property="usernameField" destination="p0o-zv-oW5" id="rtI-Of-J1e"/>
+                        <segue destination="7Si-zM-hDU" kind="presentation" identifier="signUpSegue" modalPresentationStyle="fullScreen" id="11c-Lg-3Fw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9jw-w4-0W5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="372.46376811594206" y="-285.26785714285711"/>
+        </scene>
+        <!--RideOfferings-->
+        <scene sceneID="VNO-qS-1G1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RideOfferings" id="7Si-zM-hDU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="98R-3c-x5y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1075" y="-285"/>
         </scene>
     </scenes>
     <resources>
