@@ -108,6 +108,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 return
             }
             
+            PFUser.logOut()
+            
             let loginScreen = UIStoryboard(name:"LoginScreen", bundle: nil)
             let vc = loginScreen.instantiateViewController(identifier: "LoginScreen")
             
