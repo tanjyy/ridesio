@@ -93,6 +93,34 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected row \(indexPath.row)")
+        if indexPath.row == 0 {
+            print("navigate to profile")
+            let profile = UIStoryboard(name:"AccountDetails", bundle: nil)
+            let vc = profile.instantiateViewController(identifier: "AccountDetails")
+            navigationController?.pushViewController(vc, animated: true)
+        } else if indexPath.row == 1 {
+            print("do nothing")
+        } else if indexPath.row == cells.count + 1 { // last element in table view, i.e. logout button
+            print("logout")
+            
+            // transition back to login screen
+            guard let window = UIApplication.shared.keyWindow else {
+                return
+            }
+            
+            let loginScreen = UIStoryboard(name:"LoginScreen", bundle: nil)
+            let vc = loginScreen.instantiateViewController(identifier: "LoginScreen")
+            
+            window.rootViewController = vc
+            
+            let options: UIView.AnimationOptions = .transitionCrossDissolve
+            let duration: TimeInterval = 0.4
+            
+            UIView.transition(with: window, duration: duration, options: options, animations: {}, completion: nil)
+            
+        } else {
+            print("navigate to relevant screen")
+        }
     }
     
 

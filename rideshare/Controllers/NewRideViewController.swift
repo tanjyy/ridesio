@@ -9,13 +9,32 @@ import UIKit
 
 class NewRideViewController: UIViewController {
 
+    
+    @IBAction func onDismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onPostRideButton(_ sender: Any) {
+        // TODO: add logic to post the ride to Parse and update this user's list of rides
+        
+        // TODO: add logic to validate the entries
+        let success = true
+        if success {
+            print("ride posted!")
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            // TODO: have a popup here that informs the user of the error
+            print("something went wrong")
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 
