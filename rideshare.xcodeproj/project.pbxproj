@@ -38,6 +38,8 @@
 		A3A706712560668300A597BD /* Inter-Regular-slnt=0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3A706682560668300A597BD /* Inter-Regular-slnt=0.ttf */; };
 		A3A706722560668300A597BD /* Inter-Black-slnt=0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3A706692560668300A597BD /* Inter-Black-slnt=0.ttf */; };
 		A3D8185C25699E47003F4510 /* SettingsContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8185B25699E47003F4510 /* SettingsContentCell.swift */; };
+		A3DE1647256AEFF50048196E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DE1646256AEFF50048196E /* User.swift */; };
+		A3DE164C256AF1330048196E /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DE164B256AF1330048196E /* Trip.swift */; };
 		A3EBDC162547C3180019B31B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBDC152547C3180019B31B /* AppDelegate.swift */; };
 		A3EBDC182547C3180019B31B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBDC172547C3180019B31B /* SceneDelegate.swift */; };
 		A3EBDC1D2547C3180019B31B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3EBDC1B2547C3180019B31B /* Main.storyboard */; };
@@ -100,6 +102,8 @@
 		A3A706682560668300A597BD /* Inter-Regular-slnt=0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Regular-slnt=0.ttf"; path = "rideshare/Fonts/Inter-Regular-slnt=0.ttf"; sourceTree = SOURCE_ROOT; };
 		A3A706692560668300A597BD /* Inter-Black-slnt=0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Black-slnt=0.ttf"; path = "rideshare/Fonts/Inter-Black-slnt=0.ttf"; sourceTree = SOURCE_ROOT; };
 		A3D8185B25699E47003F4510 /* SettingsContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentCell.swift; sourceTree = "<group>"; };
+		A3DE1646256AEFF50048196E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = rideshare/User.swift; sourceTree = SOURCE_ROOT; };
+		A3DE164B256AF1330048196E /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Trip.swift; path = rideshare/Trip.swift; sourceTree = SOURCE_ROOT; };
 		A3EBDC122547C3180019B31B /* rideshare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rideshare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EBDC152547C3180019B31B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3EBDC172547C3180019B31B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 		A3986FF1254DB86000210C3E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A3DE1646256AEFF50048196E /* User.swift */,
+				A3DE164B256AF1330048196E /* Trip.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -555,10 +561,12 @@
 				48D44A942563725800E02BB7 /* RideOfferingTableViewCell.swift in Sources */,
 				A33E37FF2568B33F0047D348 /* SettingsProfileCell.swift in Sources */,
 				A3EBDC162547C3180019B31B /* AppDelegate.swift in Sources */,
+				A3DE164C256AF1330048196E /* Trip.swift in Sources */,
 				20AAD67D2560AE6C00DFB63F /* RideDetailsViewController.swift in Sources */,
 				48D44A952563725800E02BB7 /* AccountDetailsTableViewCell.swift in Sources */,
 				A3D8185C25699E47003F4510 /* SettingsContentCell.swift in Sources */,
 				48D44A932563725800E02BB7 /* ProfileTableViewCell.swift in Sources */,
+				A3DE1647256AEFF50048196E /* User.swift in Sources */,
 				A3EBDC182547C3180019B31B /* SceneDelegate.swift in Sources */,
 				48D44A822563721900E02BB7 /* ProfileViewController.swift in Sources */,
 				20AAD6782560A90300DFB63F /* NewRideViewController.swift in Sources */,
