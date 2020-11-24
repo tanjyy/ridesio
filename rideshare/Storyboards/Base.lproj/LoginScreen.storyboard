@@ -11,6 +11,9 @@
         <array key="Inter-Bold-slnt=0.ttf">
             <string>Inter-Bold</string>
         </array>
+        <array key="Inter-Regular-slnt=0.ttf">
+            <string>Inter-Regular</string>
+        </array>
         <array key="Inter-SemiBold-slnt=0.ttf">
             <string>Inter-SemiBold</string>
         </array>
@@ -53,7 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rx3-un-fYu">
-                                <rect key="frame" x="242" y="325" width="140" height="50"/>
+                                <rect key="frame" x="137" y="318" width="140" height="50"/>
                                 <color key="backgroundColor" red="0.1843137255" green="0.50196078430000002" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="Bqz-hW-KYe"/>
@@ -68,31 +71,15 @@
                                     <action selector="onSignIn:" destination="5Et-kQ-AVp" eventType="touchUpInside" id="z1m-CP-0p3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63C-8i-xJX">
-                                <rect key="frame" x="32" y="325" width="140" height="50"/>
-                                <color key="backgroundColor" red="0.1843137255" green="0.50196078430000002" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="CgN-bE-NJU"/>
-                                    <constraint firstAttribute="height" constant="50" id="qfw-SQ-aq1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="18"/>
-                                <color key="tintColor" red="0.1843137255" green="0.50196078430000002" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Sign up">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="onSignUp:" destination="5Et-kQ-AVp" eventType="touchUpInside" id="CEP-us-jrq"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1V-xA-ZeP">
-                                <rect key="frame" x="36" y="425" width="342" height="1"/>
+                                <rect key="frame" x="36" y="512" width="342" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Ps0-f6-nfJ"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AhM-9x-kad">
-                                <rect key="frame" x="122" y="460.5" width="170" height="50"/>
+                                <rect key="frame" x="122" y="547.5" width="170" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTv-oa-z5j">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -126,11 +113,30 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" text="Or Continue With" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENA-ds-ueH">
-                                <rect key="frame" x="144.5" y="434" width="125.5" height="18.5"/>
+                                <rect key="frame" x="144.5" y="521" width="125.5" height="18.5"/>
                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p43-mh-BIP">
+                                <rect key="frame" x="120" y="381" width="96" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63C-8i-xJX">
+                                <rect key="frame" x="224" y="383" width="63" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="CgN-bE-NJU"/>
+                                    <constraint firstAttribute="height" constant="17" id="qfw-SQ-aq1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
+                                <color key="tintColor" red="0.1843137255" green="0.50196078430000002" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <action selector="onSignUp:" destination="5Et-kQ-AVp" eventType="touchUpInside" id="CEP-us-jrq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hIW-if-Sfk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -143,20 +149,22 @@
                             <constraint firstItem="N1V-xA-ZeP" firstAttribute="leading" secondItem="Mc4-2a-qnS" secondAttribute="leadingMargin" constant="16" id="Af1-GG-V1x"/>
                             <constraint firstItem="CZM-re-fu2" firstAttribute="top" secondItem="hIW-if-Sfk" secondAttribute="top" constant="100" id="F3v-bi-KBU"/>
                             <constraint firstItem="ENA-ds-ueH" firstAttribute="centerX" secondItem="Mc4-2a-qnS" secondAttribute="centerX" id="F4c-Fq-Nup"/>
-                            <constraint firstItem="N1V-xA-ZeP" firstAttribute="top" secondItem="rx3-un-fYu" secondAttribute="bottom" constant="50" id="GA9-tY-AcO"/>
+                            <constraint firstItem="N1V-xA-ZeP" firstAttribute="top" secondItem="rx3-un-fYu" secondAttribute="bottom" constant="144" id="GA9-tY-AcO"/>
                             <constraint firstItem="VQR-D8-cBT" firstAttribute="leading" secondItem="hIW-if-Sfk" secondAttribute="leading" constant="32" id="Hco-Oz-0j6"/>
                             <constraint firstItem="AhM-9x-kad" firstAttribute="centerX" secondItem="Mc4-2a-qnS" secondAttribute="centerX" id="MT1-jV-aoW"/>
-                            <constraint firstItem="rx3-un-fYu" firstAttribute="top" secondItem="Qy8-41-DpU" secondAttribute="bottom" constant="32" id="Nzu-2Z-Gu9"/>
+                            <constraint firstItem="rx3-un-fYu" firstAttribute="top" secondItem="Qy8-41-DpU" secondAttribute="bottom" constant="25" id="Nzu-2Z-Gu9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N1V-xA-ZeP" secondAttribute="trailing" constant="16" id="S0r-Ub-UnS"/>
                             <constraint firstItem="ENA-ds-ueH" firstAttribute="top" secondItem="N1V-xA-ZeP" secondAttribute="bottom" constant="8" symbolic="YES" id="Sl5-oW-tKv"/>
                             <constraint firstItem="Qy8-41-DpU" firstAttribute="top" secondItem="VQR-D8-cBT" secondAttribute="bottom" constant="8" symbolic="YES" id="TOt-ig-SGG"/>
+                            <constraint firstItem="p43-mh-BIP" firstAttribute="top" secondItem="rx3-un-fYu" secondAttribute="bottom" constant="13" id="UPR-j7-IxQ"/>
                             <constraint firstItem="CZM-re-fu2" firstAttribute="leading" secondItem="hIW-if-Sfk" secondAttribute="leading" constant="32" id="UZj-75-dmM"/>
-                            <constraint firstItem="63C-8i-xJX" firstAttribute="top" secondItem="Qy8-41-DpU" secondAttribute="bottom" constant="32" id="XFA-ZE-9nh"/>
-                            <constraint firstItem="hIW-if-Sfk" firstAttribute="trailing" secondItem="rx3-un-fYu" secondAttribute="trailing" constant="32" id="a4v-tn-Jo9"/>
-                            <constraint firstItem="63C-8i-xJX" firstAttribute="leading" secondItem="hIW-if-Sfk" secondAttribute="leading" constant="32" id="dd7-cN-hna"/>
+                            <constraint firstItem="63C-8i-xJX" firstAttribute="top" secondItem="Qy8-41-DpU" secondAttribute="bottom" constant="90" id="XFA-ZE-9nh"/>
+                            <constraint firstItem="hIW-if-Sfk" firstAttribute="trailing" secondItem="rx3-un-fYu" secondAttribute="trailing" constant="137" id="a4v-tn-Jo9"/>
+                            <constraint firstItem="63C-8i-xJX" firstAttribute="leading" secondItem="hIW-if-Sfk" secondAttribute="leading" constant="224" id="dd7-cN-hna"/>
                             <constraint firstItem="p0o-zv-oW5" firstAttribute="centerX" secondItem="Mc4-2a-qnS" secondAttribute="centerX" id="fQU-8x-z4A"/>
                             <constraint firstItem="p0o-zv-oW5" firstAttribute="leading" secondItem="hIW-if-Sfk" secondAttribute="leading" constant="32" id="gh6-Rj-V0f"/>
                             <constraint firstItem="Qy8-41-DpU" firstAttribute="leading" secondItem="hIW-if-Sfk" secondAttribute="leading" constant="32" id="xML-xt-dVr"/>
+                            <constraint firstItem="p43-mh-BIP" firstAttribute="leading" secondItem="hIW-if-Sfk" secondAttribute="leading" constant="120" id="yZR-Gc-Yz7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Get Started" id="rNF-qY-jQU"/>
