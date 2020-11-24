@@ -12,6 +12,9 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var firstNameField: UITextField!
+    @IBOutlet weak var lastNameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,20 +23,27 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onSignUp(_ sender: Any) {
-        let user = PFUser()
         
-        user.username = usernameField.text
-        user.password = passwordField.text
         
-        user.signUpInBackground { (success, error) in
-            if (success) {
-                self.transitionToMain()
-            }
-            else {
-                print("Error: \(String(describing: error?.localizedDescription))")
-            }
-        }
+        self.dismiss(animated: true, completion: nil)
     }
+    
+//    @IBAction func onSignUp(_ sender: Any) {
+//        let user = PFUser()
+//
+//        user.username = usernameField.text
+//        user.password = passwordField.text
+//
+//        user.signUpInBackground { (success, error) in
+//            if (success) {
+//                self.transitionToMain()
+//            }
+//            else {
+//                print("Error: \(String(describing: error?.localizedDescription))")
+//            }
+//        }
+//       print("Present modal")
+//    }
     
     @IBAction func onSignIn(_ sender: Any) {
         let successfulSignIn = true
