@@ -70,22 +70,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0d-Tg-zKi">
-                                                    <rect key="frame" x="63" y="261" width="288" height="30"/>
-                                                    <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="288" id="gLy-Or-kbb"/>
-                                                        <constraint firstAttribute="height" constant="30" id="gb0-EJ-hGP"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Book Ride">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="onBookRide:" destination="WWX-SP-pWu" eventType="touchUpInside" id="15X-56-ZkZ"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdP-Ym-eqO">
                                                     <rect key="frame" x="54" y="39" width="62" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -127,21 +111,19 @@
                                                 <constraint firstItem="WtO-aj-FQg" firstAttribute="top" secondItem="BdP-Ym-eqO" secondAttribute="bottom" constant="1" id="5Bz-6U-OtB"/>
                                                 <constraint firstItem="BdP-Ym-eqO" firstAttribute="leading" secondItem="7FZ-hX-8jY" secondAttribute="leadingMargin" constant="34" id="5Pc-VW-ukU"/>
                                                 <constraint firstItem="eHw-rN-gbY" firstAttribute="top" secondItem="SXD-yl-zou" secondAttribute="bottom" constant="37" id="5fg-59-laS"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="N0d-Tg-zKi" secondAttribute="bottom" constant="17" id="6J9-9f-snr"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="SXD-yl-zou" secondAttribute="trailing" id="7yB-Gk-sBh"/>
                                                 <constraint firstItem="WtO-aj-FQg" firstAttribute="leading" secondItem="7FZ-hX-8jY" secondAttribute="leadingMargin" constant="40" id="AiC-Ya-dmx"/>
                                                 <constraint firstItem="4MZ-Yo-4h4" firstAttribute="trailing" secondItem="7FZ-hX-8jY" secondAttribute="trailingMargin" constant="-37" id="Ejj-0I-jLF"/>
-                                                <constraint firstItem="N0d-Tg-zKi" firstAttribute="centerX" secondItem="7FZ-hX-8jY" secondAttribute="centerX" id="ExL-qJ-NVI"/>
                                                 <constraint firstItem="eHw-rN-gbY" firstAttribute="trailing" secondItem="7FZ-hX-8jY" secondAttribute="trailingMargin" id="FtL-wS-gI9"/>
                                                 <constraint firstItem="uQe-fJ-U9y" firstAttribute="top" secondItem="GAa-ZR-CpA" secondAttribute="bottom" constant="22" id="Gb5-0w-R92"/>
                                                 <constraint firstItem="BdP-Ym-eqO" firstAttribute="top" secondItem="th4-fM-CtY" secondAttribute="bottom" constant="2" id="LB1-bX-wTW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="GAa-ZR-CpA" secondAttribute="trailing" constant="47" id="XUr-gO-CWv"/>
-                                                <constraint firstItem="N0d-Tg-zKi" firstAttribute="top" secondItem="eHw-rN-gbY" secondAttribute="bottom" constant="88.5" id="Xhp-H2-GQA"/>
                                                 <constraint firstItem="4MZ-Yo-4h4" firstAttribute="top" secondItem="7FZ-hX-8jY" secondAttribute="topMargin" constant="5" id="ZJT-1W-8tK"/>
                                                 <constraint firstItem="th4-fM-CtY" firstAttribute="leading" secondItem="7FZ-hX-8jY" secondAttribute="leading" constant="57" id="dVH-Q2-Z7m"/>
                                                 <constraint firstItem="uQe-fJ-U9y" firstAttribute="leading" secondItem="7FZ-hX-8jY" secondAttribute="leadingMargin" id="fng-V8-qCR"/>
                                                 <constraint firstItem="eHw-rN-gbY" firstAttribute="top" secondItem="uQe-fJ-U9y" secondAttribute="bottom" constant="8" symbolic="YES" id="jEG-2q-7qv"/>
                                                 <constraint firstItem="eHw-rN-gbY" firstAttribute="leading" secondItem="7FZ-hX-8jY" secondAttribute="leadingMargin" id="meT-jz-19r"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="eHw-rN-gbY" secondAttribute="bottom" constant="10" id="oCC-4d-EDn"/>
                                                 <constraint firstItem="uQe-fJ-U9y" firstAttribute="top" secondItem="WtO-aj-FQg" secondAttribute="bottom" constant="22" id="oOt-hg-eOO"/>
                                                 <constraint firstItem="GAa-ZR-CpA" firstAttribute="top" secondItem="IJ5-ZN-6J7" secondAttribute="bottom" constant="1" id="qVh-zw-o4P"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="IJ5-ZN-6J7" secondAttribute="trailing" constant="64" id="rHK-eP-Se7"/>
