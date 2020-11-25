@@ -10,12 +10,8 @@ import Parse
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var firstNameField: UITextField!
-    @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var signUpPasswordField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,39 +19,28 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func onSignUp(_ sender: Any) {
-        let user = PFUser()
-        
-        user["firstName"] = firstNameField.text
-        user["lastName"] = lastNameField.text
-        user.username = emailField.text
-        user.password = signUpPasswordField.text
-
-        user.signUpInBackground { (success, error) in
-            if (success) {
-                self.dismiss(animated: true, completion: nil)
-            }
-            else {
+    @IBAction func onSignIn(_ sender: Any) {
+        PFUser.logInWithUsername(inBackground: emailField.text!, password: passwordField.text!) {
+            (user: PFUser?, error: Error?) -> Void in
+            if user != nil {
+                self.transitionToMain()
+            } else {
                 print("Error: \(String(describing: error?.localizedDescription))")
             }
-        }
-    }
-    
-    @IBAction func onSignIn(_ sender: Any) {
-        let successfulSignIn = true
-        
-        // TODO: implement sign in functionality
-        
-        if successfulSignIn {
-            transitionToMain()
-        } else {
-            print("something went wrong")
         }
     }
     
     func transitionToMain() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "TabBar")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func onSignUp(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "LoginScreen", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "SignUp")
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
