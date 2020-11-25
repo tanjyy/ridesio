@@ -20,6 +20,18 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Inter-Black-slnt=0.ttf</string>
+		<string>Inter-Bold-slnt=0.ttf</string>
+		<string>Inter-ExtraBold-slnt=0.ttf</string>
+		<string>Inter-ExtraLight-slnt=0.ttf</string>
+		<string>Inter-Light-slnt=0.ttf</string>
+		<string>Inter-Medium-slnt=0.ttf</string>
+		<string>Inter-Regular-slnt=0.ttf</string>
+		<string>Inter-SemiBold-slnt=0.ttf</string>
+		<string>Inter-Thin-slnt=0.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -54,18 +66,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Inter-Black-slnt=0.ttf</string>
-		<string>Inter-Bold-slnt=0.ttf</string>
-		<string>Inter-ExtraBold-slnt=0.ttf</string>
-		<string>Inter-ExtraLight-slnt=0.ttf</string>
-		<string>Inter-Light-slnt=0.ttf</string>
-		<string>Inter-Medium-slnt=0.ttf</string>
-		<string>Inter-Regular-slnt=0.ttf</string>
-		<string>Inter-SemiBold-slnt=0.ttf</string>
-		<string>Inter-Thin-slnt=0.ttf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

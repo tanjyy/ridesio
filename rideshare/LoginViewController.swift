@@ -6,42 +6,41 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func onSignUp(_ sender: Any) {
-        let successfulSignIn = true
-        
-        // TODO: implement sign in functionality
-        
-        if successfulSignIn {
-            transitionToMain()
-        } else {
-            print("something went wrong")
-        }
-    }
-    
     @IBAction func onSignIn(_ sender: Any) {
-        let successfulSignIn = true
-        
-        // TODO: implement sign in functionality
-        
-        if successfulSignIn {
-            transitionToMain()
-        } else {
-            print("something went wrong")
+        PFUser.logInWithUsername(inBackground: emailField.text!, password: passwordField.text!) {
+            (user: PFUser?, error: Error?) -> Void in
+            if user != nil {
+                self.transitionToMain()
+            } else {
+                print("Error: \(String(describing: error?.localizedDescription))")
+            }
         }
     }
     
     func transitionToMain() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "TabBar")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func onSignUp(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "LoginScreen", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "SignUp")
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
