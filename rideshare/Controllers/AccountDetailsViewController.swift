@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import Parse
 
 class AccountDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var profilePictureImage: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
+    var user = PFUser.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +23,22 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         tableView.dataSource = self
         tableView.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        var fullName : String
+        
+        fullName = user?["firstName"] as! String
+        fullName += " "
+        fullName += user?["lastName"] as! String
+        fullNameLabel.text = fullName
+        
+        emailLabel.text = user?.username
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
