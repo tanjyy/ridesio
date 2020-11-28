@@ -32,16 +32,16 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
             tableView.deselectRow(at: index, animated: animated)
         }
         
-        if (user?["profilePicture"] == nil) {
-            profilePictureImage.image = UIImage(systemName: "person")
-        }
-        else if (user?["profilePicture"] != nil) {
+        if (user?["profilePicture"] != nil) {
             let imageFile = user?["profilePicture"] as! PFFileObject
             let urlString = imageFile.url!
             let url = URL(string: urlString)!
 
             profilePictureImage.af.setImage(withURL: url)
-//            profilePictureImage.setNeedsDisplay()
+        //    profilePictureImage.setNeedsDisplay()
+        }
+        else {
+            profilePictureImage.image = UIImage(systemName: "person")
         }
 
         var fullName : String
