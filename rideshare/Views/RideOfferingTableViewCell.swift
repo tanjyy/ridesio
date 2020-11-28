@@ -9,11 +9,17 @@ import UIKit
 
 class RideOfferingTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var pickup_location: UILabel!
-    @IBOutlet weak var destination_location: UILabel!
-    @IBOutlet weak var profile_picture: UIImageView!
-    @IBOutlet weak var driver_user_id: UILabel!
-    @IBOutlet weak var ride_description: UILabel!
+    @IBOutlet weak var departureLocation: UILabel!
+    @IBOutlet weak var arrivalLocation: UILabel!
+    @IBOutlet weak var rideDetails: UILabel!
+    
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var driverUserName: UILabel!
+    
+    @IBOutlet weak var departureDate: UILabel!
+    @IBOutlet weak var departureTime: UILabel!
+    @IBOutlet weak var arrivalDate: UILabel!
+    @IBOutlet weak var arrivalTime: UILabel!
     
     @IBAction func onBookRide(_ sender: Any) {
     }
