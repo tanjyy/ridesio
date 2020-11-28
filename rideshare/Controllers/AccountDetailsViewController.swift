@@ -7,6 +7,7 @@
 
 import UIKit
 import Parse
+import AlamofireImage
 
 class AccountDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -25,9 +26,24 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let index = self.tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: index, animated: animated)
+        }
         
+        if (user?["profilePicture"] == nil) {
+            profilePictureImage.image = UIImage(systemName: "person")
+        }
+        else if (user?["profilePicture"] != nil) {
+            let imageFile = user?["profilePicture"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+
+            profilePictureImage.af.setImage(withURL: url)
+//            profilePictureImage.setNeedsDisplay()
+        }
+
         var fullName : String
         
         fullName = user?["firstName"] as! String
@@ -36,16 +52,6 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         fullNameLabel.text = fullName
         
         emailLabel.text = user?.username
-        
-        
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let index = self.tableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: index, animated: animated)
-        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
