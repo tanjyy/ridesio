@@ -48,6 +48,9 @@
                                                 <state key="normal" title="Button">
                                                     <imageReference key="image" image="xmark" catalog="system" symbolScale="default"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onDismiss:" destination="Bai-Qc-HNB" eventType="touchUpInside" id="ZDF-zY-8TK"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vqY-cj-R6N">
                                                 <rect key="frame" x="20" y="54" width="374" height="937"/>
@@ -122,6 +125,9 @@
                                                         <state key="normal" title="Post Ride Offering">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="onPostRideButton:" destination="Bai-Qc-HNB" eventType="touchUpInside" id="hML-EF-o4H"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>

@@ -102,7 +102,21 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         let vc = profile.instantiateViewController(identifier: "RideDetails") as! RideDetailsViewController
         
         // TODO: update this to pass the Ride object corresponding to this cell in the table view
-        vc.rideInfo = "look at this info!"
+        let rideObject = rides[indexPath.row]
+        let departureDateTimeString = rideObject["departureDatetime"] as! String
+        let arrivalDateTimeString = rideObject["arrivalDatetime"] as! String
+        
+        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        let departureDateTime = dateFormatter.date(from: departureDateTimeString) as! Date
+        let arrivalDateTime = dateFormatter.date(from: arrivalDateTimeString) as! Date
+        
+        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime as! Date, returnTime: arrivalDateTime as! Date)
+        
+        let ride = Trip(tripId: rideObject.objectId!, posterId: (rideObject["driverId"] as! PFUser).objectId!, tripInfo: tripInfo, cost: "n/a", description: rideObject["rideDetails"] as! String)
+        vc.ride = ride
         
         navigationController?.pushViewController(vc, animated: true)
     }

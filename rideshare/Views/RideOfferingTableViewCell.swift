@@ -21,9 +21,6 @@ class RideOfferingTableViewCell: UITableViewCell {
     @IBOutlet weak var arrivalDate: UILabel!
     @IBOutlet weak var arrivalTime: UILabel!
     
-    @IBAction func onBookRide(_ sender: Any) {
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

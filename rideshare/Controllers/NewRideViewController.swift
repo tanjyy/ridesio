@@ -33,12 +33,19 @@ class NewRideViewController: UIViewController,UINavigationControllerDelegate {
     }
     
     @IBAction func onPostRideButton(_ sender: Any) {
-        // TODO: add logic to post the ride to Parse and update this user's list of rides
+        
+        // TODO: add logic to validate the entries before posting
+        let success = true
+        if success {
+            print("ride posted!")
+        } else {
+            // TODO: have a popup here that informs the user of the error
+            
+        }
         
         let ride = PFObject(className:"Rides")
         ride["departureLocation"] = departureLocation.text
         ride["arrivalLocation"] = arrivalLocation.text
-
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -53,21 +60,15 @@ class NewRideViewController: UIViewController,UINavigationControllerDelegate {
 
         ride.saveInBackground { (success, error)  in
             if (success) {
-               self.dismiss(animated: true, completion: nil)
+                print("ride posted successfully")
+                self.dismiss(animated: true, completion: nil)
             } else {
-                print("something went wrong")
+                print("\(error?.localizedDescription)")
             }
         }
         
-        // TODO: add logic to validate the entries
-        let success = true
-        if success {
-            print("ride posted!")
-            self.dismiss(animated: true, completion: nil)
-        } else {
-            // TODO: have a popup here that informs the user of the error
-           
-        }
+        // TODO: add logic to update this user's list of rides
+        
         
     }
     

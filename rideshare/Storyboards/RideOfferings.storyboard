@@ -50,7 +50,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="th4-fM-CtY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Pickup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="th4-fM-CtY">
                                                     <rect key="frame" x="54" y="16" width="56" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -90,7 +90,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXD-yl-zou">
-                                                    <rect key="frame" x="112" y="89" width="101" height="21"/>
+                                                    <rect key="frame" x="124" y="89" width="101" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -120,7 +120,7 @@
                                                 <constraint firstItem="4MZ-Yo-4h4" firstAttribute="top" secondItem="7FZ-hX-8jY" secondAttribute="topMargin" constant="5" id="ZJT-1W-8tK"/>
                                                 <constraint firstItem="Bpj-mi-gL0" firstAttribute="top" secondItem="BdP-Ym-eqO" secondAttribute="bottom" constant="2" id="ZWp-6N-GbC"/>
                                                 <constraint firstItem="th4-fM-CtY" firstAttribute="leading" secondItem="7FZ-hX-8jY" secondAttribute="leadingMargin" constant="34" id="bhZ-6m-JMo"/>
-                                                <constraint firstItem="SXD-yl-zou" firstAttribute="leading" secondItem="uQe-fJ-U9y" secondAttribute="trailing" constant="8" symbolic="YES" id="bjI-TJ-z7l"/>
+                                                <constraint firstItem="SXD-yl-zou" firstAttribute="leading" secondItem="uQe-fJ-U9y" secondAttribute="trailing" constant="20" id="bjI-TJ-z7l"/>
                                                 <constraint firstItem="eHw-rN-gbY" firstAttribute="leading" secondItem="7FZ-hX-8jY" secondAttribute="leadingMargin" constant="34" id="dEY-xe-HcT"/>
                                                 <constraint firstItem="Bpj-mi-gL0" firstAttribute="leading" secondItem="7FZ-hX-8jY" secondAttribute="leadingMargin" constant="34" id="nDR-iK-bo9"/>
                                                 <constraint firstItem="uQe-fJ-U9y" firstAttribute="leading" secondItem="7FZ-hX-8jY" secondAttribute="leadingMargin" constant="34" id="nzU-by-9Cf"/>

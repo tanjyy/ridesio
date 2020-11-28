@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailAddressLabel: UILabel!
     
-    var user: String = ""
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +23,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         // Do any additional setup after loading the view.
         
+        if user == nil {
+            user = User(fname: "First",lname: "Last",user_id: "<none>",phone_number: "n/a",email: "n/a",profilePic: Data(),trip_history: [Trip]())
+        }
+        
         // TODO: set title to the User's name
-        let userName = "Riff Raff"
-        self.navigationItem.title = "\(userName)'s Profile"
+        let index = user!.lname.startIndex
+        let name = "\(user!.fname) \(user!.lname[index])."
+        self.navigationItem.title = "\(name)'s Profile"
+        nameLabel.text = name
+        emailAddressLabel.text = user?.email
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +59,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let vc = profile.instantiateViewController(identifier: "RideDetails") as! RideDetailsViewController
         
         // TODO: update this to pass the Ride object corresponding to this cell in the table view
-        vc.rideInfo = "look at this info!"
+//        vc.rideInfo = "look at this info!"
         
         navigationController?.pushViewController(vc, animated: true)
     }
