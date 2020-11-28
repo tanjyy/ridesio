@@ -84,16 +84,14 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         let departureTime = str2Date.date(from: ride["departureDatetime"] as! String)
         let arrivalTime = str2Date.date(from: (ride["arrivalDatetime"]) as! String)
         
-        cell.arrivalDate.text = dateFormatter.string(from: departureTime!)
-        cell.departureDate.text = dateFormatter.string( from: arrivalTime!)
-        cell.arrivalTime.text = timeFormatter.string(from: departureTime!)
-        cell.departureTime.text = timeFormatter.string( from: arrivalTime!)
+        cell.arrivalDate.text = dateFormatter.string(from: arrivalTime!)
+        cell.departureDate.text = dateFormatter.string( from: departureTime!)
+        cell.arrivalTime.text = timeFormatter.string(from: arrivalTime!)
+        cell.departureTime.text = timeFormatter.string( from: departureTime!)
         
         cell.rideDetails.text = ride["rideDetails"] as? String
         
-        
         //cell.layer.cornerRadius = 40
-
         return cell
     }
     
