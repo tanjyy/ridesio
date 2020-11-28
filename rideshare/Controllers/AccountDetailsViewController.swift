@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import Parse
+import AlamofireImage
 
 class AccountDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var profilePictureImage: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
+    var user = PFUser.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +31,27 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         if let index = self.tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: index, animated: animated)
         }
+        
+        if (user?["profilePicture"] != nil) {
+            let imageFile = user?["profilePicture"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+
+            profilePictureImage.af.setImage(withURL: url)
+        //    profilePictureImage.setNeedsDisplay()
+        }
+        else {
+            profilePictureImage.image = UIImage(systemName: "person")
+        }
+
+        var fullName : String
+        
+        fullName = user?["firstName"] as! String
+        fullName += " "
+        fullName += user?["lastName"] as! String
+        fullNameLabel.text = fullName
+        
+        emailLabel.text = user?.username
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
