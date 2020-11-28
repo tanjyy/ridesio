@@ -27,36 +27,36 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
 ### 1. User Stories (Required and Optional) and Screen Archetypes
 
 #### Launch screen/AppIcon
-- User sees app icon in home screen and styled launch screen.
+- [x] User sees app icon in home screen and styled launch screen.
 
 #### Get started Screen
-- User sees a login screen when opening the app for the first time (like Lyft/Uber)
-- User stays logged in across restarts and goes straight to the Feed Screen.
-- User can sign up to create a new account.
+- [x] User sees a login screen when opening the app for the first time (like Lyft/Uber)
+- [x] User stays logged in across restarts and goes straight to the Feed Screen.
+- [x] User can sign up to create a new account.
     - first name
     - last name
     - phone number
     - school email address (*Optional* verify this somehow with institution)
     - password
     - profile picture (can upload from camera or camera roll)
-- User can log in.
+- [x] User can log in.
 
 #### Feed screen (both ride request and ride offering)
-- User can click button to open settings menu (like on Uber/Lyft).
-- User can view their profile in a profile tab.
+- [x] User can click button to open settings menu (like on Uber/Lyft).
+- [x] User can view their profile in a profile tab.
 - *Optional*: User can see all ride offerings and requests in a single view.
 - *Optional*: User can sort rides by different criteria (distance, cost)
 - *Optional*: User can search for rides
 
 #### Feed: Ride offering screen
-- User can see a list of all nearby ride offerings.
-- User can create a new ride offering.
-- User can accept a nearby ride offering.
-- User can click a ride offering to see the details page.
-- User sees button that links to their own profile.
+- [x] User can see a list of all nearby ride offerings.
+- [x] User can create a new ride offering.
+- [ ] User can accept a nearby ride offering.
+- [ ] User can click a ride offering to see the details page.
+- [x] User sees button that links to their own profile.
 
 #### Create ride offering screen
-- User can specify
+- [x] User can specify
     - pickup *Optionally can use current location to specify pickup*
     - destination
     - *Optional* seats available (for v2 have confirmation/messaging through app and auto update seats available)
@@ -65,7 +65,7 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
     - *Optional* negotiable? if so, users can message poster to discuss alternate pickup/destination/cost
 
 #### Ride offering details Screen
-- User sees
+- [ ] User sees
     - pickup
     - destination
     - *Optional* seats available (for v2 have confirmation/messaging through app and auto update seats available)
@@ -73,13 +73,13 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
     - cost (or alternative form of payment)
     - special requests/conditions (i.e. no pets? luggage? etc)
     - *Optional* negotiable? if so, users can message poster to discuss alternate pickup/destination/cost
-- User can press button to contact poster of offering.
+- [ ] User can press button to contact poster of offering.
     - "To confirm your trip, email poster and let them know how many seats you need."
-- Creator of ride offering can edit details.
+- [ ] Creator of ride offering can edit details.
 - *Optional* User can message poster of offering.
 
 #### Profile screen (for others)
-- User can see
+- [ ] User can see
     - Profile picture
     - First name
     - Last initial
@@ -88,12 +88,12 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
     - *Optional*: Star rating
 
 #### Settings screen
-- Account details
+- [x] Account details
 - *Optional* Messsages
-- User can log out
+- [x] User can log out
 
 #### Account details screen (user's own profile)
-- User can see their own
+- [x] User can see their own
     - First name
     - Last name
     - Phone number
@@ -102,7 +102,7 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
         - By touching the profile picture, users can open the camera or pick a camera from the camera roll.
 - *Optional* User can edit their email
 - *Optional* Trip History (past rides)
-- Upcoming trips (same as on profile screen for others)
+- [x] Upcoming trips (same as on profile screen for others)
     - User can click trip to go to details page.
 - *Optional* Driver sees requests to book their ride offerings.
     - *Optional* Driver can confirm booking.
