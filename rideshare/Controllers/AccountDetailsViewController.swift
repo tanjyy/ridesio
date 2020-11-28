@@ -18,6 +18,7 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
+    var user = PFUser.current()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,16 +28,6 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         tableView.dataSource = self
         tableView.delegate = self
         
-        let user = PFUser.current()!
-        nameLabel.text = "\(user["firstName"] as! String) \(user["lastName"] as! String)"
-        emailLabel.text = user["username"] as! String
-        
-        let imagefile = user["profilePicture"] as! PFFileObject
-        let urlString = (imagefile.url)!
-        let url = URL(string: urlString)!
-        
-        profileImageView.af.setImage(withURL: url)
-        
         // Do any additional setup after loading the view.
     }
     
@@ -45,6 +36,24 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         if let index = self.tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: index, animated: animated)
         }
+        
+        if (user?["profilePicture"] != nil) {
+            let imageFile = user?["profilePicture"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+
+            profileImageView.af.setImage(withURL: url)
+        //    profilePictureImage.setNeedsDisplay()
+            
+        }
+        else {
+            profileImageView.image = UIImage(systemName: "person")
+        }
+
+        var fullName : String
+        
+        nameLabel.text = "\(user?["firstName"] as! String) \(user?["lastName"] as! String)"
+        emailLabel.text = user?["username"] as! String
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
