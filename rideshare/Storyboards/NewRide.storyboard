@@ -2,7 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oa3-nV-dKx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -26,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Tdh-uS-nA7">
-                                <rect key="frame" x="32" y="122" width="350" height="696"/>
+                                <rect key="frame" x="32" y="122" width="350" height="937"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departing From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFm-Bq-YCz">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="21"/>
@@ -56,56 +57,32 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7E-wd-JZ7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Departure Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7E-wd-JZ7">
                                         <rect key="frame" x="0.0" y="182" width="350" height="21"/>
                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LOR-0K-LyX">
-                                        <rect key="frame" x="0.0" y="213" width="350" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="gMc-fT-vUH"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Departure Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRW-FR-fam">
-                                        <rect key="frame" x="0.0" y="273" width="350" height="21"/>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cHr-52-mAZ">
+                                        <rect key="frame" x="0.0" y="213" width="350" height="216"/>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Estimated Arrival Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EA7-4P-0Wa">
+                                        <rect key="frame" x="0.0" y="439" width="350" height="21"/>
                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8n-yr-84N">
-                                        <rect key="frame" x="0.0" y="304" width="350" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="1hR-fh-E3z"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimated Driving Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EA7-4P-0Wa">
-                                        <rect key="frame" x="0.0" y="364" width="350" height="21"/>
-                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dS0-to-EL7">
-                                        <rect key="frame" x="0.0" y="395" width="350" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="UWT-mx-0QE"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4Jf-R9-18n">
+                                        <rect key="frame" x="0.0" y="470" width="350" height="216"/>
+                                    </datePicker>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmF-El-jFh">
-                                        <rect key="frame" x="0.0" y="455" width="350" height="21"/>
+                                        <rect key="frame" x="0.0" y="696" width="350" height="21"/>
                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ywu-rj-HuE">
-                                        <rect key="frame" x="0.0" y="486" width="350" height="150"/>
+                                        <rect key="frame" x="0.0" y="727" width="350" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="iCc-Ld-082"/>
                                         </constraints>
@@ -113,7 +90,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZf-nn-SO5">
-                                        <rect key="frame" x="0.0" y="646" width="350" height="50"/>
+                                        <rect key="frame" x="0.0" y="887" width="350" height="50"/>
                                         <color key="backgroundColor" red="0.1843137255" green="0.50196078430000002" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Xfm-tw-urC"/>
@@ -164,6 +141,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" selectedImage="add" id="z2I-i5-ibI"/>
+                    <connections>
+                        <outlet property="arrivalDatePicker" destination="4Jf-R9-18n" id="e0X-J8-CRL"/>
+                        <outlet property="arrivalLocation" destination="uSt-ge-fV9" id="rbr-sz-dIg"/>
+                        <outlet property="departureDatePicker" destination="cHr-52-mAZ" id="dnE-e8-ZHA"/>
+                        <outlet property="departureLocation" destination="3Ek-UG-YRo" id="Y9N-qj-dVr"/>
+                        <outlet property="rideDetails" destination="ywu-rj-HuE" id="sfn-gN-0D5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1g-JJ-rPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
