@@ -38,6 +38,7 @@
 		A3A706702560668300A597BD /* Inter-Bold-slnt=0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3A706672560668200A597BD /* Inter-Bold-slnt=0.ttf */; };
 		A3A706712560668300A597BD /* Inter-Regular-slnt=0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3A706682560668300A597BD /* Inter-Regular-slnt=0.ttf */; };
 		A3A706722560668300A597BD /* Inter-Black-slnt=0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3A706692560668300A597BD /* Inter-Black-slnt=0.ttf */; };
+		A3C095D92572F48900328FEB /* UITableView+setEmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C095D82572F48900328FEB /* UITableView+setEmptyMessage.swift */; };
 		A3D8185C25699E47003F4510 /* SettingsContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8185B25699E47003F4510 /* SettingsContentCell.swift */; };
 		A3DE1647256AEFF50048196E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DE1646256AEFF50048196E /* User.swift */; };
 		A3DE164C256AF1330048196E /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DE164B256AF1330048196E /* Trip.swift */; };
@@ -103,6 +104,7 @@
 		A3A706672560668200A597BD /* Inter-Bold-slnt=0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Bold-slnt=0.ttf"; path = "rideshare/Fonts/Inter-Bold-slnt=0.ttf"; sourceTree = SOURCE_ROOT; };
 		A3A706682560668300A597BD /* Inter-Regular-slnt=0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Regular-slnt=0.ttf"; path = "rideshare/Fonts/Inter-Regular-slnt=0.ttf"; sourceTree = SOURCE_ROOT; };
 		A3A706692560668300A597BD /* Inter-Black-slnt=0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Black-slnt=0.ttf"; path = "rideshare/Fonts/Inter-Black-slnt=0.ttf"; sourceTree = SOURCE_ROOT; };
+		A3C095D82572F48900328FEB /* UITableView+setEmptyMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+setEmptyMessage.swift"; sourceTree = "<group>"; };
 		A3D8185B25699E47003F4510 /* SettingsContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentCell.swift; sourceTree = "<group>"; };
 		A3DE1646256AEFF50048196E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = rideshare/User.swift; sourceTree = SOURCE_ROOT; };
 		A3DE164B256AF1330048196E /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Trip.swift; path = rideshare/Trip.swift; sourceTree = SOURCE_ROOT; };
@@ -239,6 +241,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		A3C095D72572F45700328FEB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A3C095D82572F48900328FEB /* UITableView+setEmptyMessage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A3EBDC092547C3170019B31B = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +274,7 @@
 		A3EBDC142547C3180019B31B /* rideshare */ = {
 			isa = PBXGroup;
 			children = (
+				A3C095D72572F45700328FEB /* Extensions */,
 				4838C90025637164003C4C5C /* Views */,
 				A3BF3053255CE0D200167216 /* Fonts */,
 				A34CDDEF254DB8C900153A26 /* Networking */,
@@ -560,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C095D92572F48900328FEB /* UITableView+setEmptyMessage.swift in Sources */,
 				20AAD66B25608B8100DFB63F /* LoginViewController.swift in Sources */,
 				48D44A942563725800E02BB7 /* RideOfferingTableViewCell.swift in Sources */,
 				A33E37FF2568B33F0047D348 /* SettingsProfileCell.swift in Sources */,

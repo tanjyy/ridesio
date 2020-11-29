@@ -14,9 +14,11 @@ class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var profile_picture: UIImageView!
     @IBOutlet weak var driver_name: UILabel!
     @IBOutlet weak var ride_description: UILabel!
+    @IBOutlet weak var departureDate: UILabel!
+    @IBOutlet weak var departureTime: UILabel!
+    @IBOutlet weak var returnDate: UILabel!
+    @IBOutlet weak var returnTime: UILabel!
     
-    @IBAction func onBookRide(_ sender: Any) {
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

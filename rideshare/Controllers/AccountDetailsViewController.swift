@@ -49,11 +49,9 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         else {
             profileImageView.image = UIImage(systemName: "person")
         }
-
-        var fullName : String
         
         nameLabel.text = "\(user?["firstName"] as! String) \(user?["lastName"] as! String)"
-        emailLabel.text = user?["username"] as! String
+        emailLabel.text = (user?["username"] as! String)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,7 +65,7 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         // TODO: this should be updated; rides shouldn't be obtained by querying, but instead by listing out the rides that are saved in the user's list of rides
         
         let query = PFQuery(className: "Rides")
-        query.whereKey("driverId", equalTo: PFUser.current())
+        query.whereKey("driverId", equalTo: PFUser.current()!)
         
         query.findObjectsInBackground{(rides,error) in
             if rides != nil {
@@ -79,21 +77,10 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if rides.count > 0 {
-            self.tableView.backgroundView = nil;
-            self.tableView.separatorStyle = .singleLine;
+            self.tableView.restore()
             return 1
         } else {
-            let rect = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height))
-            let messageLabel = UILabel(frame: rect)
-            messageLabel.text = "You have no trips yet! Go out and ride 🙏"
-            messageLabel.textColor = UIColor.black
-            messageLabel.numberOfLines = 0;
-            messageLabel.textAlignment = .center;
-            messageLabel.font = UIFont(name: "Inter", size: 26)
-            messageLabel.sizeToFit()
-
-            self.tableView.backgroundView = messageLabel;
-            self.tableView.separatorStyle = .none;
+            self.tableView.setEmptyMessage("You have no trips yet! Go out and ride 🙏")
             return 0
         }
     }
@@ -145,7 +132,7 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         let vc = profile.instantiateViewController(identifier: "RideDetails") as! RideDetailsViewController
         
         // TODO: update this to pass the Ride object corresponding to this cell in the table view
-//        vc.rideInfo = "look at this info!"
+//        vc.rideInfo = rides[indexPath]
         
         navigationController?.pushViewController(vc, animated: true)
     }

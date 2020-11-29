@@ -12,9 +12,9 @@ class User {
     var lname: String
     var user_id: String
     var email: String
-    var profilePic: Data
+    var profilePic: URL
     var trip_history: [Trip]
-    init(fname: String, lname: String, user_id: String, phone_number: String, email: String, profilePic: Data, trip_history: [Trip]) {
+    init(fname: String, lname: String, user_id: String, phone_number: String, email: String, profilePic: URL, trip_history: [Trip]) {
         self.fname = fname
         self.lname = lname
         self.user_id = user_id
