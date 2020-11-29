@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mrw-TA-n5B">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -28,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O3O-Qt-G61">
-                                <rect key="frame" x="32" y="116.5" width="350" height="69.5"/>
+                                <rect key="frame" x="32" y="116.5" width="350" height="50.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WuW-Dz-sNn">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="20.5"/>
@@ -48,19 +49,19 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mtf-AF-ctZ">
-                                        <rect key="frame" x="0.0" y="30.5" width="350" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="30.5" width="350" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 12 8:00AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PS4-Hj-0Af">
-                                                <rect key="frame" x="0.0" y="0.0" width="87" height="14.5"/>
+                                                <rect key="frame" x="0.0" y="3" width="87" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_route" translatesAutoresizingMaskIntoConstraints="NO" id="hP8-SX-E0Z">
-                                                <rect key="frame" x="133" y="0.5" width="84" height="14"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="repeat" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hP8-SX-E0Z">
+                                                <rect key="frame" x="164" y="1" width="22.5" height="17.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 12 5:00PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSd-8T-4lf">
-                                                <rect key="frame" x="263" y="0.0" width="87" height="14.5"/>
+                                                <rect key="frame" x="263" y="3" width="87" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -70,33 +71,10 @@
                                             <constraint firstItem="hP8-SX-E0Z" firstAttribute="centerX" secondItem="mtf-AF-ctZ" secondAttribute="centerX" id="xWt-dF-oHD"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YnZ-hF-c9e">
-                                        <rect key="frame" x="0.0" y="55" width="350" height="14.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 15 8:00AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1l-5b-aUl">
-                                                <rect key="frame" x="0.0" y="0.0" width="87" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_route_back" translatesAutoresizingMaskIntoConstraints="NO" id="JGM-Dd-lLw">
-                                                <rect key="frame" x="133" y="0.5" width="84" height="14"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 15 5:00PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GV0-qF-92d">
-                                                <rect key="frame" x="263" y="0.0" width="87" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="JGM-Dd-lLw" firstAttribute="centerX" secondItem="YnZ-hF-c9e" secondAttribute="centerX" id="EnD-j3-ibZ"/>
-                                        </constraints>
-                                    </stackView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="79P-cG-2Uk">
-                                <rect key="frame" x="32" y="218" width="350" height="201"/>
+                                <rect key="frame" x="32" y="199" width="350" height="201"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PLh-HR-uoO">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
@@ -166,6 +144,15 @@
                             <constraint firstItem="79P-cG-2Uk" firstAttribute="leading" secondItem="yyP-ba-4zb" secondAttribute="leading" constant="32" id="v0w-Zz-2Yx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="arrivalLocation" destination="NAI-dr-3We" id="cq3-zY-RWO"/>
+                        <outlet property="departureDateTime" destination="PS4-Hj-0Af" id="DCa-g0-7mu"/>
+                        <outlet property="departureLocation" destination="zpp-vS-grt" id="FdC-St-PEm"/>
+                        <outlet property="descriptionLabel" destination="tcd-iY-hXq" id="rPQ-If-lIc"/>
+                        <outlet property="driverName" destination="B7R-7R-pdN" id="Rip-np-eCr"/>
+                        <outlet property="profileImageView" destination="moN-lV-y6K" id="Fxt-iA-sYR"/>
+                        <outlet property="returnDateTime" destination="iSd-8T-4lf" id="mUF-yy-ljP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2d-PW-LBZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="uOu-5K-9WS">
@@ -178,8 +165,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_route" width="84" height="14"/>
-        <image name="ic_route_back" width="84" height="14"/>
+        <image name="repeat" catalog="system" width="128" height="99"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

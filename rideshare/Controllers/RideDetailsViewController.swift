@@ -6,16 +6,55 @@
 //
 
 import UIKit
+import Parse
 
 class RideDetailsViewController: UIViewController {
     
+    @IBOutlet weak var departureLocation: UILabel!
+    @IBOutlet weak var arrivalLocation: UILabel!
+    
+    @IBOutlet weak var departureDateTime: UILabel!
+    
+    @IBOutlet weak var returnDateTime: UILabel!
+    @IBOutlet weak var driverName: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
     // TODO: this should become a Ride object after the Ride class is created, used to pass information from table view to this details page
-    var rideInfo: String = ""
+    var ride: Trip?
+    var poster: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if ride == nil {
+            let tripInfo = TripInfo(pickupLocation: "", arrivalLocation: "", departureTime: Date(), returnTime: Date())
+            ride = Trip(tripId: "", posterId: "", tripInfo: tripInfo, cost: "", description: "")
+        }
+        
+        departureLocation.text = ride?.tripInfo.pickupLocation
+        arrivalLocation.text = ride?.tripInfo.arrivalLocation
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        
+        departureDateTime.text = dateFormatter.string(from: (ride?.tripInfo.departureTime)!)
+        returnDateTime.text = dateFormatter.string(from: (ride?.tripInfo.returnTime)!)
+        
+        descriptionLabel.text = ride?.description
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let index = self.poster?.lname.startIndex
+        let name = "\(poster!.fname) \(poster!.lname[index!])."
+        driverName.text = name
+        
+        profileImageView.af.setImage(withURL: poster!.profilePic)
     }
     
     @IBAction func onBookRide(_ sender: Any) {
@@ -29,7 +68,7 @@ class RideDetailsViewController: UIViewController {
         let vc = profile.instantiateViewController(identifier: "Profile") as! ProfileViewController
         
         // TODO: update this to pass the User object corresponding to the poster of this ride
-        vc.user = "look at this user!"
+        vc.user = poster
         
         navigationController?.pushViewController(vc, animated: true)
     }

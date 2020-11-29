@@ -10,19 +10,24 @@ import Parse
 import AlamofireImage
 
 class AccountDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var rides = [PFObject]()
+    var selectedPost: PFObject!
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var profilePictureImage: UIImageView!
-    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     var user = PFUser.current()
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -37,30 +42,86 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
             let urlString = imageFile.url!
             let url = URL(string: urlString)!
 
-            profilePictureImage.af.setImage(withURL: url)
+            profileImageView.af.setImage(withURL: url)
         //    profilePictureImage.setNeedsDisplay()
+            
         }
         else {
-            profilePictureImage.image = UIImage(systemName: "person")
+            profileImageView.image = UIImage(systemName: "person")
         }
-
-        var fullName : String
         
-        fullName = user?["firstName"] as! String
-        fullName += " "
-        fullName += user?["lastName"] as! String
-        fullNameLabel.text = fullName
-        
-        emailLabel.text = user?.username
+        nameLabel.text = "\(user?["firstName"] as! String) \(user?["lastName"] as! String)"
+        emailLabel.text = (user?["username"] as! String)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        return rides.count
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+        
+        // TODO: this should be updated; rides shouldn't be obtained by querying, but instead by listing out the rides that are saved in the user's list of rides
+        
+        let query = PFQuery(className: "Rides")
+        query.whereKey("driverId", equalTo: PFUser.current()!)
+        
+        query.findObjectsInBackground{(rides,error) in
+            if rides != nil {
+                self.rides = rides!
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if rides.count > 0 {
+            self.tableView.restore()
+            return 1
+        } else {
+            self.tableView.setEmptyMessage("You have no trips yet! Go out and ride 🙏")
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let ride = rides[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "AccountDetailsTableViewCell") as! AccountDetailsTableViewCell
         
+        // configure cell
+        let user = PFUser.current() as! PFUser
+        cell.driverUserName.text = user["firstName"] as? String
+        let imagefile = user["profilePicture"] as! PFFileObject
+        let urlString = (imagefile.url)!
+        let url = URL(string: urlString)!
+        
+        cell.profilePicture.af.setImage(withURL: url)
+        
+        cell.departureLocation.text = ride["departureLocation"] as? String
+        cell.arrivalLocation.text = ride["arrivalLocation"] as? String
+        
+        let str2Date = DateFormatter()
+        str2Date.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d"
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "h:mm a"
+
+        let departureTime = str2Date.date(from: ride["departureDatetime"] as! String)
+        let arrivalTime = str2Date.date(from: (ride["arrivalDatetime"]) as! String)
+        
+        cell.arrivalDate.text = dateFormatter.string(from: arrivalTime!)
+        cell.departureDate.text = dateFormatter.string( from: departureTime!)
+        cell.arrivalTime.text = timeFormatter.string(from: arrivalTime!)
+        cell.departureTime.text = timeFormatter.string( from: departureTime!)
+        
+        cell.rideDetails.text = ride["rideDetails"] as? String
+        
+        //cell.layer.cornerRadius = 40
         return cell
     }
     
@@ -71,7 +132,7 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         let vc = profile.instantiateViewController(identifier: "RideDetails") as! RideDetailsViewController
         
         // TODO: update this to pass the Ride object corresponding to this cell in the table view
-        vc.rideInfo = "look at this info!"
+//        vc.rideInfo = rides[indexPath]
         
         navigationController?.pushViewController(vc, animated: true)
     }
