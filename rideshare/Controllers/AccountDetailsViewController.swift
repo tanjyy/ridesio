@@ -9,7 +9,7 @@ import UIKit
 import Parse
 import AlamofireImage
 
-class AccountDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AccountDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var rides = [PFObject]()
     var selectedPost: PFObject!
@@ -21,6 +21,41 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
     var user = PFUser.current()
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBAction func onTapGesture(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .photoLibrary
+        
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        
+        let size = CGSize(width: 300, height: 300)
+        let scaledImage = image.af.imageScaled(to: size)
+        
+        profileImageView.image = scaledImage
+        
+        let imageData = profileImageView.image!.pngData()
+        let profilePictureFile = PFFileObject(name: "image.png", data: imageData!)
+        
+        user?["profilePicture"] = profilePictureFile
+        
+        user?.saveInBackground(block: { (success, error) in
+            if (success) {
+                print("Profile picture saved in Parse")
+                self.tableView.reloadData()
+            }
+            else {
+                print("Error: \(String(describing: error?.localizedDescription))")
+            }
+        })
+        
+        dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
