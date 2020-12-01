@@ -58,8 +58,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if rides.count > 0 {
-//            self.tableView.restore()
-            self.tableView.setEmptyMessage("This user has \(rides.count) trips! Check back later to see the details")
+            self.tableView.restore()
             return 1
         } else {
             print("rides.count = \(rides.count)")
@@ -75,11 +74,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         // TODO: this should be updated; rides should be obtained from the user's trip history
         
         let query = PFQuery(className: "Rides")
-        query.whereKey("driverId", equalTo: user!.user_id)
         
-        query.findObjectsInBackground{(rides,error) in
-            if rides != nil {
-                self.rides = rides!
+        query.findObjectsInBackground{(temp_rides,error) in
+            if temp_rides != nil {
+                self.rides = [PFObject]()
+                for ride in temp_rides! {
+                    if (ride["driverId"] as! PFUser).objectId == self.user!.user_id {
+                        self.rides.append(ride)
+                    }
+                }
                 self.tableView.reloadData()
             }
         }
@@ -113,13 +116,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         timeFormatter.dateFormat = "h:mm a"
 
         let departureTime = str2Date.date(from: ride["departureDatetime"] as! String)
-        let arrivalTime = str2Date.date(from: (ride["arrivalDatetime"]) as! String)
+        let returnTime = str2Date.date(from: (ride["arrivalDatetime"]) as! String)
         
         cell.departureDate.text = dateFormatter.string( from: departureTime!)
-        cell.returnDate.text = dateFormatter.string(from: arrivalTime!)
+        cell.returnDate.text = dateFormatter.string(from: returnTime!)
         
         cell.departureTime.text = timeFormatter.string( from: departureTime!)
-        cell.returnTime.text = timeFormatter.string(from: arrivalTime!)
+        cell.returnTime.text = timeFormatter.string(from: returnTime!)
         
         cell.ride_description.text = ride["rideDetails"] as? String
         
@@ -134,6 +137,25 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let profile = UIStoryboard(name:"RideDetails", bundle: nil)
         let vc = profile.instantiateViewController(identifier: "RideDetails") as! RideDetailsViewController
+        
+        // Pass the ride object corresponding to this row to the next view
+        let rideObject = rides[indexPath.row]
+        let departureDateTimeString = rideObject["departureDatetime"] as! String
+        let returnDateTimeString = rideObject["arrivalDatetime"] as! String
+        
+        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        let departureDateTime = dateFormatter.date(from: departureDateTimeString)!
+        let returnDateTime = dateFormatter.date(from: returnDateTimeString)!
+        
+        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime, returnTime: returnDateTime)
+        
+        let ride = Trip(tripId: rideObject.objectId!, posterId: (rideObject["driverId"] as! PFUser).objectId!, tripInfo: tripInfo, cost: "n/a", description: rideObject["rideDetails"] as! String)
+        vc.ride = ride
+        
+        vc.poster = user
         
         // TODO: update this to pass the Ride object corresponding to this cell in the table view
 //        vc.rideInfo = "look at this info!"
