@@ -64,13 +64,19 @@ class RideDetailsViewController: UIViewController {
     }
     
     @IBAction func onClickProfilePic(_ sender: Any) {
-        let profile = UIStoryboard(name:"Profile", bundle: nil)
-        let vc = profile.instantiateViewController(identifier: "Profile") as! ProfileViewController
-        
-        // TODO: update this to pass the User object corresponding to the poster of this ride
-        vc.user = poster
-        
-        navigationController?.pushViewController(vc, animated: true)
+        // if the profile being clicked is the current user, go to the account details page, otherwise go to the user's profile
+        if poster?.user_id == PFUser.current()?.objectId {
+            let storyboard = UIStoryboard(name:"AccountDetails", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "AccountDetails") as! AccountDetailsViewController
+            
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let storyboard = UIStoryboard(name:"Profile", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "Profile") as! ProfileViewController
+            vc.user = poster
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     /*

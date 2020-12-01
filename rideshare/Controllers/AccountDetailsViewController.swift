@@ -167,7 +167,58 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         let vc = profile.instantiateViewController(identifier: "RideDetails") as! RideDetailsViewController
         
         // TODO: update this to pass the Ride object corresponding to this cell in the table view
-//        vc.rideInfo = rides[indexPath]
+        let rideObject = rides[indexPath.row]
+        let departureDateTimeString = rideObject["departureDatetime"] as! String
+        let arrivalDateTimeString = rideObject["arrivalDatetime"] as! String
+        
+        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        let departureDateTime = dateFormatter.date(from: departureDateTimeString) as! Date
+        let arrivalDateTime = dateFormatter.date(from: arrivalDateTimeString) as! Date
+        
+        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime as! Date, returnTime: arrivalDateTime as! Date)
+        
+        let ride = Trip(tripId: rideObject.objectId!, posterId: PFUser.current()?.objectId ?? "", tripInfo: tripInfo, cost: "n/a", description: rideObject["rideDetails"] as! String)
+        
+        vc.ride = ride
+        
+        // Pass the user object corresponding to this row to the next view
+        let query = PFUser.query()
+        // TODO: make this get the user that posted the ride
+//        query.includeKeys(["username"])
+        query?.whereKey("objectId", equalTo: ride.posterId)
+        
+        query?.findObjectsInBackground{(users,error) in
+            
+            if users?.isEmpty != true {
+                print("users not nil")
+                let posterObj = users?[0]
+                let fname = posterObj?["firstName"] as! String
+                let lname = posterObj?["lastName"] as! String
+                let uid = posterObj?.objectId as? String ?? ""
+                let phone_number = posterObj?["phoneNumber"] as? String ?? "n/a"
+                let email = posterObj?["username"] as! String
+                let imagefile = posterObj?["profilePicture"] as! PFFileObject
+                let urlString = (imagefile.url)!
+                let profilePic = URL(string: urlString)!
+                // TODO: construct Trip History array from this
+                let tripHistoryObj = posterObj?["tripHistory"]
+                let tripHistory = [Trip]()
+                
+                let poster = User(fname: fname, lname: lname, user_id: uid, phone_number: phone_number, email: email, profilePic: profilePic, trip_history: tripHistory)
+                
+                vc.poster = poster
+            }
+            else {
+                print("users is nil")
+                print("Error: \(error?.localizedDescription)")
+                let poster = User(fname: "First", lname: "Last", user_id: "userId", phone_number: "n/a", email: "n/a", profilePic: URL(string: "")!, trip_history: [Trip]())
+                
+                vc.poster = poster
+            }
+        }
         
         navigationController?.pushViewController(vc, animated: true)
     }
