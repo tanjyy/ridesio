@@ -1,7 +1,7 @@
 # Ridesio :)
 
 ## Sprint 2 Demo GIF
-![](https://recordit.co/oO59oW14H1.gif)
+![](https://recordit.co/xrU70nwr3j.gif)
 
 ## Sprint 1 Demo GIF
 ![](./ridesio-sprint1.gif)
