@@ -52,7 +52,7 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
 - [x] User can see a list of all nearby ride offerings.
 - [x] User can create a new ride offering.
 - [ ] User can accept a nearby ride offering.
-- [ ] User can click a ride offering to see the details page.
+- [x] User can click a ride offering to see the details page.
 - [x] User sees button that links to their own profile.
 
 #### Create ride offering screen
@@ -65,7 +65,7 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
     - *Optional* negotiable? if so, users can message poster to discuss alternate pickup/destination/cost
 
 #### Ride offering details Screen
-- [ ] User sees
+- [x] User sees
     - pickup
     - destination
     - *Optional* seats available (for v2 have confirmation/messaging through app and auto update seats available)
@@ -75,11 +75,11 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
     - *Optional* negotiable? if so, users can message poster to discuss alternate pickup/destination/cost
 - [ ] User can press button to contact poster of offering.
     - "To confirm your trip, email poster and let them know how many seats you need."
-- [ ] Creator of ride offering can edit details.
+- *Optional* Creator of ride offering can edit details.
 - *Optional* User can message poster of offering.
 
 #### Profile screen (for others)
-- [ ] User can see
+- [x] User can see
     - Profile picture
     - First name
     - Last initial
