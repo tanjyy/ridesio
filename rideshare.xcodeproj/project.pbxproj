@@ -49,7 +49,6 @@
 		A3EBDC222547C3190019B31B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3EBDC202547C3190019B31B /* LaunchScreen.storyboard */; };
 		A3EBDC2D2547C3190019B31B /* rideshareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBDC2C2547C3190019B31B /* rideshareTests.swift */; };
 		A3EBDC382547C3190019B31B /* rideshareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBDC372547C3190019B31B /* rideshareUITests.swift */; };
-		A3F27EC0257C2AFB00C7F424 /* NetworkingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F27EBF257C2AFB00C7F424 /* NetworkingUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,7 +121,6 @@
 		A3EBDC332547C3190019B31B /* rideshareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rideshareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EBDC372547C3190019B31B /* rideshareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rideshareUITests.swift; sourceTree = "<group>"; };
 		A3EBDC392547C3190019B31B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A3F27EBF257C2AFB00C7F424 /* NetworkingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkingUtil.swift; path = rideshare/Assets.xcassets/NetworkingUtil.swift; sourceTree = SOURCE_ROOT; };
 		CA88661A7DF5FCB83D45BC1E /* Pods-rideshareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshareTests.release.xcconfig"; path = "Target Support Files/Pods-rideshareTests/Pods-rideshareTests.release.xcconfig"; sourceTree = "<group>"; };
 		CFE7941CC011BD32589D7E76 /* Pods_rideshare_rideshareUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rideshare_rideshareUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -183,7 +181,6 @@
 		A34CDDEF254DB8C900153A26 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A3F27EBF257C2AFB00C7F424 /* NetworkingUtil.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -578,7 +575,6 @@
 				20AAD66B25608B8100DFB63F /* LoginViewController.swift in Sources */,
 				48D44A942563725800E02BB7 /* RideOfferingTableViewCell.swift in Sources */,
 				A33E37FF2568B33F0047D348 /* SettingsProfileCell.swift in Sources */,
-				A3F27EC0257C2AFB00C7F424 /* NetworkingUtil.swift in Sources */,
 				A3EBDC162547C3180019B31B /* AppDelegate.swift in Sources */,
 				A3DE164C256AF1330048196E /* Trip.swift in Sources */,
 				A35CACA8256DECD40019C89E /* SignUpViewController.swift in Sources */,
