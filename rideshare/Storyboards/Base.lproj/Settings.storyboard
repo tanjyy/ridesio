@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yao-sJ-PF2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yao-sJ-PF2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,9 @@
     <customFonts key="customFonts">
         <array key="Inter-Bold-slnt=0.ttf">
             <string>Inter-Bold</string>
+        </array>
+        <array key="Inter-Regular-slnt=0.ttf">
+            <string>Inter-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -80,32 +84,21 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsContentCell" id="TFZ-f8-4Kr" customClass="SettingsContentCell" customModule="rideshare" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="175.5" width="414" height="67.5"/>
+                                        <rect key="frame" x="0.0" y="175.5" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TFZ-f8-4Kr" id="1j8-m9-l8v">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Preferences cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zB0-oj-r0c">
-                                                    <rect key="frame" x="30" y="21" width="169.5" height="25.5"/>
-                                                    <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="20"/>
+                                                    <rect key="frame" x="30" y="21" width="162" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GXk-gK-fhr">
-                                                    <rect key="frame" x="374" y="21.5" width="30" height="25"/>
-                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="Kwi-V0-jHT"/>
-                                                        <constraint firstAttribute="height" constant="30" id="QJE-UQ-G5o"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="GXk-gK-fhr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zB0-oj-r0c" secondAttribute="trailing" constant="10" id="AN8-kw-R3G"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="zB0-oj-r0c" secondAttribute="bottom" constant="10" id="IRH-Iu-nBS"/>
-                                                <constraint firstItem="GXk-gK-fhr" firstAttribute="centerY" secondItem="1j8-m9-l8v" secondAttribute="centerY" id="KpW-dA-uTx"/>
-                                                <constraint firstAttribute="trailing" secondItem="GXk-gK-fhr" secondAttribute="trailing" constant="10" id="Tgj-wE-vqd"/>
                                                 <constraint firstItem="zB0-oj-r0c" firstAttribute="leading" secondItem="1j8-m9-l8v" secondAttribute="leadingMargin" constant="10" id="WWM-nY-gbi"/>
                                                 <constraint firstItem="zB0-oj-r0c" firstAttribute="top" secondItem="1j8-m9-l8v" secondAttribute="topMargin" constant="10" id="mdf-uI-GHp"/>
                                             </constraints>
@@ -131,7 +124,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="profile" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

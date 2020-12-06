@@ -11,6 +11,7 @@ import Parse
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let numSections = 1;
+    let user = PFUser.current()
     
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -71,14 +72,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingsProfileCell") as! SettingsProfileCell
             
-            // TODO: set fname and lname based on PFUser
-            let fname = "First"
-            let lname = "Last"
-            // end update
-            
             // TODO: update profile picture using profile pic of user
             
-            cell.name.text = "\(fname) \(lname)"
+            cell.name.text = "\(user?["firstName"] as! String) \(user?["lastName"] as! String)"
             return cell
         } else if indexPath.row == 1 {
             let cell : UITableViewCell = UITableViewCell()
