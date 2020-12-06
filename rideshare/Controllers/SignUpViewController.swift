@@ -31,6 +31,7 @@ class SignUpViewController: UIViewController {
         user["firstName"] = firstNameField.text
         user["lastName"] = lastNameField.text
         user.username = emailField.text
+        user["email"] = emailField.text
         user.password = passwordField.text
 
         user.signUpInBackground { (success, error) in
