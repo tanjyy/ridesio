@@ -71,14 +71,17 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingsProfileCell") as! SettingsProfileCell
             
-            // TODO: set fname and lname based on PFUser
-            let fname = "First"
-            let lname = "Last"
-            // end update
-            
-            // TODO: update profile picture using profile pic of user
-            
+            let user = PFUser.current()
+            let fname = user?["firstName"] as? String ?? ""
+            let lname = user?["lastName"] as? String ?? ""
             cell.name.text = "\(fname) \(lname)"
+            
+            let imagefile = user?["profilePicture"] as! PFFileObject
+            let urlString = (imagefile.url)!
+            let url = URL(string: urlString)!
+            
+            cell.profileImageView.af.setImage(withURL: url)
+            
             return cell
         } else if indexPath.row == 1 {
             let cell : UITableViewCell = UITableViewCell()
