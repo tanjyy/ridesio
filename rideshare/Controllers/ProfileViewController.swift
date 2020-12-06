@@ -73,20 +73,39 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         // TODO: this should be updated; rides should be obtained from the user's trip history
         
+//        let query = PFQuery(className: "Rides")
+//
+//        query.findObjectsInBackground{(temp_rides,error) in
+//            if temp_rides != nil {
+//                self.rides = [PFObject]()
+//                for ride in temp_rides! {
+//                    if (ride["driverId"] as! PFUser).objectId == self.user!.user_id {
+//                        self.rides.append(ride)
+//                    }
+//                }
+//                self.tableView.reloadData()
+//            }
+//        }
+        
         let query = PFQuery(className: "Rides")
         
-        query.findObjectsInBackground{(temp_rides,error) in
-            if temp_rides != nil {
-                self.rides = [PFObject]()
-                for ride in temp_rides! {
-                    if (ride["driverId"] as! PFUser).objectId == self.user!.user_id {
-                        self.rides.append(ride)
+        query.findObjectsInBackground{(rides,error) in
+            if rides != nil {
+                var filtered_rides = [PFObject]()
+                if let unwrapped_rides = rides {
+                    for ride in unwrapped_rides {
+                        let riders = ride["riders"] as! [PFObject]
+                        for rider in riders {
+                            if rider.objectId == self.user!.user_id {
+                                filtered_rides.append(ride)
+                            }
+                        }
                     }
                 }
+                self.rides = filtered_rides
                 self.tableView.reloadData()
             }
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -98,36 +117,70 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let ride = rides[indexPath.row]
         
-        // TODO: UPDATE
+//        cell.driver_name.text = user!.fname
+//        cell.profile_picture.af.setImage(withURL: user!.profilePic)
+//
+//        cell.pickup_location.text = ride["departureLocation"] as? String
+//        cell.destination_location.text = ride["arrivalLocation"] as? String
+//
+//        let str2Date = DateFormatter()
+//        str2Date.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "MMM d"
+//
+//        let timeFormatter = DateFormatter()
+//        timeFormatter.dateFormat = "h:mm a"
+//
+//        let departureTime = str2Date.date(from: ride["departureDatetime"] as! String)
+//        let returnTime = str2Date.date(from: (ride["arrivalDatetime"]) as! String)
+//
+//        cell.departureDate.text = dateFormatter.string( from: departureTime!)
+//        cell.returnDate.text = dateFormatter.string(from: returnTime!)
+//
+//        cell.departureTime.text = timeFormatter.string( from: departureTime!)
+//        cell.returnTime.text = timeFormatter.string(from: returnTime!)
+//
+//        cell.ride_description.text = ride["rideDetails"] as? String
+        
         // configure cell
-        cell.driver_name.text = user!.fname
-        cell.profile_picture.af.setImage(withURL: user!.profilePic)
+        let poster = ride["driverId"] as! PFUser
         
-        cell.pickup_location.text = ride["departureLocation"] as? String
-        cell.destination_location.text = ride["arrivalLocation"] as? String
-        
-        let str2Date = DateFormatter()
-        str2Date.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d"
-        
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "h:mm a"
+        poster.fetchInBackground { (object, error) in
+            if error == nil {
+                cell.driver_name.text = poster["firstName"] as? String
+                let imagefile = poster["profilePicture"] as! PFFileObject
+                let urlString = (imagefile.url)!
+                let url = URL(string: urlString)!
+                
+                cell.profile_picture.af.setImage(withURL: url)
 
-        let departureTime = str2Date.date(from: ride["departureDatetime"] as! String)
-        let returnTime = str2Date.date(from: (ride["arrivalDatetime"]) as! String)
+                cell.pickup_location.text = ride["departureLocation"] as? String
+                cell.destination_location.text = ride["arrivalLocation"] as? String
+
+                let str2Date = DateFormatter()
+                str2Date.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMM d"
+
+                let timeFormatter = DateFormatter()
+                timeFormatter.dateFormat = "h:mm a"
+
+                let departureTime = str2Date.date(from: ride["departureDatetime"] as! String)
+                let arrivalTime = str2Date.date(from: (ride["arrivalDatetime"]) as! String)
+
+                cell.returnDate.text = dateFormatter.string(from: arrivalTime!)
+                cell.departureDate.text = dateFormatter.string( from: departureTime!)
+                cell.returnTime.text = timeFormatter.string(from: arrivalTime!)
+                cell.departureTime.text = timeFormatter.string( from: departureTime!)
+
+                cell.ride_description.text = ride["rideDetails"] as? String
+            } else {
+                print("failed to fetch")
+            }
+        }
         
-        cell.departureDate.text = dateFormatter.string( from: departureTime!)
-        cell.returnDate.text = dateFormatter.string(from: returnTime!)
-        
-        cell.departureTime.text = timeFormatter.string( from: departureTime!)
-        cell.returnTime.text = timeFormatter.string(from: returnTime!)
-        
-        cell.ride_description.text = ride["rideDetails"] as? String
-        
-        
-        // END UPDATE
         
         return cell
     }
@@ -155,7 +208,39 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let ride = Trip(tripId: rideObject.objectId!, posterId: (rideObject["driverId"] as! PFUser).objectId!, tripInfo: tripInfo, cost: "n/a", description: rideObject["rideDetails"] as! String)
         vc.ride = ride
         
-        vc.poster = user
+        // Pass the user object corresponding to this row to the next view
+        let query = PFUser.query()
+        query?.whereKey("objectId", equalTo: (rideObject["driverId"] as! PFUser).objectId!)
+        
+        query?.findObjectsInBackground{(users,error) in
+            
+            if users?.isEmpty != true {
+                print("users not nil")
+                let posterObj = users?[0]
+                let fname = posterObj?["firstName"] as! String
+                let lname = posterObj?["lastName"] as! String
+                let uid = posterObj?.objectId as? String ?? ""
+                let phone_number = posterObj?["phoneNumber"] as? String ?? "n/a"
+                let email = posterObj?["username"] as! String
+                let imagefile = posterObj?["profilePicture"] as! PFFileObject
+                let urlString = (imagefile.url)!
+                let profilePic = URL(string: urlString)!
+                // TODO: construct Trip History array from this
+                let tripHistoryObj = posterObj?["tripHistory"]
+                let tripHistory = [Trip]()
+                
+                let poster = User(fname: fname, lname: lname, user_id: uid, phone_number: phone_number, email: email, profilePic: profilePic, trip_history: tripHistory)
+                
+                vc.poster = poster
+            }
+            else {
+                print("users is nil")
+                print("Error: \(error?.localizedDescription)")
+                let poster = User(fname: "First", lname: "Last", user_id: "userId", phone_number: "n/a", email: "n/a", profilePic: URL(string: "www.ridesio.com")!, trip_history: [Trip]())
+                
+                vc.poster = poster
+            }
+        }
         
         // TODO: update this to pass the Ride object corresponding to this cell in the table view
 //        vc.rideInfo = "look at this info!"
