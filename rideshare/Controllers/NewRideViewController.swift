@@ -57,6 +57,7 @@ class NewRideViewController: UIViewController,UINavigationControllerDelegate {
         
         ride["driverId"] = PFUser.current()
         ride["rideDetails"] = rideDetails.text
+        ride.add(PFUser.current(), forKey: "riders")
 
         ride.saveInBackground { (success, error)  in
             if (success) {

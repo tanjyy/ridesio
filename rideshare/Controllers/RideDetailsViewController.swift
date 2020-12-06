@@ -58,9 +58,62 @@ class RideDetailsViewController: UIViewController {
     }
     
     @IBAction func onBookRide(_ sender: Any) {
-        // TODO: open email app with relevant fields populated
+        if ride?.posterId == PFUser.current()?.objectId {
+            print("can't book ride that you posted")
+            return
+        }
+        
+        let query = PFQuery(className: "Rides")
+        query.whereKey("objectId", equalTo: ride?.tripId as! String)
+        
+        query.findObjectsInBackground{(rides,error) in
+            if rides != nil {
+                let curr_ride = rides![0]
+                
+                var isAlreadyRider = false
+                
+                // TODO: add logic here to not add user if they are already a rider
+                let riders = curr_ride["riders"] as! [PFObject]
+                for rider in riders {
+                    if rider.objectId == PFUser.current()?.objectId {
+                        isAlreadyRider = true
+                        break
+                    }
+                }
+                
+                if isAlreadyRider {
+                    print("Can't book ride twice, not booking ride")
+                    // TODO: add a popup dialog here that informs user of why the operation failed
+                } else {
+                    curr_ride.add(PFUser.current(), forKey: "riders")
+                    
+                    curr_ride.saveInBackground { (success, error)  in
+                        if (success) {
+                            print("ride booked!")
+                            
+                            // TODO: open email app with relevant fields populated
+                            let email = self.poster?.email as! String
+                            if let url = URL(string: "mailto:\(email)") {
+                                print("opening mail app")
+                                UIApplication.shared.open(url)
+                            } else {
+                                print("opening mail app failed")
+                            }
+                            
+                            _ = self.navigationController?.popViewController(animated: true)
+                        } else {
+                            // TODO: add a popup dialog here that informs user of why the operation failed
+                            print("\(error?.localizedDescription)")
+                        }
+                    }
+                }
+                
+                
+            }
+        }
+        
         // TODO: add ride to user's list of rides
-        print("ride booked!")
+        
     }
     
     @IBAction func onClickProfilePic(_ sender: Any) {
