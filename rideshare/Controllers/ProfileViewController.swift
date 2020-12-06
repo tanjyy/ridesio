@@ -71,38 +71,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidAppear(animated)
         self.tableView.reloadData()
         
-        // TODO: this should be updated; rides should be obtained from the user's trip history
-        
-//        let query = PFQuery(className: "Rides")
-//
-//        query.findObjectsInBackground{(temp_rides,error) in
-//            if temp_rides != nil {
-//                self.rides = [PFObject]()
-//                for ride in temp_rides! {
-//                    if (ride["driverId"] as! PFUser).objectId == self.user!.user_id {
-//                        self.rides.append(ride)
-//                    }
-//                }
-//                self.tableView.reloadData()
-//            }
-//        }
-        
         let query = PFQuery(className: "Rides")
-        
-        query.findObjectsInBackground{(rides,error) in
-            if rides != nil {
-                var filtered_rides = [PFObject]()
-                if let unwrapped_rides = rides {
-                    for ride in unwrapped_rides {
-                        let riders = ride["riders"] as! [PFObject]
-                        for rider in riders {
-                            if rider.objectId == self.user!.user_id {
-                                filtered_rides.append(ride)
-                            }
-                        }
+
+        query.findObjectsInBackground{(temp_rides,error) in
+            if temp_rides != nil {
+                self.rides = [PFObject]()
+                for ride in temp_rides! {
+                    if (ride["driverId"] as! PFUser).objectId == self.user!.user_id {
+                        self.rides.append(ride)
                     }
                 }
-                self.rides = filtered_rides
                 self.tableView.reloadData()
             }
         }
