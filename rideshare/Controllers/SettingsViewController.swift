@@ -71,7 +71,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingsProfileCell") as! SettingsProfileCell
-            
             cell.name.text = "\(user?["firstName"] as! String) \(user?["lastName"] as! String)"
             
             if let imagefile = user?["profilePicture"] as? PFFileObject {
