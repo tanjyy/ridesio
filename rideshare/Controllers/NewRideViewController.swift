@@ -19,8 +19,7 @@ class NewRideViewController: UIViewController,UINavigationControllerDelegate {
     @IBOutlet weak var departureDatePicker: UIDatePicker!
     
     @IBOutlet weak var arrivalDatePicker: UIDatePicker!
-    @IBOutlet weak var rideDetails: UITextField!
-
+    @IBOutlet weak var rideDetails: UITextView!
     
     @IBAction func onDismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -28,7 +27,9 @@ class NewRideViewController: UIViewController,UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let color : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
+        rideDetails.layer.borderWidth = 1
+        rideDetails.layer.borderColor = color.cgColor
         // Do any additional setup after loading the view.
     }
     
