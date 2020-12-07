@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0fh-1W-Srv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2wi-ez-Sbt">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -181,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcU-aj-RfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92.753623188405811" y="27.455357142857142"/>
+            <point key="canvasLocation" x="1002.8985507246377" y="27.455357142857142"/>
         </scene>
         <!--Settings-->
         <scene sceneID="QjJ-Ll-G6w">
@@ -191,12 +191,13 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puo-Fa-ZKW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="621" y="27"/>
+            <point key="canvasLocation" x="1529.7101449275362" y="26.785714285714285"/>
         </scene>
         <!--Ride Offerings-->
         <scene sceneID="ujQ-oz-Jji">
             <objects>
                 <navigationController storyboardIdentifier="RideOfferingsNavigation" title="Ride Offerings" automaticallyAdjustsScrollViewInsets="NO" id="0fh-1W-Srv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Ride Offerings" image="list.number" catalog="system" id="wq7-DZ-ccV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xNL-wU-oen">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -209,11 +210,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z33-Z6-ych" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="92.753623188405811" y="27.455357142857142"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="5n5-nj-RC6">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2wi-ez-Sbt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Jl-B4-pWv">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="0fh-1W-Srv" kind="relationship" relationship="viewControllers" id="zea-Rj-jb2"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e26-vr-IX3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="-817.39130434782612" y="27.455357142857142"/>
         </scene>
     </scenes>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="list.number" catalog="system" width="128" height="97"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

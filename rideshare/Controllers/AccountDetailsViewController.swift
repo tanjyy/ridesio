@@ -139,12 +139,13 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         poster.fetchInBackground { (object, error) in
             if error == nil {
                 cell.driverUserName.text = poster["firstName"] as? String
-                let imagefile = poster["profilePicture"] as! PFFileObject
-                let urlString = (imagefile.url)!
-                let url = URL(string: urlString)!
+                if let imagefile = poster["profilePicture"] as? PFFileObject {
+                    let urlString = (imagefile.url)!
+                    let url = URL(string: urlString)!
+                    
+                    cell.profilePicture.af.setImage(withURL: url)
+                }
                 
-                cell.profilePicture.af.setImage(withURL: url)
-
                 cell.departureLocation.text = ride["departureLocation"] as? String
                 cell.arrivalLocation.text = ride["arrivalLocation"] as? String
 
@@ -212,11 +213,13 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
                 let uid = posterObj?.objectId as? String ?? ""
                 let phone_number = posterObj?["phoneNumber"] as? String ?? "n/a"
                 let email = posterObj?["username"] as! String
-                let imagefile = posterObj?["profilePicture"] as! PFFileObject
-                let urlString = (imagefile.url)!
-                let profilePic = URL(string: urlString)!
-                // TODO: construct Trip History array from this
-                let tripHistoryObj = posterObj?["tripHistory"]
+                var profilePic = URL(string: "www.ridesio.com")!
+                if let imagefile = posterObj?["profilePicture"] as? PFFileObject {
+                    let urlString = (imagefile.url)!
+                    profilePic = URL(string: urlString)!
+                }
+                
+                // TODO: remove tripHistory from User class?
                 let tripHistory = [Trip]()
                 
                 let poster = User(fname: fname, lname: lname, user_id: uid, phone_number: phone_number, email: email, profilePic: profilePic, trip_history: tripHistory)

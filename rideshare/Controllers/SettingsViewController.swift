@@ -7,12 +7,13 @@
 
 import UIKit
 import Parse
+import AlamofireImage
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let numSections = 1;
+    let user = PFUser.current()
     
-    @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     var cells: [String] = [String]()
@@ -70,15 +71,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingsProfileCell") as! SettingsProfileCell
+            cell.name.text = "\(user?["firstName"] as! String) \(user?["lastName"] as! String)"
             
-            // TODO: set fname and lname based on PFUser
-            let fname = "First"
-            let lname = "Last"
-            // end update
+            if let imagefile = user?["profilePicture"] as? PFFileObject {
+                let urlString = (imagefile.url)!
+                let url = URL(string: urlString)!
+                cell.profileImageView.af.setImage(withURL: url)
+            }
             
-            // TODO: update profile picture using profile pic of user
-            
-            cell.name.text = "\(fname) \(lname)"
             return cell
         } else if indexPath.row == 1 {
             let cell : UITableViewCell = UITableViewCell()
