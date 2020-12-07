@@ -63,11 +63,12 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         // configure cell
         let user = ride["driverId"] as! PFUser
         cell.driverUserName.text = user["firstName"] as? String
-        let imagefile = user["profilePicture"] as! PFFileObject
-        let urlString = (imagefile.url)!
-        let url = URL(string: urlString)!
-        
-        cell.profilePicture.af.setImage(withURL: url)
+        if  let imagefile = user["profilePicture"] as? PFFileObject {
+            let urlString = (imagefile.url)!
+            let url = URL(string: urlString)!
+            
+            cell.profilePicture.af.setImage(withURL: url)
+        }
         
         cell.departureLocation.text = ride["departureLocation"] as? String
         cell.arrivalLocation.text = ride["arrivalLocation"] as? String
@@ -134,11 +135,12 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
                 let uid = posterObj?.objectId as? String ?? ""
                 let phone_number = posterObj?["phoneNumber"] as? String ?? "n/a"
                 let email = posterObj?["username"] as! String
-                let imagefile = posterObj?["profilePicture"] as! PFFileObject
-                let urlString = (imagefile.url)!
-                let profilePic = URL(string: urlString)!
-                // TODO: construct Trip History array from this
-                let tripHistoryObj = posterObj?["tripHistory"]
+                var profilePic = URL(string: "www.ridesio.com")!
+                if let imagefile = posterObj?["profilePicture"] as? PFFileObject {
+                    let urlString = (imagefile.url)!
+                    profilePic = URL(string: urlString)!
+                }
+                
                 let tripHistory = [Trip]()
                 
                 let poster = User(fname: fname, lname: lname, user_id: uid, phone_number: phone_number, email: email, profilePic: profilePic, trip_history: tripHistory)

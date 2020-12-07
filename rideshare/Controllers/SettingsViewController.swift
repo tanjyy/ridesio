@@ -72,15 +72,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingsProfileCell") as! SettingsProfileCell
             
-            // TODO: update profile picture using profile pic of user
-            
             cell.name.text = "\(user?["firstName"] as! String) \(user?["lastName"] as! String)"
             
-            let imagefile = user!["profilePicture"] as! PFFileObject
-            let urlString = (imagefile.url)!
-            let url = URL(string: urlString)!
-            cell.profileImageView.af.setImage(withURL: url)
-            
+            if let imagefile = user?["profilePicture"] as? PFFileObject {
+                let urlString = (imagefile.url)!
+                let url = URL(string: urlString)!
+                cell.profileImageView.af.setImage(withURL: url)
+            }
             
             return cell
         } else if indexPath.row == 1 {
