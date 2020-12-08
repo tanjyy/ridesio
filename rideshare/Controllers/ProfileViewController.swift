@@ -53,6 +53,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         nameLabel.text = "\(user!.fname) \(user!.lname[index])"
         emailAddressLabel.text = (user!.email)
         
+        profileImageView.makeRounded()
         profileImageView.af.setImage(withURL: user!.profilePic)
     }
     

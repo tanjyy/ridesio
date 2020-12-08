@@ -63,6 +63,8 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         tableView.dataSource = self
         tableView.delegate = self
         
+        profileImageView.makeRounded()
+        
         // Do any additional setup after loading the view.
     }
     
