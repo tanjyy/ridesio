@@ -27,6 +27,8 @@ class RideDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        profileImageView.makeRounded()
+        
         if ride == nil {
             let tripInfo = TripInfo(pickupLocation: "", arrivalLocation: "", departureTime: Date(), returnTime: Date())
             ride = Trip(tripId: "", posterId: "", tripInfo: tripInfo, cost: "", description: "")

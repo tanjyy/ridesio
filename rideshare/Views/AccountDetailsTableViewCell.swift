@@ -23,6 +23,8 @@ class AccountDetailsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        profilePicture.makeRounded()
         // Initialization code
     }
 

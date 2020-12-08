@@ -15,6 +15,8 @@ class SettingsProfileCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        profileImageView.makeRounded()
         // Initialization code
     }
 

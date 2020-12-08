@@ -22,6 +22,8 @@ class ProfileTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        profile_picture.makeRounded()
         // Initialization code
     }
 

@@ -13,6 +13,7 @@
 		20AAD682256369BF00DFB63F /* NewRide.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20AAD681256369BF00DFB63F /* NewRide.storyboard */; };
 		20AAD687256369E100DFB63F /* RideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20AAD686256369E100DFB63F /* RideDetails.storyboard */; };
 		45266175CFB098CA7FB83DFC /* Pods_rideshareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF0CB0EA57EE68C07BE5E0B /* Pods_rideshareTests.framework */; };
+		4814C08D257F1A6200C5B4C8 /* UIImageView+makeRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4814C08C257F1A6200C5B4C8 /* UIImageView+makeRounded.swift */; };
 		48D44A812563721900E02BB7 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D44A7E2563721900E02BB7 /* AccountDetailsViewController.swift */; };
 		48D44A822563721900E02BB7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D44A7F2563721900E02BB7 /* ProfileViewController.swift */; };
 		48D44A832563721900E02BB7 /* RideOfferingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D44A802563721900E02BB7 /* RideOfferingsViewController.swift */; };
@@ -76,6 +77,7 @@
 		20AAD67C2560AE6C00DFB63F /* RideDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RideDetailsViewController.swift; path = rideshare/Controllers/RideDetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		20AAD681256369BF00DFB63F /* NewRide.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewRide.storyboard; sourceTree = "<group>"; };
 		20AAD686256369E100DFB63F /* RideDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RideDetails.storyboard; sourceTree = "<group>"; };
+		4814C08C257F1A6200C5B4C8 /* UIImageView+makeRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+makeRounded.swift"; sourceTree = "<group>"; };
 		48D44A7E2563721900E02BB7 /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
 		48D44A7F2563721900E02BB7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		48D44A802563721900E02BB7 /* RideOfferingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideOfferingsViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				A3C095D82572F48900328FEB /* UITableView+setEmptyMessage.swift */,
+				4814C08C257F1A6200C5B4C8 /* UIImageView+makeRounded.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				A3DE1647256AEFF50048196E /* User.swift in Sources */,
 				A3EBDC182547C3180019B31B /* SceneDelegate.swift in Sources */,
 				48D44A822563721900E02BB7 /* ProfileViewController.swift in Sources */,
+				4814C08D257F1A6200C5B4C8 /* UIImageView+makeRounded.swift in Sources */,
 				20AAD6782560A90300DFB63F /* NewRideViewController.swift in Sources */,
 				48D44A832563721900E02BB7 /* RideOfferingsViewController.swift in Sources */,
 				48D44A812563721900E02BB7 /* AccountDetailsViewController.swift in Sources */,
