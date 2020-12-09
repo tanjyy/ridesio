@@ -195,6 +195,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="FilterButton" destination="W0n-S4-2U6" id="7fn-5P-2Dr"/>
+                        <outlet property="SortButton" destination="Cj4-3S-KxQ" id="cIY-Vh-0aC"/>
                         <outlet property="rideOfferingsTableView" destination="ijk-Op-vVd" id="62E-Xd-5aa"/>
                     </connections>
                 </viewController>
@@ -236,10 +238,9 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2wi-ez-Sbt" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Jl-B4-pWv">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="8Jl-B4-pWv">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="0fh-1W-Srv" kind="relationship" relationship="viewControllers" id="zea-Rj-jb2"/>

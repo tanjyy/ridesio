@@ -13,8 +13,12 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
     var rides = [PFObject]()
     var selectedPost: PFObject!
     
-
+    @IBOutlet weak var FilterButton: UIButton!
+    @IBOutlet weak var SortButton: UIButton!
+    
     @IBOutlet weak var rideOfferingsTableView: UITableView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,12 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         rideOfferingsTableView.delegate = self
         rideOfferingsTableView.dataSource = self
         rideOfferingsTableView.separatorStyle = .none
+        SortButton.clipsToBounds = true
+        SortButton.layer.cornerRadius = 10
+        SortButton.addShadow(offset: CGSize.init(width: 3, height: 3), color: UIColor.black, radius: 2.0, opacity: 0.35)
+        FilterButton.clipsToBounds = true
+        FilterButton.layer.cornerRadius = 10
+        FilterButton.addShadow(offset: CGSize.init(width: 3, height: 3), color: UIColor.black, radius: 2.0, opacity: 0.35)
 
         // Do any additional setup after loading the view.
     }
@@ -60,20 +70,11 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         return rides.count
     }
     
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let cell = rideOfferingsTableView.dequeueReusableCell(withIdentifier: "RideOfferingTableViewCell") as! RideOfferingTableViewCell
-//        cell.layer.cornerRadius = 10
-//        cell.layer.masksToBounds = true
-//        cell.contentView.layer.masksToBounds = false
-//        let radius = cell.contentView.layer.cornerRadius
-//        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: radius).cgPath
-//    }
-//
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ride = rides[indexPath.row]
         let cell = rideOfferingsTableView.dequeueReusableCell(withIdentifier: "RideOfferingTableViewCell") as! RideOfferingTableViewCell
         
-        //cell.contentView.layer.masksToBounds = false
         
         // configure cell
         let user = ride["driverId"] as! PFUser
