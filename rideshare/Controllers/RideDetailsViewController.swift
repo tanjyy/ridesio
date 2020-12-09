@@ -24,6 +24,9 @@ class RideDetailsViewController: UIViewController {
     var ride: Trip?
     var poster: User?
     
+    // do this in one of the init methods
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

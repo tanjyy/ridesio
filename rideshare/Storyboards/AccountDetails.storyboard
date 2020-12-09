@@ -191,7 +191,7 @@
         <scene sceneID="hHb-Gb-pcl">
             <objects>
                 <navigationController storyboardIdentifier="AccountDetailsNavigation" title="My Profile" automaticallyAdjustsScrollViewInsets="NO" id="D7j-eA-Qb5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.crop.circle" catalog="system" id="zAz-89-qUg"/>
+                    <tabBarItem key="tabBarItem" title="" image="person.crop.circle" catalog="system" id="zAz-89-qUg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oVM-89-t2M">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -212,6 +212,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="UaK-e4-gbS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rvs-fD-Kvg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

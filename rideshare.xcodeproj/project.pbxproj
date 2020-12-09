@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200528A02580A9E3003A5F2E /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2005289F2580A9E3003A5F2E /* ShadowView.swift */; };
 		20AAD66B25608B8100DFB63F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AAD66A25608B8100DFB63F /* LoginViewController.swift */; };
 		20AAD6782560A90300DFB63F /* NewRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AAD6772560A90300DFB63F /* NewRideViewController.swift */; };
 		20AAD67D2560AE6C00DFB63F /* RideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AAD67C2560AE6C00DFB63F /* RideDetailsViewController.swift */; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		043127EACA48CF0C1047517C /* Pods-rideshareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshareTests.debug.xcconfig"; path = "Target Support Files/Pods-rideshareTests/Pods-rideshareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0BF0CB0EA57EE68C07BE5E0B /* Pods_rideshareTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rideshareTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2005289F2580A9E3003A5F2E /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		20AAD66A25608B8100DFB63F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = rideshare/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		20AAD6772560A90300DFB63F /* NewRideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewRideViewController.swift; path = rideshare/Controllers/NewRideViewController.swift; sourceTree = SOURCE_ROOT; };
 		20AAD67C2560AE6C00DFB63F /* RideDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RideDetailsViewController.swift; path = rideshare/Controllers/RideDetailsViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -260,6 +262,7 @@
 			children = (
 				A3C095D82572F48900328FEB /* UITableView+setEmptyMessage.swift */,
 				4814C08C257F1A6200C5B4C8 /* UIImageView+makeRounded.swift */,
+				2005289F2580A9E3003A5F2E /* ShadowView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				A3D8185C25699E47003F4510 /* SettingsContentCell.swift in Sources */,
 				A3F27F042580761F00C7F424 /* SearchViewController.swift in Sources */,
 				48D44A932563725800E02BB7 /* ProfileTableViewCell.swift in Sources */,
+				200528A02580A9E3003A5F2E /* ShadowView.swift in Sources */,
 				A3DE1647256AEFF50048196E /* User.swift in Sources */,
 				481EE8B025801FE10009B7D9 /* LegalViewController.swift in Sources */,
 				A3EBDC182547C3180019B31B /* SceneDelegate.swift in Sources */,

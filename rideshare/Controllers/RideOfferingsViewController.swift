@@ -12,6 +12,7 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
     
     var rides = [PFObject]()
     var selectedPost: PFObject!
+    
 
     @IBOutlet weak var rideOfferingsTableView: UITableView!
     
@@ -20,6 +21,7 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         
         rideOfferingsTableView.delegate = self
         rideOfferingsTableView.dataSource = self
+        rideOfferingsTableView.separatorStyle = .none
 
         // Do any additional setup after loading the view.
     }
@@ -45,6 +47,8 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
+    
+    
     @IBAction func onNewRideButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "NewRide", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "NewRide")
@@ -56,9 +60,20 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         return rides.count
     }
     
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let cell = rideOfferingsTableView.dequeueReusableCell(withIdentifier: "RideOfferingTableViewCell") as! RideOfferingTableViewCell
+//        cell.layer.cornerRadius = 10
+//        cell.layer.masksToBounds = true
+//        cell.contentView.layer.masksToBounds = false
+//        let radius = cell.contentView.layer.cornerRadius
+//        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: radius).cgPath
+//    }
+//
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ride = rides[indexPath.row]
         let cell = rideOfferingsTableView.dequeueReusableCell(withIdentifier: "RideOfferingTableViewCell") as! RideOfferingTableViewCell
+        
+        //cell.contentView.layer.masksToBounds = false
         
         // configure cell
         let user = ride["driverId"] as! PFUser
@@ -111,10 +126,10 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
 //        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
-        let departureDateTime = dateFormatter.date(from: departureDateTimeString) as! Date
-        let arrivalDateTime = dateFormatter.date(from: arrivalDateTimeString) as! Date
+        let departureDateTime = dateFormatter.date(from: departureDateTimeString)!
+        let arrivalDateTime = dateFormatter.date(from: arrivalDateTimeString)!
         
-        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime as! Date, returnTime: arrivalDateTime as! Date)
+        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime as! Date, returnTime: arrivalDateTime )
         
         let ride = Trip(tripId: rideObject.objectId!, posterId: (rideObject["driverId"] as! PFUser).objectId!, tripInfo: tripInfo, cost: "n/a", description: rideObject["rideDetails"] as! String)
         vc.ride = ride
@@ -132,7 +147,7 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
                 let posterObj = users?[0]
                 let fname = posterObj?["firstName"] as! String
                 let lname = posterObj?["lastName"] as! String
-                let uid = posterObj?.objectId as? String ?? ""
+                let uid = posterObj?.objectId ?? ""
                 let phone_number = posterObj?["phoneNumber"] as? String ?? "n/a"
                 let email = posterObj?["username"] as! String
                 var profilePic = URL(string: "www.ridesio.com")!
