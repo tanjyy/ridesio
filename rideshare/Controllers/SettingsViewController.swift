@@ -98,8 +98,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             let profile = UIStoryboard(name:"AccountDetails", bundle: nil)
             let vc = profile.instantiateViewController(identifier: "AccountDetails")
             navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.row == 1 {
-            print("do nothing")
+        } else if indexPath.row == 2 {
+            let legal = UIStoryboard(name: "Legal", bundle: nil)
+            let vc = legal.instantiateViewController(identifier: "LegalStoryboard")
+            navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == cells.count + 1 { // last element in table view, i.e. logout button
             print("logout")
             
