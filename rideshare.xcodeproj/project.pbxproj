@@ -52,6 +52,8 @@
 		A3EBDC222547C3190019B31B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3EBDC202547C3190019B31B /* LaunchScreen.storyboard */; };
 		A3EBDC2D2547C3190019B31B /* rideshareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBDC2C2547C3190019B31B /* rideshareTests.swift */; };
 		A3EBDC382547C3190019B31B /* rideshareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBDC372547C3190019B31B /* rideshareUITests.swift */; };
+		A3F27EFF2580754000C7F424 /* LocationSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3F27EFE2580754000C7F424 /* LocationSearch.storyboard */; };
+		A3F27F042580761F00C7F424 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F27F032580761F00C7F424 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,8 @@
 		A3EBDC332547C3190019B31B /* rideshareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rideshareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EBDC372547C3190019B31B /* rideshareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rideshareUITests.swift; sourceTree = "<group>"; };
 		A3EBDC392547C3190019B31B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3F27EFE2580754000C7F424 /* LocationSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationSearch.storyboard; sourceTree = "<group>"; };
+		A3F27F032580761F00C7F424 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CA88661A7DF5FCB83D45BC1E /* Pods-rideshareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rideshareTests.release.xcconfig"; path = "Target Support Files/Pods-rideshareTests/Pods-rideshareTests.release.xcconfig"; sourceTree = "<group>"; };
 		CFE7941CC011BD32589D7E76 /* Pods_rideshare_rideshareUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rideshare_rideshareUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -203,6 +207,7 @@
 				A34CDDF3254DB92900153A26 /* LoginScreen.storyboard */,
 				A3EBDC202547C3190019B31B /* LaunchScreen.storyboard */,
 				A33E37F025689C530047D348 /* Settings.storyboard */,
+				A3F27EFE2580754000C7F424 /* LocationSearch.storyboard */,
 				481EE8A225801F960009B7D9 /* Legal.storyboard */,
 			);
 			path = Storyboards;
@@ -219,6 +224,7 @@
 				20AAD66A25608B8100DFB63F /* LoginViewController.swift */,
 				A33E37F92568B22E0047D348 /* SettingsViewController.swift */,
 				A35CACA7256DECD40019C89E /* SignUpViewController.swift */,
+				A3F27F032580761F00C7F424 /* SearchViewController.swift */,
 				481EE8AF25801FE10009B7D9 /* LegalViewController.swift */,
 			);
 			path = Controllers;
@@ -445,6 +451,7 @@
 				A3A7066D2560668300A597BD /* Inter-ExtraLight-slnt=0.ttf in Resources */,
 				A3A706722560668300A597BD /* Inter-Black-slnt=0.ttf in Resources */,
 				A3A7066F2560668300A597BD /* Inter-Medium-slnt=0.ttf in Resources */,
+				A3F27EFF2580754000C7F424 /* LocationSearch.storyboard in Resources */,
 				20AAD682256369BF00DFB63F /* NewRide.storyboard in Resources */,
 				481EE8A325801F960009B7D9 /* Legal.storyboard in Resources */,
 				48D44A8B2563724800E02BB7 /* AccountDetails.storyboard in Resources */,
@@ -591,6 +598,7 @@
 				20AAD67D2560AE6C00DFB63F /* RideDetailsViewController.swift in Sources */,
 				48D44A952563725800E02BB7 /* AccountDetailsTableViewCell.swift in Sources */,
 				A3D8185C25699E47003F4510 /* SettingsContentCell.swift in Sources */,
+				A3F27F042580761F00C7F424 /* SearchViewController.swift in Sources */,
 				48D44A932563725800E02BB7 /* ProfileTableViewCell.swift in Sources */,
 				A3DE1647256AEFF50048196E /* User.swift in Sources */,
 				481EE8B025801FE10009B7D9 /* LegalViewController.swift in Sources */,

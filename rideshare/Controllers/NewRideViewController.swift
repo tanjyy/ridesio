@@ -8,10 +8,31 @@
 import UIKit
 import AlamofireImage
 import Parse
+import MapKit
 
-class NewRideViewController: UIViewController,UINavigationControllerDelegate {
+class NewRideViewController: UIViewController, UINavigationControllerDelegate, SearchViewControllerDelegate {
 
+    var departureLocationCL: MKMapItem?
+    var arrivalLocationCL: MKMapItem?
     
+    // TODO: implement onTapPickupLocation and onTapArrivalLocation
+    
+    @IBAction func onTapDepartureLocation(_ sender: Any) {
+        transitionToSearchView("departure")
+    }
+    
+    @IBAction func onTapArrivalLocation(_ sender: Any) {
+        transitionToSearchView("arrival")
+    }
+    
+    func transitionToSearchView(_ fieldName: String) {
+        let storyboard = UIStoryboard(name: "LocationSearch", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "SearchView") as! SearchViewController
+        vc.delegate = self
+        vc.fieldName = fieldName
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
 
     @IBOutlet weak var departureLocation: UITextField!
     
@@ -34,19 +55,15 @@ class NewRideViewController: UIViewController,UINavigationControllerDelegate {
     }
     
     @IBAction func onPostRideButton(_ sender: Any) {
-        
-        // TODO: add logic to validate the entries before posting
-        let success = true
-        if success {
-            print("ride posted!")
-        } else {
-            // TODO: have a popup here that informs the user of the error
-            
-        }
-        
+        print("\n\nposting ride")
         let ride = PFObject(className:"Rides")
         ride["departureLocation"] = departureLocation.text
+        print(departureLocationCL)
+        ride["departureLocationLat"] = departureLocationCL!.placemark.coordinate.latitude
+        ride["departureLocationLong"] = departureLocationCL!.placemark.coordinate.longitude
         ride["arrivalLocation"] = arrivalLocation.text
+        ride["arrivalLocationLat"] = arrivalLocationCL!.placemark.coordinate.latitude
+        ride["arrivalLocationLong"] = arrivalLocationCL!.placemark.coordinate.longitude
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -68,10 +85,25 @@ class NewRideViewController: UIViewController,UINavigationControllerDelegate {
                 print("\(error?.localizedDescription)")
             }
         }
-        
-        // TODO: add logic to update this user's list of rides
-        
-        
+    }
+    
+    func passBack(location: MKMapItem, fieldName: String) {
+        print("in pass back")
+        if fieldName == "departure" {
+            self.departureLocationCL = location
+            departureLocation.text = location.name
+            
+            print(self.departureLocationCL!.placemark.coordinate)
+            
+//            let coordinate = location?.placemark.coordinate
+        } else if fieldName == "arrival" {
+            self.arrivalLocationCL = location
+            arrivalLocation.text = location.name
+            
+            print(self.arrivalLocationCL!.placemark.coordinate)
+            
+//            let coordinate = location?.placemark.coordinate
+        }
     }
     
     /*
