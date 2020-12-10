@@ -32,6 +32,7 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
     var ride: Trip?
     var poster: User?
     
+    // do this in one of the init methods
     let milesPerMeter = 0.000621371192
     
     @IBAction func onPressOpenRide(_ sender: Any) {

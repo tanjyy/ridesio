@@ -178,7 +178,6 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
                 vc.poster = poster
             }
         }
-        
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -191,5 +190,4 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         // Pass the selected object to the new view controller.
     }
     */
-
 }
