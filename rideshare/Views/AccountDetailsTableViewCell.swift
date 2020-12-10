@@ -20,17 +20,21 @@ class AccountDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var departureTime: UILabel!
     @IBOutlet weak var arrivalDate: UILabel!
     @IBOutlet weak var arrivalTime: UILabel!
+    @IBOutlet weak var cardView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         profilePicture.makeRounded()
+        cardView.clipsToBounds = true
+        cardView.layer.cornerRadius = 10
+        cardView.addShadow(offset: CGSize.init(width: 3, height: 3), color: UIColor.black, radius: 2.0, opacity: 0.35)
         // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
 

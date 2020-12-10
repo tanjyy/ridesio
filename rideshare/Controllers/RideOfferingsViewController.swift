@@ -75,6 +75,8 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         let ride = rides[indexPath.row]
         let cell = rideOfferingsTableView.dequeueReusableCell(withIdentifier: "RideOfferingTableViewCell") as! RideOfferingTableViewCell
         
+        cell.selectionStyle = .none
+        
         
         // configure cell
         let user = ride["driverId"] as! PFUser
@@ -112,6 +114,8 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         return cell
     }
     
+    @IBAction func onViewDetailsButton(_ sender: UIButton) {
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected ride at index \(indexPath.row)")
         

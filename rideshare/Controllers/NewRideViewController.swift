@@ -15,6 +15,7 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
     var departureLocationCL: MKMapItem?
     var arrivalLocationCL: MKMapItem?
     
+    @IBOutlet weak var postNewRideButton: UIButton!
     // TODO: implement onTapPickupLocation and onTapArrivalLocation
     
     @IBAction func onTapDepartureLocation(_ sender: Any) {
@@ -51,6 +52,9 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
         let color : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
         rideDetails.layer.borderWidth = 1
         rideDetails.layer.borderColor = color.cgColor
+        postNewRideButton.clipsToBounds = true
+        postNewRideButton.layer.cornerRadius = 10
+        postNewRideButton.addShadow(offset: CGSize.init(width: 2, height: 2), color: UIColor.black, radius: 2.0, opacity: 0.5)
         // Do any additional setup after loading the view.
     }
     

@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = .none
         // Do any additional setup after loading the view.
         
         if user == nil {
@@ -93,7 +94,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell") as! ProfileTableViewCell
-        
+        cell.selectionStyle = .none
+
         let ride = rides[indexPath.row]
         
         // configure cell
