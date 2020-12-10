@@ -77,7 +77,15 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
 
         let loc1 = ride!.tripInfo.departureCoordinate
         let loc2 = ride!.tripInfo.arrivalCoordinate
-
+        
+        let annotation1 = MKPointAnnotation()
+        annotation1.coordinate = loc1
+        annotation1.title = ride!.tripInfo.pickupLocation
+        let annotation2 = MKPointAnnotation()
+        annotation2.coordinate = loc2
+        annotation2.title = ride!.tripInfo.arrivalLocation
+        mapView.addAnnotations([annotation1, annotation2])
+        
         //find route
         showRouteOnMap(departureCoordinate: loc1, arrivalCoordinate: loc2)
 
