@@ -7,8 +7,14 @@
 
 import UIKit
 import Parse
+import MapKit
 
-class RideDetailsViewController: UIViewController {
+class RideDetailsViewController: UIViewController, MKMapViewDelegate {
+    
+    
+    @IBOutlet weak var tripDistance: UILabel!
+    @IBOutlet weak var tripTime: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var departureLocation: UILabel!
     @IBOutlet weak var arrivalLocation: UILabel!
@@ -26,8 +32,25 @@ class RideDetailsViewController: UIViewController {
     var ride: Trip?
     var poster: User?
     
-    // do this in one of the init methods
+    let milesPerMeter = 0.000621371192
+    
+    @IBAction func onPressOpenRide(_ sender: Any) {
+        //create two dummy locations
+        let loc1 = ride!.tripInfo.departureCoordinate
+        let loc2 = ride!.tripInfo.arrivalCoordinate
+        
+        let sourcePlacemark = MKPlacemark(coordinate: loc1)
+        let source = MKMapItem(placemark: sourcePlacemark)
 
+        source.name = ride!.tripInfo.pickupLocation
+        
+        let destPlacemark = MKPlacemark(coordinate: loc2)
+        let destination = MKMapItem(placemark: destPlacemark)
+
+        destination.name = ride!.tripInfo.arrivalLocation
+
+        MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +58,8 @@ class RideDetailsViewController: UIViewController {
         profileImageView.makeRounded()
         
         if ride == nil {
-            let tripInfo = TripInfo(pickupLocation: "", arrivalLocation: "", departureTime: Date(), returnTime: Date())
+            
+            let tripInfo = TripInfo(pickupLocation: "", arrivalLocation: "", departureTime: Date(), returnTime: Date(), departureCoordinate: kCLLocationCoordinate2DInvalid, arrivalCoordinate: kCLLocationCoordinate2DInvalid)
             ride = Trip(tripId: "", posterId: "", tripInfo: tripInfo, cost: "", description: "")
         }
         
@@ -55,9 +79,73 @@ class RideDetailsViewController: UIViewController {
         bookRideButton.layer.cornerRadius = 10
         bookRideButton.addShadow(offset: CGSize.init(width: 2, height: 2), color: UIColor.black, radius: 2.0, opacity: 0.5)
         
+        mapView.delegate = self
+
+        let loc1 = ride!.tripInfo.departureCoordinate
+        let loc2 = ride!.tripInfo.arrivalCoordinate
+        
+        let annotation1 = MKPointAnnotation()
+        annotation1.coordinate = loc1
+        annotation1.title = ride!.tripInfo.pickupLocation
+        let annotation2 = MKPointAnnotation()
+        annotation2.coordinate = loc2
+        annotation2.title = ride!.tripInfo.arrivalLocation
+        mapView.addAnnotations([annotation1, annotation2])
+        
+        //find route
+        showRouteOnMap(departureCoordinate: loc1, arrivalCoordinate: loc2)
+
         // Do any additional setup after loading the view.
     }
     
+    func showRouteOnMap(departureCoordinate: CLLocationCoordinate2D, arrivalCoordinate: CLLocationCoordinate2D) {
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: departureCoordinate, addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: arrivalCoordinate, addressDictionary: nil))
+        request.requestsAlternateRoutes = true
+        request.transportType = .automobile
+
+        let directions = MKDirections(request: request)
+
+        directions.calculate { [unowned self] response, error in
+            guard let unwrappedResponse = response else { return }
+
+            //for getting just one route
+            if let route = unwrappedResponse.routes.first {
+                let distanceInMeters = route.distance
+                let distanceInMiles = distanceInMeters * milesPerMeter
+                let travelTimeInSeconds = route.expectedTravelTime
+                print("travel time in [s]: \(travelTimeInSeconds)")
+                var travelTimeStr: String
+                if travelTimeInSeconds > 3600 {
+                    let remainder = Int(travelTimeInSeconds.rounded(.up)) % 3600
+                    let hours = Int(travelTimeInSeconds) - remainder
+                    travelTimeStr = "\(hours/3600)h \(remainder/60)m"
+                } else {
+                    travelTimeStr = "\(Int((travelTimeInSeconds/60).rounded(.up)))m"
+                }
+                
+                tripDistance.text = "Trip Distance: \(String(format: "%.1f", (10 * distanceInMiles).rounded()/10))mi"
+                tripTime.text = "Trip Time: \(travelTimeStr)"
+                
+                //show on map
+                self.mapView.addOverlay(route.polyline)
+                //set the map area to show the route
+                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: UIEdgeInsets.init(top: 80.0, left: 20.0, bottom: 100.0, right: 20.0), animated: true)
+            }
+
+            //if you want to show multiple routes then you can get all routes in a loop in the following statement
+            //for route in unwrappedResponse.routes {}
+        }
+    }
+
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+         let renderer = MKPolylineRenderer(overlay: overlay)
+         renderer.strokeColor = UIColor.red
+         renderer.lineWidth = 5.0
+         return renderer
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -122,8 +210,6 @@ class RideDetailsViewController: UIViewController {
                 
             }
         }
-        
-        // TODO: add ride to user's list of rides
         
     }
     

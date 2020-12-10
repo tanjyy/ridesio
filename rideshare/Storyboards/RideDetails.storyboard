@@ -135,19 +135,53 @@
                                     <constraint firstItem="Qv1-MN-7im" firstAttribute="top" secondItem="tcd-iY-hXq" secondAttribute="bottom" constant="20" id="dyc-tc-4kF"/>
                                 </constraints>
                             </stackView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="whv-Mf-2Il">
+                                <rect key="frame" x="32" y="450.5" width="350" height="361.5"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioQ-g3-MpQ">
+                                <rect key="frame" x="142.5" y="822" width="129" height="30"/>
+                                <state key="normal" title="Open Ride in Maps"/>
+                                <connections>
+                                    <action selector="onPressOpenRide:" destination="Mrw-TA-n5B" eventType="touchUpInside" id="Mps-TT-bKu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Distance: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLO-wa-9tp">
+                                <rect key="frame" x="30" y="420" width="109" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Time: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMf-uQ-4Cy">
+                                <rect key="frame" x="304" y="420" width="80" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yyP-ba-4zb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ioQ-g3-MpQ" firstAttribute="centerX" secondItem="ROG-Z5-5sg" secondAttribute="centerX" id="1kl-oB-vKb"/>
+                            <constraint firstItem="YLO-wa-9tp" firstAttribute="top" secondItem="79P-cG-2Uk" secondAttribute="bottom" constant="20" id="1vt-nZ-yJl"/>
                             <constraint firstItem="79P-cG-2Uk" firstAttribute="top" secondItem="O3O-Qt-G61" secondAttribute="bottom" constant="32" id="7TV-bx-fE4"/>
+                            <constraint firstItem="yyP-ba-4zb" firstAttribute="bottom" secondItem="ioQ-g3-MpQ" secondAttribute="bottom" constant="10" id="7vf-lo-LBn"/>
                             <constraint firstItem="R1f-9d-oSe" firstAttribute="top" secondItem="yyP-ba-4zb" secondAttribute="top" constant="16" id="89p-4m-yRt"/>
                             <constraint firstItem="yyP-ba-4zb" firstAttribute="trailing" secondItem="O3O-Qt-G61" secondAttribute="trailing" constant="32" id="Jd4-SE-BVo"/>
+                            <constraint firstItem="ioQ-g3-MpQ" firstAttribute="top" secondItem="whv-Mf-2Il" secondAttribute="bottom" constant="10" id="KpP-CR-Epr"/>
+                            <constraint firstItem="YLO-wa-9tp" firstAttribute="leading" secondItem="yyP-ba-4zb" secondAttribute="leading" constant="30" id="PqX-Bh-5zE"/>
                             <constraint firstItem="R1f-9d-oSe" firstAttribute="centerX" secondItem="ROG-Z5-5sg" secondAttribute="centerX" id="Qnt-Y5-rit"/>
+                            <constraint firstItem="yyP-ba-4zb" firstAttribute="trailing" secondItem="whv-Mf-2Il" secondAttribute="trailing" constant="32" id="YAN-D6-ZvM"/>
+                            <constraint firstItem="yyP-ba-4zb" firstAttribute="trailing" secondItem="YMf-uQ-4Cy" secondAttribute="trailing" constant="30" id="YR0-8s-rd6"/>
+                            <constraint firstItem="YMf-uQ-4Cy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YLO-wa-9tp" secondAttribute="trailing" constant="10" id="atD-Qr-2WY"/>
                             <constraint firstItem="O3O-Qt-G61" firstAttribute="top" secondItem="R1f-9d-oSe" secondAttribute="bottom" constant="32" id="bzB-6B-WWu"/>
+                            <constraint firstItem="YMf-uQ-4Cy" firstAttribute="top" secondItem="79P-cG-2Uk" secondAttribute="bottom" constant="20" id="hHU-e0-VoW"/>
                             <constraint firstItem="O3O-Qt-G61" firstAttribute="leading" secondItem="yyP-ba-4zb" secondAttribute="leading" constant="32" id="kdJ-Wl-DjM"/>
                             <constraint firstItem="O3O-Qt-G61" firstAttribute="centerX" secondItem="ROG-Z5-5sg" secondAttribute="centerX" id="lci-IB-jdM"/>
                             <constraint firstItem="yyP-ba-4zb" firstAttribute="trailing" secondItem="79P-cG-2Uk" secondAttribute="trailing" constant="32" id="rNE-gk-qXM"/>
+                            <constraint firstItem="whv-Mf-2Il" firstAttribute="top" secondItem="YMf-uQ-4Cy" secondAttribute="bottom" constant="10" id="tTk-UT-gG4"/>
                             <constraint firstItem="79P-cG-2Uk" firstAttribute="leading" secondItem="yyP-ba-4zb" secondAttribute="leading" constant="32" id="v0w-Zz-2Yx"/>
+                            <constraint firstItem="whv-Mf-2Il" firstAttribute="leading" secondItem="yyP-ba-4zb" secondAttribute="leading" constant="32" id="xgn-gZ-PnU"/>
+                            <constraint firstItem="whv-Mf-2Il" firstAttribute="top" secondItem="YLO-wa-9tp" secondAttribute="bottom" constant="10" id="xhf-CV-oFj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -157,8 +191,11 @@
                         <outlet property="departureLocation" destination="zpp-vS-grt" id="FdC-St-PEm"/>
                         <outlet property="descriptionLabel" destination="tcd-iY-hXq" id="rPQ-If-lIc"/>
                         <outlet property="driverName" destination="B7R-7R-pdN" id="Rip-np-eCr"/>
+                        <outlet property="mapView" destination="whv-Mf-2Il" id="PLG-Pp-BBm"/>
                         <outlet property="profileImageView" destination="moN-lV-y6K" id="Fxt-iA-sYR"/>
                         <outlet property="returnDateTime" destination="iSd-8T-4lf" id="mUF-yy-ljP"/>
+                        <outlet property="tripDistance" destination="YLO-wa-9tp" id="BYW-IX-sVa"/>
+                        <outlet property="tripTime" destination="YMf-uQ-4Cy" id="Kp2-RO-ZOa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2d-PW-LBZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

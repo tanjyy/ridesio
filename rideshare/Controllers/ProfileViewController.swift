@@ -157,7 +157,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let departureDateTime = dateFormatter.date(from: departureDateTimeString)!
         let returnDateTime = dateFormatter.date(from: returnDateTimeString)!
         
-        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime, returnTime: returnDateTime)
+        let departureCoordinate = CLLocationCoordinate2D(latitude: rideObject["departureLocationLat"] as! CLLocationDegrees, longitude: rideObject["departureLocationLong"] as! CLLocationDegrees)
+        let arrivalCoordinate = CLLocationCoordinate2D(latitude: rideObject["arrivalLocationLat"] as! CLLocationDegrees, longitude: rideObject["arrivalLocationLong"] as! CLLocationDegrees)
+        
+        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime, returnTime: returnDateTime, departureCoordinate: departureCoordinate, arrivalCoordinate: arrivalCoordinate)
         
         let ride = Trip(tripId: rideObject.objectId!, posterId: (rideObject["driverId"] as! PFUser).objectId!, tripInfo: tripInfo, cost: "n/a", description: rideObject["rideDetails"] as! String)
         vc.ride = ride
