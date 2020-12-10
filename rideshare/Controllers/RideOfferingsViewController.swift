@@ -130,7 +130,10 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         let departureDateTime = dateFormatter.date(from: departureDateTimeString)!
         let arrivalDateTime = dateFormatter.date(from: arrivalDateTimeString)!
         
-        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime as! Date, returnTime: arrivalDateTime )
+        let departureCoordinate = CLLocationCoordinate2D(latitude: rideObject["departureLocationLat"] as! CLLocationDegrees, longitude: rideObject["departureLocationLong"] as! CLLocationDegrees)
+        let arrivalCoordinate = CLLocationCoordinate2D(latitude: rideObject["arrivalLocationLat"] as! CLLocationDegrees, longitude: rideObject["arrivalLocationLong"] as! CLLocationDegrees)
+        
+        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime as! Date, returnTime: arrivalDateTime as! Date, departureCoordinate: departureCoordinate, arrivalCoordinate: arrivalCoordinate)
         
         let ride = Trip(tripId: rideObject.objectId!, posterId: (rideObject["driverId"] as! PFUser).objectId!, tripInfo: tripInfo, cost: "n/a", description: rideObject["rideDetails"] as! String)
         vc.ride = ride
@@ -171,7 +174,6 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
                 vc.poster = poster
             }
         }
-        
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -184,5 +186,4 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         // Pass the selected object to the new view controller.
     }
     */
-
 }
