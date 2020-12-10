@@ -20,6 +20,8 @@ class RideDetailsViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var bookRideButton: UIButton!
+    
     // TODO: this should become a Ride object after the Ride class is created, used to pass information from table view to this details page
     var ride: Trip?
     var poster: User?
@@ -48,6 +50,10 @@ class RideDetailsViewController: UIViewController {
         returnDateTime.text = dateFormatter.string(from: (ride?.tripInfo.returnTime)!)
         
         descriptionLabel.text = ride?.description
+        
+        bookRideButton.clipsToBounds = true
+        bookRideButton.layer.cornerRadius = 10
+        bookRideButton.addShadow(offset: CGSize.init(width: 2, height: 2), color: UIColor.black, radius: 2.0, opacity: 0.5)
         
         // Do any additional setup after loading the view.
     }

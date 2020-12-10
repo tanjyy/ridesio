@@ -13,8 +13,8 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
     var rides = [PFObject]()
     var selectedPost: PFObject!
     
-    @IBOutlet weak var FilterButton: UIButton!
-    @IBOutlet weak var SortButton: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var sortButton: UIButton!
     
     @IBOutlet weak var rideOfferingsTableView: UITableView!
     
@@ -26,12 +26,12 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         rideOfferingsTableView.delegate = self
         rideOfferingsTableView.dataSource = self
         rideOfferingsTableView.separatorStyle = .none
-        SortButton.clipsToBounds = true
-        SortButton.layer.cornerRadius = 10
-        SortButton.addShadow(offset: CGSize.init(width: 3, height: 3), color: UIColor.black, radius: 2.0, opacity: 0.35)
-        FilterButton.clipsToBounds = true
-        FilterButton.layer.cornerRadius = 10
-        FilterButton.addShadow(offset: CGSize.init(width: 3, height: 3), color: UIColor.black, radius: 2.0, opacity: 0.35)
+        sortButton.clipsToBounds = true
+        sortButton.layer.cornerRadius = 10
+        sortButton.addShadow(offset: CGSize.init(width: 2, height: 2), color: UIColor.black, radius: 2.0, opacity: 0.5)
+        filterButton.clipsToBounds = true
+        filterButton.layer.cornerRadius = 10
+        filterButton.addShadow(offset: CGSize.init(width: 3, height: 3), color: UIColor.black, radius: 2.0, opacity: 0.35)
 
         // Do any additional setup after loading the view.
     }
