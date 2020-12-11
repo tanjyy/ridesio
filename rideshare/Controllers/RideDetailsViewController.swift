@@ -131,6 +131,10 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
                 tripDistance.text = "Trip Distance: \(String(format: "%.1f", (10 * distanceInMiles).rounded()/10))mi"
                 tripTime.text = "Trip Time: \(travelTimeStr)"
                 
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    self.removeSpinner()
+                }
+                
                 //show on map
                 self.mapView.addOverlay(route.polyline)
                 //set the map area to show the route
@@ -157,10 +161,6 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
         driverName.text = name
         
         profileImageView.af.setImage(withURL: poster!.profilePic)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-            self.removeSpinner()
-        }
     }
     
     @IBAction func onBookRide(_ sender: Any) {
