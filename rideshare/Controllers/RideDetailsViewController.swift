@@ -56,6 +56,8 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showSpinner(onView: self.view)
+        
         profileImageView.makeRounded()
         
         if ride == nil {
@@ -155,6 +157,10 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
         driverName.text = name
         
         profileImageView.af.setImage(withURL: poster!.profilePic)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            self.removeSpinner()
+        }
     }
     
     @IBAction func onBookRide(_ sender: Any) {
