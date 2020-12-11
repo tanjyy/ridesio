@@ -130,9 +130,17 @@
                                                         <constraint firstItem="WN2-FK-Xsk" firstAttribute="top" secondItem="MFt-SR-9ZK" secondAttribute="bottom" constant="32" id="xMB-im-27N"/>
                                                     </constraints>
                                                 </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DIC-de-m6a">
+                                                    <rect key="frame" x="182" y="45.5" width="50" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="2HK-bx-O67"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="DIC-de-m6a" firstAttribute="top" secondItem="qql-1Y-ILx" secondAttribute="topMargin" constant="32" id="6vR-Vn-tEL"/>
                                                 <constraint firstItem="jjP-aq-Hij" firstAttribute="leading" secondItem="qql-1Y-ILx" secondAttribute="leadingMargin" constant="16" id="9iI-Ls-bop"/>
+                                                <constraint firstItem="DIC-de-m6a" firstAttribute="centerX" secondItem="jjP-aq-Hij" secondAttribute="centerX" id="Acv-h5-CFF"/>
                                                 <constraint firstItem="jjP-aq-Hij" firstAttribute="top" secondItem="qql-1Y-ILx" secondAttribute="topMargin" constant="16" id="KwY-f6-ULq"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="jjP-aq-Hij" secondAttribute="trailing" constant="16" id="OJY-J6-fhh"/>
                                                 <constraint firstItem="jjP-aq-Hij" firstAttribute="centerX" secondItem="qql-1Y-ILx" secondAttribute="centerX" id="dzQ-Xb-8hM"/>
@@ -253,6 +261,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.forward" catalog="system" width="128" height="98"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
