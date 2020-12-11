@@ -62,6 +62,7 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
 
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = .none
         
         profileImageView.makeRounded()
         
@@ -135,6 +136,8 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         let ride = rides[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "AccountDetailsTableViewCell") as! AccountDetailsTableViewCell
         
+        cell.selectionStyle = .none
+
         // configure cell
         let poster = ride["driverId"] as! PFUser
         

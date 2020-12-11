@@ -12,14 +12,26 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
     
     var rides = [PFObject]()
     var selectedPost: PFObject!
-
+    
+    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var sortButton: UIButton!
+    
     @IBOutlet weak var rideOfferingsTableView: UITableView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         rideOfferingsTableView.delegate = self
         rideOfferingsTableView.dataSource = self
+        rideOfferingsTableView.separatorStyle = .none
+        sortButton.clipsToBounds = true
+        sortButton.layer.cornerRadius = 10
+        sortButton.addShadow(offset: CGSize.init(width: 2, height: 2), color: UIColor.black, radius: 2.0, opacity: 0.5)
+        filterButton.clipsToBounds = true
+        filterButton.layer.cornerRadius = 10
+        filterButton.addShadow(offset: CGSize.init(width: 3, height: 3), color: UIColor.black, radius: 2.0, opacity: 0.35)
 
         // Do any additional setup after loading the view.
     }
@@ -45,6 +57,8 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
+    
+    
     @IBAction func onNewRideButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "NewRide", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "NewRide")
@@ -56,9 +70,13 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         return rides.count
     }
     
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ride = rides[indexPath.row]
         let cell = rideOfferingsTableView.dequeueReusableCell(withIdentifier: "RideOfferingTableViewCell") as! RideOfferingTableViewCell
+        
+        cell.selectionStyle = .none
+        
         
         // configure cell
         let user = ride["driverId"] as! PFUser
@@ -96,6 +114,8 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         return cell
     }
     
+    @IBAction func onViewDetailsButton(_ sender: UIButton) {
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected ride at index \(indexPath.row)")
         
@@ -111,8 +131,8 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
 //        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
-        let departureDateTime = dateFormatter.date(from: departureDateTimeString) as! Date
-        let arrivalDateTime = dateFormatter.date(from: arrivalDateTimeString) as! Date
+        let departureDateTime = dateFormatter.date(from: departureDateTimeString)!
+        let arrivalDateTime = dateFormatter.date(from: arrivalDateTimeString)!
         
         let departureCoordinate = CLLocationCoordinate2D(latitude: rideObject["departureLocationLat"] as! CLLocationDegrees, longitude: rideObject["departureLocationLong"] as! CLLocationDegrees)
         let arrivalCoordinate = CLLocationCoordinate2D(latitude: rideObject["arrivalLocationLat"] as! CLLocationDegrees, longitude: rideObject["arrivalLocationLong"] as! CLLocationDegrees)
@@ -135,7 +155,7 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
                 let posterObj = users?[0]
                 let fname = posterObj?["firstName"] as! String
                 let lname = posterObj?["lastName"] as! String
-                let uid = posterObj?.objectId as? String ?? ""
+                let uid = posterObj?.objectId ?? ""
                 let phone_number = posterObj?["phoneNumber"] as? String ?? "n/a"
                 let email = posterObj?["username"] as! String
                 var profilePic = URL(string: "www.ridesio.com")!
@@ -158,7 +178,6 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
                 vc.poster = poster
             }
         }
-        
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -171,5 +190,4 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         // Pass the selected object to the new view controller.
     }
     */
-
 }
