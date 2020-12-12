@@ -64,7 +64,7 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
 
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.separatorStyle = .none
+        self.tableView.separatorColor = UIColor.clear
         
         profileImageView.makeRounded()
         
