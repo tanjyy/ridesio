@@ -8,7 +8,7 @@
 import UIKit
 import Parse
 
-class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CAAnimationDelegate {
     
     var rides = [PFObject]()
     var selectedPost: PFObject!
@@ -19,6 +19,19 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var rideOfferingsTableView: UITableView!
     
     
+    @IBAction func onClickSettings(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Settings", bundle:nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "Settings")
+
+        let transition = CATransition.init()
+        transition.duration = 0.45
+        transition.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.default)
+        transition.type = CATransitionType.push //Transition you want like Push, Reveal
+        transition.subtype = CATransitionSubtype.fromLeft // Direction like Left to Right, Right to Left
+        transition.delegate = self
+        view.window!.layer.add(transition, forKey: kCATransition)
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

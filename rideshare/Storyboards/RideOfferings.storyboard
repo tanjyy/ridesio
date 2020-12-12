@@ -198,7 +198,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="gearshape" catalog="system" id="1fh-p7-P4V">
                             <color key="tintColor" systemColor="linkColor"/>
                             <connections>
-                                <segue destination="iWv-vG-lwm" kind="show" id="LNT-Pd-6g9"/>
+                                <action selector="onClickSettings:" destination="9e1-1V-dKg" id="5XI-Dk-dSD"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="tp7-5a-LjR">
@@ -217,16 +217,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcU-aj-RfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1002.8985507246377" y="27.455357142857142"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="QjJ-Ll-G6w">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="Settings" id="iWv-vG-lwm" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="AnK-os-GcJ"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="puo-Fa-ZKW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1529.7101449275362" y="26.785714285714285"/>
         </scene>
         <!--Ride Offerings-->
         <scene sceneID="ujQ-oz-Jji">
