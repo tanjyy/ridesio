@@ -69,12 +69,19 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
         departureLocation.text = ride?.tripInfo.pickupLocation
         arrivalLocation.text = ride?.tripInfo.arrivalLocation
         
+        let rawDepartureTime = ride!.tripInfo.departureTime
+        let rawArrivalTime = ride!.tripInfo.returnTime
+
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.dateFormat = "MMM d"
+
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "h:mm a"
         
-        
-        departureDateTime.text = dateFormatter.string(from: (ride?.tripInfo.departureTime)!)
-        returnDateTime.text = dateFormatter.string(from: (ride?.tripInfo.returnTime)!)
+        let depTimeStr = "\(dateFormatter.string(from: rawDepartureTime)) \(timeFormatter.string(from: rawDepartureTime))"
+        let arrivTimeStr = "\(dateFormatter.string(from: rawArrivalTime)) \(timeFormatter.string(from: rawArrivalTime))"
+        departureDateTime.text = depTimeStr
+        returnDateTime.text = arrivTimeStr
         
         descriptionLabel.text = ride?.description
         
@@ -164,6 +171,12 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func onBookRide(_ sender: Any) {
+        
+        // TODO: update this later, in viewDidLoad, should check if the user has booked this ride already
+        bookRideButton.isEnabled = false
+        bookRideButton.backgroundColor = UIColor.gray
+        bookRideButton.setTitle("Ride booked!", for: .normal)
+        
         if ride?.posterId == PFUser.current()?.objectId {
             print("can't book ride that you posted")
             return
@@ -206,7 +219,7 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
                                 print("opening mail app failed")
                             }
                             
-                            _ = self.navigationController?.popViewController(animated: true)
+//                            _ = self.navigationController?.popViewController(animated: true)
                         } else {
                             // TODO: add a popup dialog here that informs user of why the operation failed
                             print("\(error?.localizedDescription)")
