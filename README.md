@@ -1,5 +1,8 @@
 # Ridesio :)
 
+## Sprint 3 Demo GIF
+![](./ridesio-v3.gif)
+
 ## Sprint 2 Demo GIF
 ![](https://recordit.co/xrU70nwr3j.gif)
 
