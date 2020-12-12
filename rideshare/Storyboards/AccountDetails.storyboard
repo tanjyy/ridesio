@@ -23,7 +23,7 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9cv-3a-RGE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9cv-3a-RGE">
                                 <rect key="frame" x="0.0" y="372" width="414" height="524"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -225,7 +225,7 @@
         <scene sceneID="hHb-Gb-pcl">
             <objects>
                 <navigationController storyboardIdentifier="AccountDetailsNavigation" title="My Profile" automaticallyAdjustsScrollViewInsets="NO" id="D7j-eA-Qb5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person.crop.circle" catalog="system" id="zAz-89-qUg"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.crop.circle" catalog="system" id="zAz-89-qUg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oVM-89-t2M">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

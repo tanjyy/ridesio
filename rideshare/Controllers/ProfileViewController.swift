@@ -27,7 +27,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.separatorStyle = .none
+        self.tableView.separatorColor = UIColor.clear
+
         // Do any additional setup after loading the view.
         
         if user == nil {

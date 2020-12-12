@@ -232,7 +232,7 @@
         <scene sceneID="ujQ-oz-Jji">
             <objects>
                 <navigationController storyboardIdentifier="RideOfferingsNavigation" title="Ride Offerings" automaticallyAdjustsScrollViewInsets="NO" id="0fh-1W-Srv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-car-30" id="wq7-DZ-ccV"/>
+                    <tabBarItem key="tabBarItem" title="Rides" image="icons8-car-30" id="wq7-DZ-ccV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xNL-wU-oen">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
