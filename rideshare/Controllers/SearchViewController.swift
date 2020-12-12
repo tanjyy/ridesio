@@ -34,6 +34,10 @@ class SearchViewController: UIViewController {
         
         searchCompleter.delegate = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.searchBar.becomeFirstResponder()
+    }
 }
 
 extension SearchViewController: UISearchBarDelegate {
