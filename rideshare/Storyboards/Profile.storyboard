@@ -122,16 +122,24 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ehf-4a-udU">
+                                                            <rect key="frame" x="146" y="18.5" width="50" height="15"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="e7r-co-ypM"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.98397020729999995" green="0.98397020729999995" blue="0.98397020729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="GBs-2V-cqJ" firstAttribute="top" secondItem="PfQ-sT-7hM" secondAttribute="bottom" constant="32" id="AXb-Bt-fn3"/>
+                                                        <constraint firstItem="ehf-4a-udU" firstAttribute="baseline" secondItem="uCW-8t-Prt" secondAttribute="baseline" id="BKm-tS-YyN"/>
                                                         <constraint firstItem="uCW-8t-Prt" firstAttribute="centerY" secondItem="ZO7-X6-89z" secondAttribute="centerY" id="C0K-X2-nfy"/>
                                                         <constraint firstItem="4Nz-UQ-5Kv" firstAttribute="top" secondItem="ZO7-X6-89z" secondAttribute="bottom" constant="4" id="E4o-M1-5BV"/>
                                                         <constraint firstItem="iEi-Zg-N1H" firstAttribute="top" secondItem="uCW-8t-Prt" secondAttribute="bottom" constant="4" id="IdF-bX-dys"/>
                                                         <constraint firstAttribute="trailing" secondItem="kmM-o0-NxB" secondAttribute="trailing" constant="16" id="LHX-VK-qQK"/>
                                                         <constraint firstItem="kmM-o0-NxB" firstAttribute="top" secondItem="4Nz-UQ-5Kv" secondAttribute="bottom" constant="4" id="MS5-eg-soy"/>
                                                         <constraint firstItem="PfQ-sT-7hM" firstAttribute="top" secondItem="iEi-Zg-N1H" secondAttribute="bottom" constant="4" id="Mzl-vd-3RH"/>
+                                                        <constraint firstItem="ehf-4a-udU" firstAttribute="centerX" secondItem="sA5-WY-koU" secondAttribute="centerX" id="QJm-5Q-7wI"/>
                                                         <constraint firstItem="rfv-Nc-T6v" firstAttribute="top" secondItem="GBs-2V-cqJ" secondAttribute="bottom" constant="8" id="Umr-Fa-JtE"/>
                                                         <constraint firstItem="rfv-Nc-T6v" firstAttribute="leading" secondItem="sA5-WY-koU" secondAttribute="leading" constant="16" id="VQi-Dh-EXm"/>
                                                         <constraint firstItem="uCW-8t-Prt" firstAttribute="leading" secondItem="sA5-WY-koU" secondAttribute="leading" constant="16" id="Vsm-Mf-0fg"/>
@@ -211,6 +219,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.forward" catalog="system" width="128" height="98"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
