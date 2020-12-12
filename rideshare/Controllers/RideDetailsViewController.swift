@@ -56,6 +56,8 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showSpinner(onView: self.view)
+        
         profileImageView.makeRounded()
         
         if ride == nil {
@@ -128,6 +130,10 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
                 
                 tripDistance.text = "Trip Distance: \(String(format: "%.1f", (10 * distanceInMiles).rounded()/10))mi"
                 tripTime.text = "Trip Time: \(travelTimeStr)"
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    self.removeSpinner()
+                }
                 
                 //show on map
                 self.mapView.addOverlay(route.polyline)

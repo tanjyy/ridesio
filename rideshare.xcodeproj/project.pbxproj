@@ -17,6 +17,7 @@
 		4814C08D257F1A6200C5B4C8 /* UIImageView+makeRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4814C08C257F1A6200C5B4C8 /* UIImageView+makeRounded.swift */; };
 		481EE8A325801F960009B7D9 /* Legal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481EE8A225801F960009B7D9 /* Legal.storyboard */; };
 		481EE8B025801FE10009B7D9 /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481EE8AF25801FE10009B7D9 /* LegalViewController.swift */; };
+		48CD80A825842F200088E653 /* UIView+spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD80A725842F200088E653 /* UIView+spinner.swift */; };
 		48D44A812563721900E02BB7 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D44A7E2563721900E02BB7 /* AccountDetailsViewController.swift */; };
 		48D44A822563721900E02BB7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D44A7F2563721900E02BB7 /* ProfileViewController.swift */; };
 		48D44A832563721900E02BB7 /* RideOfferingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D44A802563721900E02BB7 /* RideOfferingsViewController.swift */; };
@@ -86,6 +87,7 @@
 		4814C08C257F1A6200C5B4C8 /* UIImageView+makeRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+makeRounded.swift"; sourceTree = "<group>"; };
 		481EE8A225801F960009B7D9 /* Legal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Legal.storyboard; sourceTree = "<group>"; };
 		481EE8AF25801FE10009B7D9 /* LegalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalViewController.swift; sourceTree = "<group>"; };
+		48CD80A725842F200088E653 /* UIView+spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+spinner.swift"; sourceTree = "<group>"; };
 		48D44A7E2563721900E02BB7 /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
 		48D44A7F2563721900E02BB7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		48D44A802563721900E02BB7 /* RideOfferingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideOfferingsViewController.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				A3C095D82572F48900328FEB /* UITableView+setEmptyMessage.swift */,
 				4814C08C257F1A6200C5B4C8 /* UIImageView+makeRounded.swift */,
 				2005289F2580A9E3003A5F2E /* ShadowView.swift */,
+				48CD80A725842F200088E653 /* UIView+spinner.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				20AAD66B25608B8100DFB63F /* LoginViewController.swift in Sources */,
 				48D44A942563725800E02BB7 /* RideOfferingTableViewCell.swift in Sources */,
 				A33E37FF2568B33F0047D348 /* SettingsProfileCell.swift in Sources */,
+				48CD80A825842F200088E653 /* UIView+spinner.swift in Sources */,
 				A3EBDC162547C3180019B31B /* AppDelegate.swift in Sources */,
 				A3DE164C256AF1330048196E /* Trip.swift in Sources */,
 				A35CACA8256DECD40019C89E /* SignUpViewController.swift in Sources */,

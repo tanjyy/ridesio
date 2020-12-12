@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showSpinner(onView: self.tableView)
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -84,6 +85,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
                 self.tableView.reloadData()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                    self.removeSpinner()
+                }
             }
         }
     }

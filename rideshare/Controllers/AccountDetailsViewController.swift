@@ -59,6 +59,8 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.showSpinner(onView: self.tableView)
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -117,6 +119,10 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
                 }
                 self.rides = filtered_rides
                 self.tableView.reloadData()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                    self.removeSpinner()
+                }
             }
         }
     }
