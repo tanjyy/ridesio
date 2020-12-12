@@ -196,7 +196,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Ride Offerings" id="czl-eh-moM">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="gearshape" catalog="system" id="1fh-p7-P4V">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="linkColor"/>
                             <connections>
                                 <segue destination="iWv-vG-lwm" kind="show" id="LNT-Pd-6g9"/>
                             </connections>
@@ -271,6 +271,9 @@
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="icons8-car-30" width="30" height="30"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
