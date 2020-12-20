@@ -1,13 +1,7 @@
-# Ridesio :)
+# Ridesio
 
-## Sprint 3 Demo GIF
+## Demo GIF
 ![](./ridesio-v3.gif)
-
-## Sprint 2 Demo GIF
-![](https://recordit.co/xrU70nwr3j.gif)
-
-## Sprint 1 Demo GIF
-![](./ridesio-sprint1.gif)
 
 ## Table of Contents
 1. [Overview](#Overview)
@@ -18,15 +12,7 @@
 ## Overview
 ### Description
 Ridesio is a rideshare bulletin board iOS app for college campuses that lets users request or post upcoming rides. Ridesio provides a communal, sustainable way of ridesharing for college students.
-
-
-### App Evaluation
-- **Category:**
-- **Mobile:**
-- **Story:**
-- **Market:**
-- **Habit:**
-- **Scope:**
+2nd Place winner for CodePath's Virtual Demo Day 2020. Read more <a href="https://blog.codepath.org/2020-codepath-org-fall-semester-demo-day-ios-winners-announced/?utm_content=149195058&utm_medium=social&utm_source=linkedin&hss_channel=lcp-18305024" target="_blank">here</a>.
 
 ## Product Spec
 
