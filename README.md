@@ -157,11 +157,8 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
 ### Digital Wireframes & Mockups
 ![Post Ride](https://github.com/tanjyy/ridesio/blob/main/notes/MVP-wireframes.png?raw=true)
 
-### [BONUS] Interactive Prototype
-
 ## Schema
 ### Networking
-**Not currently planning on using any 3rd party API endpoints, only Parse**
 
 #### Log in screen
 - (Create/POST) User signup
