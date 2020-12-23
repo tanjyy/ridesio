@@ -16,7 +16,7 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
 
 ## Product Spec
 
-### 1. User Stories (Required and Optional) and Screen Archetypes
+### 1. User Stories (Already implemented and Optional) and Screen Archetypes
 
 #### Launch screen/AppIcon
 - [x] User sees app icon in home screen and styled launch screen.
@@ -36,7 +36,6 @@ Ridesio is a rideshare bulletin board iOS app for college campuses that lets use
 #### Feed screen (both ride request and ride offering)
 - [x] User can click button to open settings menu (like on Uber/Lyft).
 - [x] User can view their profile in a profile tab.
-- *Optional*: User can see all ride offerings and requests in a single view.
 - *Optional*: User can sort rides by different criteria (distance, cost)
 - *Optional*: User can search for rides
 
@@ -291,20 +290,23 @@ myRides.saveInBackground()
 ```
 
 ### Models
-- Users
-    - user_id
-    - profile_picture
-    - first_name
-    - last_name
-    - phone_number
-    - school_email
-    - password
-    - trip_history (array of trip_id) (list of all ride requests and offerings, both created and accepted)
-- Ride offerings (trips)
-    - id
-    - driver_user_id
-    - pickup_location
-    - dropoff_location
-    - seats_available
-    - cost (or alternative form of payment)
-    - description
+- User
+    - fname: String
+    - lname: String
+    - user_id: String
+    - email: String
+    - profilePic: URL
+    - trip_history: [Trip]
+- Trip
+    - tripId: String
+    - posterId: String
+    - tripInfo: TripInfo
+    - cost: String
+    - description: String
+- TripInfo
+    - pickupLocation: String
+    - arrivalLocation: String
+    - departureTime: Date
+    - returnTime: Date
+    - departureCoordinate: CLLocationCoordinate2D
+    - arrivalCoordinate: CLLocationCoordinate2D
