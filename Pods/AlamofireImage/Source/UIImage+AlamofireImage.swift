@@ -356,7 +356,7 @@ extension AlamofireExtension where ExtendedType: UIImage {
     ///   - parameters: The parameters to apply to the CoreImage filter.
     ///
     /// - Returns: A new image object, or `nil` if the filter failed for any reason.
-    public func imageFiltered(withCoreImageFilter name: String, parameters: [String: Any]? = nil) -> UIImage? {
+    public func imageFiltered(withCoreImageFilter fullNameLabel: String, parameters: [String: Any]? = nil) -> UIImage? {
         var image: CoreImage.CIImage? = type.ciImage
 
         if image == nil, let CGImage = type.cgImage {
@@ -370,7 +370,7 @@ extension AlamofireExtension where ExtendedType: UIImage {
         var parameters: [String: Any] = parameters ?? [:]
         parameters[kCIInputImageKey] = coreImage
 
-        guard let filter = CIFilter(name: name, parameters: parameters) else { return nil }
+        guard let filter = CIFilter(name: fullNameLabel, parameters: parameters) else { return nil }
         guard let outputImage = filter.outputImage else { return nil }
 
         let cgImageRef = context.createCGImage(outputImage, from: outputImage.extent)
@@ -381,8 +381,8 @@ extension AlamofireExtension where ExtendedType: UIImage {
 
 extension UIImage {
     @available(*, deprecated, message: "Replaced by `image.af.imageFiltered(withCoreImageFilter:parameters:)`")
-    public func af_imageFiltered(withCoreImageFilter name: String, parameters: [String: Any]? = nil) -> UIImage? {
-        af.imageFiltered(withCoreImageFilter: name, parameters: parameters)
+    public func af_imageFiltered(withCoreImageFilter fullNameLabel: String, parameters: [String: Any]? = nil) -> UIImage? {
+        af.imageFiltered(withCoreImageFilter: fullNameLabel, parameters: parameters)
     }
 }
 

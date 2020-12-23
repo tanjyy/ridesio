@@ -10,8 +10,7 @@ import UIKit
 class SettingsProfileCell: UITableViewCell {
     
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var name: UILabel!
-    
+    @IBOutlet weak var fullNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

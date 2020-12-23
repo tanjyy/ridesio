@@ -14,9 +14,9 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
     var rides = [PFObject]()
     var selectedPost: PFObject!
 
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profilePictureImageView: UIImageView!
     
     var user = PFUser.current()
     
@@ -37,9 +37,9 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         let size = CGSize(width: 300, height: 300)
         let scaledImage = image.af.imageScaled(to: size)
         
-        profileImageView.image = scaledImage
+        profilePictureImageView.image = scaledImage
         
-        let imageData = profileImageView.image!.pngData()
+        let imageData = profilePictureImageView.image!.pngData()
         let profilePictureFile = PFFileObject(name: "image.png", data: imageData!)
         
         user?["profilePicture"] = profilePictureFile
@@ -66,7 +66,7 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         tableView.delegate = self
         self.tableView.separatorColor = UIColor.clear
         
-        profileImageView.makeRounded()
+        profilePictureImageView.makeRounded()
         
         // Do any additional setup after loading the view.
     }
@@ -82,16 +82,15 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
             let urlString = imageFile.url!
             let url = URL(string: urlString)!
 
-            profileImageView.af.setImage(withURL: url)
-        //    profilePictureImage.setNeedsDisplay()
+            profilePictureImageView.af.setImage(withURL: url)
             
         }
         else {
-            profileImageView.image = UIImage(systemName: "person")
+            profilePictureImageView.image = UIImage(systemName: "person")
         }
         
-        nameLabel.text = "\(user?["firstName"] as! String) \(user?["lastName"] as! String)"
-        emailLabel.text = (user?["username"] as! String)
+        fullNameLabel.text = "\(user?["firstName"] as! String) \(user?["lastName"] as! String)"
+        emailLabel.text = (user?["email"] as! String)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,18 +105,18 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         
         query.findObjectsInBackground{(rides,error) in
             if rides != nil {
-                var filtered_rides = [PFObject]()
-                if let unwrapped_rides = rides {
-                    for ride in unwrapped_rides {
+                var filteredRides = [PFObject]()
+                if let unwrappedRides = rides {
+                    for ride in unwrappedRides {
                         let riders = ride["riders"] as! [PFObject]
                         for rider in riders {
                             if rider.objectId == PFUser.current()?.objectId {
-                                filtered_rides.append(ride)
+                                filteredRides.append(ride)
                             }
                         }
                     }
                 }
-                self.rides = filtered_rides
+                self.rides = filteredRides
                 self.tableView.reloadData()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
@@ -149,19 +148,19 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         
         poster.fetchInBackground { (object, error) in
             if error == nil {
-                cell.driverUserName.text = poster["firstName"] as? String
-                if let imagefile = poster["profilePicture"] as? PFFileObject {
-                    let urlString = (imagefile.url)!
+                cell.fullNameLabel.text = poster["firstName"] as? String
+                if let imageFile = poster["profilePicture"] as? PFFileObject {
+                    let urlString = (imageFile.url)!
                     let url = URL(string: urlString)!
                     
-                    cell.profilePicture.af.setImage(withURL: url)
+                    cell.profilePictureImageView!.af.setImage(withURL: url)
                 }
                 
-                cell.departureLocation.text = ride["departureLocation"] as? String
-                cell.arrivalLocation.text = ride["arrivalLocation"] as? String
+                cell.departureLocationLabel.text = ride["departureLocation"] as? String
+                cell.arrivalLocationLabel.text = ride["arrivalLocation"] as? String
 
-                let str2Date = DateFormatter()
-                str2Date.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+                let fullDate = DateFormatter()
+                fullDate.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MMM d"
@@ -169,15 +168,15 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
                 let timeFormatter = DateFormatter()
                 timeFormatter.dateFormat = "h:mm a"
 
-                let departureTime = str2Date.date(from: ride["departureDatetime"] as! String)
-                let arrivalTime = str2Date.date(from: (ride["arrivalDatetime"]) as! String)
+                let departureTime = fullDate.date(from: ride["departureDateTime"] as! String)
+                let arrivalTime = fullDate.date(from: (ride["arrivalDateTime"]) as! String)
 
-                cell.arrivalDate.text = dateFormatter.string(from: arrivalTime!)
-                cell.departureDate.text = dateFormatter.string( from: departureTime!)
-                cell.arrivalTime.text = timeFormatter.string(from: arrivalTime!)
-                cell.departureTime.text = timeFormatter.string( from: departureTime!)
+                cell.departureDateLabel.text = dateFormatter.string( from: departureTime!)
+                cell.departureTimeLabel.text = timeFormatter.string( from: departureTime!)
+                cell.arrivalDateLabel.text = dateFormatter.string(from: arrivalTime!)
+                cell.arrivalTimeLabel.text = timeFormatter.string(from: arrivalTime!)
 
-                cell.rideDetails.text = ride["rideDetails"] as? String
+                cell.rideDetailsLabel.text = ride["rideDetails"] as? String
             } else {
                 print("failed to fetch")
             }
@@ -194,20 +193,19 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         
         // TODO: update this to pass the Ride object corresponding to this cell in the table view
         let rideObject = rides[indexPath.row]
-        let departureDateTimeString = rideObject["departureDatetime"] as! String
-        let arrivalDateTimeString = rideObject["arrivalDatetime"] as! String
+        let departureDateTimeString = rideObject["departureDateTime"] as! String
+        let arrivalDateTimeString = rideObject["arrivalDateTime"] as! String
         
         let dateFormatter = DateFormatter()
-//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
-        let departureDateTime = dateFormatter.date(from: departureDateTimeString) as! Date
-        let arrivalDateTime = dateFormatter.date(from: arrivalDateTimeString) as! Date
+        let departureDateTime = dateFormatter.date(from: departureDateTimeString)!
+        let arrivalDateTime = dateFormatter.date(from: arrivalDateTimeString)!
         
         let departureCoordinate = CLLocationCoordinate2D(latitude: rideObject["departureLocationLat"] as! CLLocationDegrees, longitude: rideObject["departureLocationLong"] as! CLLocationDegrees)
         let arrivalCoordinate = CLLocationCoordinate2D(latitude: rideObject["arrivalLocationLat"] as! CLLocationDegrees, longitude: rideObject["arrivalLocationLong"] as! CLLocationDegrees)
         
-        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime as! Date, returnTime: arrivalDateTime as! Date, departureCoordinate: departureCoordinate, arrivalCoordinate: arrivalCoordinate)
+        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime , returnTime: arrivalDateTime , departureCoordinate: departureCoordinate, arrivalCoordinate: arrivalCoordinate)
         
         let ride = Trip(tripId: rideObject.objectId!, posterId: (rideObject["driverId"] as! PFUser).objectId!, tripInfo: tripInfo, cost: "n/a", description: rideObject["rideDetails"] as! String)
         
@@ -222,28 +220,28 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
             if users?.isEmpty != true {
                 print("users not nil")
                 let posterObj = users?[0]
-                let fname = posterObj?["firstName"] as! String
-                let lname = posterObj?["lastName"] as! String
-                let uid = posterObj?.objectId as? String ?? ""
-                let phone_number = posterObj?["phoneNumber"] as? String ?? "n/a"
+                let firstName = posterObj?["firstName"] as! String
+                let lastName = posterObj?["lastName"] as! String
+                let objectId = posterObj?.objectId ?? ""
+                let phoneNumber = posterObj?["phoneNumber"] as? String ?? "n/a"
                 let email = posterObj?["username"] as! String
                 var profilePic = URL(string: "www.ridesio.com")!
-                if let imagefile = posterObj?["profilePicture"] as? PFFileObject {
-                    let urlString = (imagefile.url)!
+                if let imageFile = posterObj?["profilePicture"] as? PFFileObject {
+                    let urlString = (imageFile.url)!
                     profilePic = URL(string: urlString)!
                 }
                 
                 // TODO: remove tripHistory from User class?
                 let tripHistory = [Trip]()
                 
-                let poster = User(fname: fname, lname: lname, user_id: uid, phone_number: phone_number, email: email, profilePic: profilePic, trip_history: tripHistory)
+                let poster = User(firstName: firstName, lastName: lastName, objectId: objectId, phoneNumber: phoneNumber, email: email, profilePicture: profilePic, tripHistory: tripHistory)
                 
                 vc.poster = poster
             }
             else {
                 print("users is nil")
-                print("Error: \(error?.localizedDescription)")
-                let poster = User(fname: "First", lname: "Last", user_id: "userId", phone_number: "n/a", email: "n/a", profilePic: URL(string: "www.ridesio.com")!, trip_history: [Trip]())
+                print("Error: \(String(describing: error?.localizedDescription))")
+                let poster = User(firstName: "First", lastName: "Last", objectId: "userId", phoneNumber: "n/a", email: "n/a", profilePicture: URL(string: "www.ridesio.com")!, tripHistory: [Trip]())
                 
                 vc.poster = poster
             }

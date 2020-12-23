@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2wi-ez-Sbt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2wi-ez-Sbt">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -119,7 +119,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FdZ-fw-rDR">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FdZ-fw-rDR">
                                                             <rect key="frame" x="146" y="19" width="50" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="Q7k-Mr-qag"/>
@@ -165,16 +165,16 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="arrivalDate" destination="IJ5-ZN-6J7" id="7sY-5G-OWk"/>
-                                            <outlet property="arrivalLocation" destination="4MZ-Yo-4h4" id="Ycb-h1-s4u"/>
-                                            <outlet property="arrivalTime" destination="HXM-kG-3Gp" id="f7S-Cu-avU"/>
+                                            <outlet property="arrivalDateLabel" destination="IJ5-ZN-6J7" id="7sY-5G-OWk"/>
+                                            <outlet property="arrivalLocationLabel" destination="4MZ-Yo-4h4" id="Ycb-h1-s4u"/>
+                                            <outlet property="arrivalTimeLabel" destination="HXM-kG-3Gp" id="f7S-Cu-avU"/>
                                             <outlet property="cardView" destination="ZzT-yL-PyZ" id="bHd-aC-pdt"/>
-                                            <outlet property="departureDate" destination="BdP-Ym-eqO" id="BdU-rm-4cB"/>
-                                            <outlet property="departureLocation" destination="th4-fM-CtY" id="MDa-b1-cAf"/>
-                                            <outlet property="departureTime" destination="Bpj-mi-gL0" id="QQg-xe-xdB"/>
-                                            <outlet property="driverUserName" destination="SXD-yl-zou" id="6nf-nj-lsA"/>
-                                            <outlet property="profilePicture" destination="uQe-fJ-U9y" id="ou8-8T-h4H"/>
-                                            <outlet property="rideDetails" destination="eHw-rN-gbY" id="D6H-7d-HiH"/>
+                                            <outlet property="departureDateLabel" destination="BdP-Ym-eqO" id="BdU-rm-4cB"/>
+                                            <outlet property="departureLocationLabel" destination="th4-fM-CtY" id="MDa-b1-cAf"/>
+                                            <outlet property="departureTimeLabel" destination="Bpj-mi-gL0" id="QQg-xe-xdB"/>
+                                            <outlet property="fullNameLabel" destination="SXD-yl-zou" id="6nf-nj-lsA"/>
+                                            <outlet property="profilePictureImageView" destination="uQe-fJ-U9y" id="ou8-8T-h4H"/>
+                                            <outlet property="rideDetailsLabel" destination="eHw-rN-gbY" id="D6H-7d-HiH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -257,7 +257,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.forward" catalog="system" width="128" height="98"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="icons8-car-30" width="30" height="30"/>
         <image name="plus" catalog="system" width="128" height="113"/>

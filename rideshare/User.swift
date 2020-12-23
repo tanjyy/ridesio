@@ -8,18 +8,18 @@
 import Foundation
 
 class User {
-    var fname: String
-    var lname: String
-    var user_id: String
+    var firstName: String
+    var lastName: String
+    var objectId: String
     var email: String
-    var profilePic: URL
-    var trip_history: [Trip]
-    init(fname: String, lname: String, user_id: String, phone_number: String, email: String, profilePic: URL, trip_history: [Trip]) {
-        self.fname = fname
-        self.lname = lname
-        self.user_id = user_id
+    var profilePicture: URL
+    var tripHistory: [Trip]
+    init(firstName: String, lastName: String, objectId: String, phoneNumber: String, email: String, profilePicture: URL, tripHistory: [Trip]) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.objectId = objectId
         self.email = email
-        self.profilePic = profilePic
-        self.trip_history = trip_history
+        self.profilePicture = profilePicture
+        self.tripHistory = tripHistory
     }
 }

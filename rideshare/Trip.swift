@@ -9,7 +9,6 @@ import Foundation
 import MapKit
 
 class TripInfo {
-//    var isRoundTrip: Bool
     var pickupLocation: String
     var arrivalLocation: String
     var departureTime: Date

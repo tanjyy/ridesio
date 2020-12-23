@@ -18,7 +18,6 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var rideOfferingsTableView: UITableView!
     
-    
     @IBAction func onClickSettings(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Settings", bundle:nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "Settings")
@@ -90,19 +89,18 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.selectionStyle = .none
         
-        
         // configure cell
         let user = ride["driverId"] as! PFUser
-        cell.driverUserName.text = user["firstName"] as? String
-        if  let imagefile = user["profilePicture"] as? PFFileObject {
-            let urlString = (imagefile.url)!
+        cell.fullNameLabel.text = user["firstName"] as? String
+        if  let imageFile = user["profilePicture"] as? PFFileObject {
+            let urlString = (imageFile.url)!
             let url = URL(string: urlString)!
             
-            cell.profilePicture.af.setImage(withURL: url)
+            cell.profilePictureImageView.af.setImage(withURL: url)
         }
         
-        cell.departureLocation.text = ride["departureLocation"] as? String
-        cell.arrivalLocation.text = ride["arrivalLocation"] as? String
+        cell.departureLocationLabel.text = ride["departureLocation"] as? String
+        cell.arrivalLocationLabel.text = ride["arrivalLocation"] as? String
         
         let str2Date = DateFormatter()
         str2Date.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -113,17 +111,16 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "h:mm a"
 
-        let departureTime = str2Date.date(from: ride["departureDatetime"] as! String)
-        let arrivalTime = str2Date.date(from: (ride["arrivalDatetime"]) as! String)
+        let departureTime = str2Date.date(from: ride["departureDateTime"] as! String)
+        let arrivalTime = str2Date.date(from: (ride["arrivalDateTime"]) as! String)
         
-        cell.arrivalDate.text = dateFormatter.string(from: arrivalTime!)
-        cell.departureDate.text = dateFormatter.string( from: departureTime!)
-        cell.arrivalTime.text = timeFormatter.string(from: arrivalTime!)
-        cell.departureTime.text = timeFormatter.string( from: departureTime!)
+        cell.arrivalDateLabel.text = dateFormatter.string(from: arrivalTime!)
+        cell.departureDateLabel.text = dateFormatter.string( from: departureTime!)
+        cell.arrivalTimeLabel.text = timeFormatter.string(from: arrivalTime!)
+        cell.departureTimeLabel.text = timeFormatter.string( from: departureTime!)
         
-        cell.rideDetails.text = ride["rideDetails"] as? String
+        cell.rideDetailsLabel.text = ride["rideDetails"] as? String
         
-        //cell.layer.cornerRadius = 40
         return cell
     }
     
@@ -137,11 +134,10 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         
         // Pass the ride object corresponding to this row to the next view
         let rideObject = rides[indexPath.row]
-        let departureDateTimeString = rideObject["departureDatetime"] as! String
-        let arrivalDateTimeString = rideObject["arrivalDatetime"] as! String
+        let departureDateTimeString = rideObject["departureDateTime"] as! String
+        let arrivalDateTimeString = rideObject["arrivalDateTime"] as! String
         
         let dateFormatter = DateFormatter()
-//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
         let departureDateTime = dateFormatter.date(from: departureDateTimeString)!
@@ -150,7 +146,7 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
         let departureCoordinate = CLLocationCoordinate2D(latitude: rideObject["departureLocationLat"] as! CLLocationDegrees, longitude: rideObject["departureLocationLong"] as! CLLocationDegrees)
         let arrivalCoordinate = CLLocationCoordinate2D(latitude: rideObject["arrivalLocationLat"] as! CLLocationDegrees, longitude: rideObject["arrivalLocationLong"] as! CLLocationDegrees)
         
-        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime as! Date, returnTime: arrivalDateTime as! Date, departureCoordinate: departureCoordinate, arrivalCoordinate: arrivalCoordinate)
+        let tripInfo = TripInfo(pickupLocation: rideObject["departureLocation"] as? String ?? "", arrivalLocation: rideObject["arrivalLocation"] as? String ?? "", departureTime: departureDateTime , returnTime: arrivalDateTime , departureCoordinate: departureCoordinate, arrivalCoordinate: arrivalCoordinate)
         
         let ride = Trip(tripId: rideObject.objectId!, posterId: (rideObject["driverId"] as! PFUser).objectId!, tripInfo: tripInfo, cost: "n/a", description: rideObject["rideDetails"] as! String)
         vc.ride = ride
@@ -166,27 +162,27 @@ class RideOfferingsViewController: UIViewController, UITableViewDelegate, UITabl
             if users?.isEmpty != true {
                 print("users not nil")
                 let posterObj = users?[0]
-                let fname = posterObj?["firstName"] as! String
-                let lname = posterObj?["lastName"] as! String
-                let uid = posterObj?.objectId ?? ""
-                let phone_number = posterObj?["phoneNumber"] as? String ?? "n/a"
+                let firstName = posterObj?["firstName"] as! String
+                let lastName = posterObj?["lastName"] as! String
+                let objectId = posterObj?.objectId ?? ""
+                let phoneNumber = posterObj?["phoneNumber"] as? String ?? "n/a"
                 let email = posterObj?["username"] as! String
-                var profilePic = URL(string: "www.ridesio.com")!
-                if let imagefile = posterObj?["profilePicture"] as? PFFileObject {
-                    let urlString = (imagefile.url)!
-                    profilePic = URL(string: urlString)!
+                var profilePicture = URL(string: "www.ridesio.com")!
+                if let imageFile = posterObj?["profilePicture"] as? PFFileObject {
+                    let urlString = (imageFile.url)!
+                    profilePicture = URL(string: urlString)!
                 }
                 
                 let tripHistory = [Trip]()
                 
-                let poster = User(fname: fname, lname: lname, user_id: uid, phone_number: phone_number, email: email, profilePic: profilePic, trip_history: tripHistory)
+                let poster = User(firstName: firstName, lastName: lastName, objectId: objectId, phoneNumber: phoneNumber, email: email, profilePicture: profilePicture, tripHistory: tripHistory)
                 
                 vc.poster = poster
             }
             else {
                 print("users is nil")
-                print("Error: \(error?.localizedDescription)")
-                let poster = User(fname: "First", lname: "Last", user_id: "userId", phone_number: "n/a", email: "n/a", profilePic: URL(string: "")!, trip_history: [Trip]())
+                print("Error: \(String(describing: error?.localizedDescription))")
+                let poster = User(firstName: "First", lastName: "Last", objectId: "userId", phoneNumber: "n/a", email: "n/a", profilePicture: URL(string: "")!, tripHistory: [Trip]())
                 
                 vc.poster = poster
             }
