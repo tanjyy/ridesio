@@ -23,15 +23,28 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func onTapGesture(_ sender: Any) {
+        let alert = UIAlertController(title: "Image Selection", message: "From where you want to pick this image?", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(action: UIAlertAction) in
+            self.getImage(fromSourceType: .photoLibrary)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func getImage(fromSourceType sourceType: UIImagePickerController.SourceType) {
+
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
         picker.sourceType = .photoLibrary
+        self.present(picker, animated: true, completion: nil)
         
-        present(picker, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         let image = info[.editedImage] as! UIImage
         
         let size = CGSize(width: 300, height: 300)
@@ -41,7 +54,6 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         
         let imageData = profilePictureImageView.image!.pngData()
         let profilePictureFile = PFFileObject(name: "image.png", data: imageData!)
-        
         user?["profilePicture"] = profilePictureFile
         
         user?.saveInBackground(block: { (success, error) in
