@@ -14,7 +14,6 @@ protocol SearchViewControllerDelegate : NSObjectProtocol{
     func passBack(location: MKMapItem, fieldName: String)
 }
 
-
 class SearchViewController: UIViewController {
     
     weak var delegate: SearchViewControllerDelegate?

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UaK-e4-gbS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UaK-e4-gbS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -130,7 +130,7 @@
                                                         <constraint firstItem="WN2-FK-Xsk" firstAttribute="top" secondItem="MFt-SR-9ZK" secondAttribute="bottom" constant="32" id="xMB-im-27N"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DIC-de-m6a">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DIC-de-m6a">
                                                     <rect key="frame" x="182" y="45.5" width="50" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="2HK-bx-O67"/>
@@ -149,16 +149,16 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="arrivalDate" destination="qzn-Av-ykg" id="bQY-Qr-XPI"/>
-                                            <outlet property="arrivalLocation" destination="13w-HN-nod" id="gTY-Ry-jJI"/>
-                                            <outlet property="arrivalTime" destination="QJV-83-U0K" id="m8u-pQ-ias"/>
+                                            <outlet property="arrivalDateLabel" destination="qzn-Av-ykg" id="bQY-Qr-XPI"/>
+                                            <outlet property="arrivalLocationLabel" destination="13w-HN-nod" id="gTY-Ry-jJI"/>
+                                            <outlet property="arrivalTimeLabel" destination="QJV-83-U0K" id="v8N-lI-mfY"/>
                                             <outlet property="cardView" destination="jjP-aq-Hij" id="qzi-j5-ukj"/>
-                                            <outlet property="departureDate" destination="Qw8-XT-6hq" id="dJf-H7-PiZ"/>
-                                            <outlet property="departureLocation" destination="Nwd-8W-kyk" id="peP-yF-HNu"/>
-                                            <outlet property="departureTime" destination="MFt-SR-9ZK" id="4Qq-WP-FMw"/>
-                                            <outlet property="driverUserName" destination="WN2-FK-Xsk" id="UkC-CB-Gqd"/>
-                                            <outlet property="profilePicture" destination="eZz-T7-zzx" id="tCB-04-xe4"/>
-                                            <outlet property="rideDetails" destination="Azl-sM-XLs" id="Gdi-Xk-TSW"/>
+                                            <outlet property="departureDateLabel" destination="Qw8-XT-6hq" id="dJf-H7-PiZ"/>
+                                            <outlet property="departureLocationLabel" destination="Nwd-8W-kyk" id="peP-yF-HNu"/>
+                                            <outlet property="departureTimeLabel" destination="MFt-SR-9ZK" id="4Qq-WP-FMw"/>
+                                            <outlet property="fullNameLabel" destination="WN2-FK-Xsk" id="UkC-CB-Gqd"/>
+                                            <outlet property="profilePictureImageView" destination="eZz-T7-zzx" id="R32-My-Aq8"/>
+                                            <outlet property="rideDetailsLabel" destination="Azl-sM-XLs" id="Gdi-Xk-TSW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -207,8 +207,8 @@
                     <navigationItem key="navigationItem" title="My Profile" id="Mx8-Rw-6e2"/>
                     <connections>
                         <outlet property="emailLabel" destination="HeI-Zd-uf6" id="Qf7-PH-s2O"/>
-                        <outlet property="nameLabel" destination="FWP-Co-Xu4" id="R5r-46-jDh"/>
-                        <outlet property="profileImageView" destination="8wF-hm-2RE" id="Lq1-EW-dfT"/>
+                        <outlet property="fullNameLabel" destination="FWP-Co-Xu4" id="R5r-46-jDh"/>
+                        <outlet property="profilePictureImageView" destination="8wF-hm-2RE" id="Lq1-EW-dfT"/>
                         <outlet property="tableView" destination="9cv-3a-RGE" id="QvO-DP-Zjr"/>
                     </connections>
                 </viewController>
@@ -261,7 +261,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.forward" catalog="system" width="128" height="98"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

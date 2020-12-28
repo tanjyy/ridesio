@@ -24,7 +24,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
-//        tableView.tableFooterView = UIView(frame:CGRect.zero)
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         self.title = "Settings"
@@ -71,22 +70,24 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingsProfileCell") as! SettingsProfileCell
-            cell.name.text = "\(user?["firstName"] as! String) \(user?["lastName"] as! String)"
+            cell.fullNameLabel.text = "\(user?["firstName"] as! String) \(user?["lastName"] as! String)"
             
             if let imagefile = user?["profilePicture"] as? PFFileObject {
                 let urlString = (imagefile.url)!
                 let url = URL(string: urlString)!
                 cell.profileImageView.af.setImage(withURL: url)
             }
-            
             return cell
-        } else if indexPath.row == 1 {
+            
+        }
+        else if indexPath.row == 1 {
             let cell : UITableViewCell = UITableViewCell()
             return cell
-        } else {
+        }
+        else {
             let text = cells[indexPath.row - 2]
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingsContentCell") as! SettingsContentCell
-            cell.content.text = text
+            cell.contentLabel.text = text
             return cell
         }
     }

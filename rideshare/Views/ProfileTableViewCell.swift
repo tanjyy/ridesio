@@ -9,23 +9,21 @@ import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var pickup_location: UILabel!
-    @IBOutlet weak var destination_location: UILabel!
-    @IBOutlet weak var profile_picture: UIImageView!
-    @IBOutlet weak var driver_name: UILabel!
-    @IBOutlet weak var ride_description: UILabel!
-    @IBOutlet weak var departureDate: UILabel!
-    @IBOutlet weak var departureTime: UILabel!
-    @IBOutlet weak var returnDate: UILabel!
-    @IBOutlet weak var returnTime: UILabel!
+    @IBOutlet weak var pickupLocationLabel: UILabel!
+    @IBOutlet weak var destinationLocationLabel: UILabel!
+    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var rideDetailsLabel: UILabel!
+    @IBOutlet weak var departureDateLabel: UILabel!
+    @IBOutlet weak var departureTimeLabel: UILabel!
+    @IBOutlet weak var returnDateLabel: UILabel!
+    @IBOutlet weak var returnTimeLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        profile_picture.makeRounded()
+        profilePictureImageView.makeRounded()
         cardView.clipsToBounds = true
         cardView.layer.cornerRadius = 10
         cardView.addShadow(offset: CGSize.init(width: 3, height: 3), color: UIColor.black, radius: 2.0, opacity: 0.35)

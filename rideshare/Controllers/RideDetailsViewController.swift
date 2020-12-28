@@ -11,18 +11,17 @@ import MapKit
 
 class RideDetailsViewController: UIViewController, MKMapViewDelegate {
     
-    
-    @IBOutlet weak var tripDistance: UILabel!
-    @IBOutlet weak var tripTime: UILabel!
+    @IBOutlet weak var tripDistanceLabel: UILabel!
+    @IBOutlet weak var tripTimeLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
-    @IBOutlet weak var departureLocation: UILabel!
-    @IBOutlet weak var arrivalLocation: UILabel!
+    @IBOutlet weak var departureLocationLabel: UILabel!
+    @IBOutlet weak var arrivalLocationLabel: UILabel!
     
-    @IBOutlet weak var departureDateTime: UILabel!
+    @IBOutlet weak var departureDateTimeLabel: UILabel!
     
-    @IBOutlet weak var returnDateTime: UILabel!
-    @IBOutlet weak var driverName: UILabel!
+    @IBOutlet weak var returnDateTimeLabel: UILabel!
+    @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -66,8 +65,8 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
             ride = Trip(tripId: "", posterId: "", tripInfo: tripInfo, cost: "", description: "")
         }
         
-        departureLocation.text = ride?.tripInfo.pickupLocation
-        arrivalLocation.text = ride?.tripInfo.arrivalLocation
+        departureLocationLabel.text = ride?.tripInfo.pickupLocation
+        arrivalLocationLabel.text = ride?.tripInfo.arrivalLocation
         
         let rawDepartureTime = ride!.tripInfo.departureTime
         let rawArrivalTime = ride!.tripInfo.returnTime
@@ -80,8 +79,8 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
         
         let depTimeStr = "\(dateFormatter.string(from: rawDepartureTime)) \(timeFormatter.string(from: rawDepartureTime))"
         let arrivTimeStr = "\(dateFormatter.string(from: rawArrivalTime)) \(timeFormatter.string(from: rawArrivalTime))"
-        departureDateTime.text = depTimeStr
-        returnDateTime.text = arrivTimeStr
+        departureDateTimeLabel.text = depTimeStr
+        returnDateTimeLabel.text = arrivTimeStr
         
         descriptionLabel.text = ride?.description
         
@@ -135,8 +134,8 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
                     travelTimeStr = "\(Int((travelTimeInSeconds/60).rounded(.up)))m"
                 }
                 
-                tripDistance.text = "Trip Distance: \(String(format: "%.1f", (10 * distanceInMiles).rounded()/10))mi"
-                tripTime.text = "Trip Time: \(travelTimeStr)"
+                tripDistanceLabel.text = "Trip Distance: \(String(format: "%.1f", (10 * distanceInMiles).rounded()/10))mi"
+                tripTimeLabel.text = "Trip Time: \(travelTimeStr)"
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                     self.removeSpinner()
@@ -163,11 +162,11 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let index = self.poster?.lname.startIndex
-        let name = "\(poster!.fname) \(poster!.lname[index!])."
-        driverName.text = name
+        let index = self.poster?.lastName.startIndex
+        let name = "\(poster!.firstName) \(poster!.lastName[index!])."
+        fullNameLabel.text = name
         
-        profileImageView.af.setImage(withURL: poster!.profilePic)
+        profileImageView.af.setImage(withURL: poster!.profilePicture)
     }
     
     @IBAction func onBookRide(_ sender: Any) {
@@ -183,16 +182,16 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
         }
         
         let query = PFQuery(className: "Rides")
-        query.whereKey("objectId", equalTo: ride?.tripId as! String)
+        query.whereKey("objectId", equalTo: ride?.tripId as Any)
         
         query.findObjectsInBackground{(rides,error) in
             if rides != nil {
-                let curr_ride = rides![0]
+                let ride = rides![0]
                 
                 var isAlreadyRider = false
                 
                 // TODO: add logic here to not add user if they are already a rider
-                let riders = curr_ride["riders"] as! [PFObject]
+                let riders = ride["riders"] as! [PFObject]
                 for rider in riders {
                     if rider.objectId == PFUser.current()?.objectId {
                         isAlreadyRider = true
@@ -204,15 +203,15 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
                     print("Can't book ride twice, not booking ride")
                     // TODO: add a popup dialog here that informs user of why the operation failed
                 } else {
-                    curr_ride.add(PFUser.current(), forKey: "riders")
+                    ride.add(PFUser.current() as Any, forKey: "riders")
                     
-                    curr_ride.saveInBackground { (success, error)  in
+                    ride.saveInBackground { (success, error)  in
                         if (success) {
                             print("ride booked!")
                             
                             // TODO: open email app with relevant fields populated
-                            let email = self.poster?.email as! String
-                            if let url = URL(string: "mailto:\(email)") {
+                            let email = self.poster?.email
+                            if let url = URL(string: "mailto:\(String(describing: email))") {
                                 print("opening mail app")
                                 UIApplication.shared.open(url)
                             } else {
@@ -222,7 +221,7 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
 //                            _ = self.navigationController?.popViewController(animated: true)
                         } else {
                             // TODO: add a popup dialog here that informs user of why the operation failed
-                            print("\(error?.localizedDescription)")
+                            print("\(String(describing: error?.localizedDescription))")
                         }
                     }
                 }
@@ -235,7 +234,7 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func onClickProfilePic(_ sender: Any) {
         // if the profile being clicked is the current user, go to the account details page, otherwise go to the user's profile
-        if poster?.user_id == PFUser.current()?.objectId {
+        if poster?.objectId == PFUser.current()?.objectId {
             let storyboard = UIStoryboard(name:"AccountDetails", bundle: nil)
             let vc = storyboard.instantiateViewController(identifier: "AccountDetails") as! AccountDetailsViewController
             

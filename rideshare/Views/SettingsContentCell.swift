@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsContentCell: UITableViewCell {
 
-    @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

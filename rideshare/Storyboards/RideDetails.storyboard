@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mrw-TA-n5B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mrw-TA-n5B">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -158,17 +158,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="arrivalLocation" destination="NAI-dr-3We" id="cq3-zY-RWO"/>
+                        <outlet property="arrivalLocationLabel" destination="NAI-dr-3We" id="cq3-zY-RWO"/>
                         <outlet property="bookRideButton" destination="Qv1-MN-7im" id="bP9-Dc-udX"/>
-                        <outlet property="departureDateTime" destination="PS4-Hj-0Af" id="DCa-g0-7mu"/>
-                        <outlet property="departureLocation" destination="zpp-vS-grt" id="FdC-St-PEm"/>
+                        <outlet property="departureDateTimeLabel" destination="PS4-Hj-0Af" id="DCa-g0-7mu"/>
+                        <outlet property="departureLocationLabel" destination="zpp-vS-grt" id="FdC-St-PEm"/>
                         <outlet property="descriptionLabel" destination="tcd-iY-hXq" id="rPQ-If-lIc"/>
-                        <outlet property="driverName" destination="B7R-7R-pdN" id="Rip-np-eCr"/>
+                        <outlet property="fullNameLabel" destination="B7R-7R-pdN" id="LnJ-Q3-UHJ"/>
                         <outlet property="mapView" destination="whv-Mf-2Il" id="PLG-Pp-BBm"/>
                         <outlet property="profileImageView" destination="moN-lV-y6K" id="Fxt-iA-sYR"/>
-                        <outlet property="returnDateTime" destination="iSd-8T-4lf" id="mUF-yy-ljP"/>
-                        <outlet property="tripDistance" destination="YLO-wa-9tp" id="BYW-IX-sVa"/>
-                        <outlet property="tripTime" destination="YMf-uQ-4Cy" id="Kp2-RO-ZOa"/>
+                        <outlet property="returnDateTimeLabel" destination="iSd-8T-4lf" id="mUF-yy-ljP"/>
+                        <outlet property="tripDistanceLabel" destination="YLO-wa-9tp" id="BYW-IX-sVa"/>
+                        <outlet property="tripTimeLabel" destination="YMf-uQ-4Cy" id="Kp2-RO-ZOa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2d-PW-LBZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
