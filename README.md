@@ -30,7 +30,7 @@ There are no automated tests as of yet; this is an in progress area of developme
 - [AlamofireImage](https://github.com/Alamofire/AlamofireImage) - used to display images within the application
 
 ## Authors
-- **[Taha Afzal]()** - Created first prototype of Ridesio for CodePath Demo Day Fall 2020
+- **[Taha Afzal](http://github.com/tahaafzal5)** - Created first prototype of Ridesio for CodePath Demo Day Fall 2020
 - **[Nashir Janmohamed]()** - Created first prototype of Ridesio for CodePath Demo Day Fall 2020
 - **[Yao Yin]()** - Created first prototype of Ridesio for CodePath Demo Day Fall 2020
 
