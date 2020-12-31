@@ -30,9 +30,9 @@ There are no automated tests as of yet; this is an in progress area of developme
 - [AlamofireImage](https://github.com/Alamofire/AlamofireImage) - used to display images within the application
 
 ## Authors
-- **[Taha Afzal](http://github.com/tahaafzal5)** - Created first prototype of Ridesio for CodePath Demo Day Fall 2020
-- **[Nashir Janmohamed]()** - Created first prototype of Ridesio for CodePath Demo Day Fall 2020
-- **[Yao Yin]()** - Created first prototype of Ridesio for CodePath Demo Day Fall 2020
+- **[Taha Afzal](https://www.linkedin.com/in/tahaafzal5/)** - Created first prototype of Ridesio for CodePath Demo Day Fall 2020
+- **[Nashir Janmohamed](https://www.linkedin.com/in/nashir-janmohamed/)** - Created first prototype of Ridesio for CodePath Demo Day Fall 2020
+- **[Yao Yin](https://www.linkedin.com/in/yao-yin/)** - Created first prototype of Ridesio for CodePath Demo Day Fall 2020
 
 ## Acknowledgments
 - [Codepath](https://codepath.org): The authors met in breakout rooms during the CodePath iOS Fall 2020 course. This course was one of the most comprehensive and engaging learning experiences we have had! The class taught us so much about application development, UI/UX design, and entrepreneurship, and we highly recommend it to anyone regardless of their desire to pursue mobile engineering as a career.
