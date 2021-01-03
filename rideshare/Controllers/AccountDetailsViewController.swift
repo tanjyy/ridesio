@@ -101,7 +101,7 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
             
         }
         else {
-            profilePictureImageView.image = UIImage(systemName: "person")
+            profilePictureImageView.image = UIImage(named: "profile")
         }
         
         fullNameLabel.text = "\(user?["firstName"] as! String) \(user?["lastName"] as! String)"

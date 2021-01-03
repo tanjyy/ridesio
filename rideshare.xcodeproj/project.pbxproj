@@ -15,6 +15,7 @@
 		20AAD687256369E100DFB63F /* RideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20AAD686256369E100DFB63F /* RideDetails.storyboard */; };
 		45266175CFB098CA7FB83DFC /* Pods_rideshareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF0CB0EA57EE68C07BE5E0B /* Pods_rideshareTests.framework */; };
 		4814C08D257F1A6200C5B4C8 /* UIImageView+makeRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4814C08C257F1A6200C5B4C8 /* UIImageView+makeRounded.swift */; };
+		481D3050259E524C009A1F5B /* SignupScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481D304F259E524C009A1F5B /* SignupScreen.storyboard */; };
 		481EE8A325801F960009B7D9 /* Legal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481EE8A225801F960009B7D9 /* Legal.storyboard */; };
 		481EE8B025801FE10009B7D9 /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481EE8AF25801FE10009B7D9 /* LegalViewController.swift */; };
 		48CD80A825842F200088E653 /* UIView+spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD80A725842F200088E653 /* UIView+spinner.swift */; };
@@ -85,6 +86,7 @@
 		20AAD681256369BF00DFB63F /* NewRide.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewRide.storyboard; sourceTree = "<group>"; };
 		20AAD686256369E100DFB63F /* RideDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RideDetails.storyboard; sourceTree = "<group>"; };
 		4814C08C257F1A6200C5B4C8 /* UIImageView+makeRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+makeRounded.swift"; sourceTree = "<group>"; };
+		481D304F259E524C009A1F5B /* SignupScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignupScreen.storyboard; sourceTree = "<group>"; };
 		481EE8A225801F960009B7D9 /* Legal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Legal.storyboard; sourceTree = "<group>"; };
 		481EE8AF25801FE10009B7D9 /* LegalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalViewController.swift; sourceTree = "<group>"; };
 		48CD80A725842F200088E653 /* UIView+spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+spinner.swift"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				A33E37F025689C530047D348 /* Settings.storyboard */,
 				A3F27EFE2580754000C7F424 /* LocationSearch.storyboard */,
 				481EE8A225801F960009B7D9 /* Legal.storyboard */,
+				481D304F259E524C009A1F5B /* SignupScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				A3F27EFF2580754000C7F424 /* LocationSearch.storyboard in Resources */,
 				20AAD682256369BF00DFB63F /* NewRide.storyboard in Resources */,
 				481EE8A325801F960009B7D9 /* Legal.storyboard in Resources */,
+				481D3050259E524C009A1F5B /* SignupScreen.storyboard in Resources */,
 				48D44A8B2563724800E02BB7 /* AccountDetails.storyboard in Resources */,
 				48D44A8A2563724800E02BB7 /* Profile.storyboard in Resources */,
 				A3A706702560668300A597BD /* Inter-Bold-slnt=0.ttf in Resources */,

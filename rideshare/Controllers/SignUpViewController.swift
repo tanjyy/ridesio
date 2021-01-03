@@ -7,17 +7,22 @@
 
 import UIKit
 import Parse
+import AlamofireImage
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-
+    @IBOutlet weak var profilePictureImageView: UIImageView!
+    
+    let user = PFUser()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        profilePictureImageView.makeRounded()
         // Do any additional setup after loading the view.
     }
     
@@ -25,8 +30,42 @@ class SignUpViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func onTapGesture(_ sender: Any) {
+        let picker = UIImagePickerController()
+        
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .photoLibrary
+        
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        
+        let size = CGSize(width: 300, height: 300)
+        let scaledImage = image.af.imageScaled(to: size)
+        
+        profilePictureImageView.image = scaledImage
+        
+        let imageData = (profilePictureImageView.image?.pngData())!
+        let profilePictureFile = PFFileObject(name: "image.png", data: imageData)
+        
+        user["profilePicture"] = profilePictureFile
+        user.saveInBackground { (success, error) in
+            if (success) {
+                print("profile picture saved in Parse.")
+            }
+            else {
+                print ("Error: \(String(describing: error?.localizedDescription))")
+            }
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
     @IBAction func onSignUp(_ sender: Any) {
-        let user = PFUser()
         
         user["firstName"] = firstNameField.text
         user["lastName"] = lastNameField.text
