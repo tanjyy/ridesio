@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func onSignUp(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "LoginScreen", bundle: nil)
+        let storyboard = UIStoryboard(name: "SignupScreen", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "SignUp")
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
