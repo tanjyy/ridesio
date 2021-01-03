@@ -28,8 +28,11 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(action: UIAlertAction) in
             self.getImage(fromSourceType: .photoLibrary)
         }))
-        
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
+            self.getImage(fromSourceType: .camera)
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+        
         self.present(alert, animated: true, completion: nil)
     }
     
