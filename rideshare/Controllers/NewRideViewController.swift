@@ -59,34 +59,53 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
     }
     
     @IBAction func onPostRideButton(_ sender: Any) {
-        print("\n\nposting ride")
-        let ride = PFObject(className:"Rides")
-        ride["departureLocation"] = departureLocationField.text
-        print(departureLocationCL as Any)
-        ride["departureLocationLat"] = departureLocationCL!.placemark.coordinate.latitude
-        ride["departureLocationLong"] = departureLocationCL!.placemark.coordinate.longitude
-        ride["arrivalLocation"] = arrivalLocationField.text
-        ride["arrivalLocationLat"] = arrivalLocationCL!.placemark.coordinate.latitude
-        ride["arrivalLocationLong"] = arrivalLocationCL!.placemark.coordinate.longitude
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        if (departureLocationField.text!.isEmpty || arrivalLocationField.text!.isEmpty || rideDetailsTextView.text!.isEmpty || arrivalLocationCL == nil || departureLocationCL == nil) {
+            let alert = UIAlertController(title: "Error", message: "All the fields are required", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+        else {
+            print("\n\nposting ride")
+            let ride = PFObject(className:"Rides")
+            ride["departureLocation"] = departureLocationField.text
+            print(departureLocationCL as Any)
+            ride["departureLocationLat"] = departureLocationCL!.placemark.coordinate.latitude
+            ride["departureLocationLong"] = departureLocationCL!.placemark.coordinate.longitude
+            ride["arrivalLocation"] = arrivalLocationField.text
+            ride["arrivalLocationLat"] = arrivalLocationCL!.placemark.coordinate.latitude
+            ride["arrivalLocationLong"] = arrivalLocationCL!.placemark.coordinate.longitude
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
 
-        let departureDateTime = formatter.string(from: departureDatePicker.date)
-        let arrivalDateTime = formatter.string(from: arrivalDatePicker.date)
-        ride["departureDateTime"] = departureDateTime
-        ride["arrivalDateTime"] = arrivalDateTime
-        
-        ride["driverId"] = PFUser.current()
-        ride["rideDetails"] = rideDetailsTextView.text
-        ride.add(PFUser.current() as Any, forKey: "riders")
-
-        ride.saveInBackground { (success, error)  in
-            if (success) {
-                print("ride posted successfully")
-                self.dismiss(animated: true, completion: nil)
-            } else {
-                print("\(String(describing: error?.localizedDescription))")
+            let departureDateTime = formatter.string(from: departureDatePicker.date)
+            let arrivalDateTime = formatter.string(from: arrivalDatePicker.date)
+            
+            if (arrivalDateTime <= departureDateTime) {
+                let alert = UIAlertController(title: "Error", message: "Arrival cannot be in the past or the same as the departure", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
+            else {
+                ride["departureDateTime"] = departureDateTime
+                ride["arrivalDateTime"] = arrivalDateTime
+                
+                ride["driverId"] = PFUser.current()
+                ride["rideDetails"] = rideDetailsTextView.text
+                ride.add(PFUser.current() as Any, forKey: "riders")
+                
+                ride.saveInBackground { (success, error)  in
+                    if (success) {
+                        print("ride posted successfully")
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        print("\(String(describing: error?.localizedDescription))")
+                        let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+                        self.present(alert, animated: true)
+                    }
+                }
             }
         }
     }
