@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fUu-CL-1Qd">
-                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="693"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="rBX-OY-uMn" id="ZS3-hy-1Y8"/>
@@ -29,25 +29,38 @@
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tmq-Pd-D9W">
-                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="rBX-OY-uMn" id="JrM-MB-fMB"/>
                                 </connections>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIk-jV-wXh">
+                                <rect key="frame" x="346" y="34" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="onCancel:" destination="rBX-OY-uMn" eventType="touchUpInside" id="CK5-Bu-KEF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="x1h-5q-AD5"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tmq-Pd-D9W" firstAttribute="leading" secondItem="cVX-0j-1sB" secondAttribute="leading" id="2jM-Kc-E7D"/>
                             <constraint firstAttribute="trailing" secondItem="fUu-CL-1Qd" secondAttribute="trailing" id="BvY-cU-pRy"/>
+                            <constraint firstItem="tmq-Pd-D9W" firstAttribute="top" secondItem="gIk-jV-wXh" secondAttribute="bottom" id="Iyw-oX-jZk"/>
                             <constraint firstAttribute="trailing" secondItem="tmq-Pd-D9W" secondAttribute="trailing" id="MoE-vy-XYA"/>
                             <constraint firstItem="fUu-CL-1Qd" firstAttribute="top" secondItem="tmq-Pd-D9W" secondAttribute="bottom" id="NA5-jH-CzJ"/>
-                            <constraint firstItem="tmq-Pd-D9W" firstAttribute="top" secondItem="dAy-o2-um1" secondAttribute="bottom" id="bgO-5u-QtF"/>
+                            <constraint firstItem="gIk-jV-wXh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="x1h-5q-AD5" secondAttribute="leading" constant="10" id="cvO-69-Dn5"/>
                             <constraint firstItem="iUQ-wi-sRx" firstAttribute="top" secondItem="fUu-CL-1Qd" secondAttribute="bottom" id="erI-bq-5yb"/>
+                            <constraint firstItem="x1h-5q-AD5" firstAttribute="trailing" secondItem="gIk-jV-wXh" secondAttribute="trailing" constant="20" id="g6q-a6-lU0"/>
+                            <constraint firstItem="tmq-Pd-D9W" firstAttribute="top" secondItem="x1h-5q-AD5" secondAttribute="top" constant="20" id="gUP-lh-Sga"/>
+                            <constraint firstItem="gIk-jV-wXh" firstAttribute="top" secondItem="cVX-0j-1sB" secondAttribute="top" constant="34" id="mGX-hZ-uBT"/>
                             <constraint firstItem="fUu-CL-1Qd" firstAttribute="leading" secondItem="cVX-0j-1sB" secondAttribute="leading" id="u6c-CT-c2J"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="tmq-Pd-D9W" id="1TZ-dx-lQM"/>
                         <outlet property="searchResultsTableView" destination="fUu-CL-1Qd" id="kfW-jh-hAv"/>

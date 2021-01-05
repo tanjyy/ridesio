@@ -16,6 +16,11 @@ protocol SearchViewControllerDelegate : NSObjectProtocol{
 
 class SearchViewController: UIViewController {
     
+    
+    @IBAction func onCancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     weak var delegate: SearchViewControllerDelegate?
     
     var fieldName = ""
@@ -67,9 +72,16 @@ extension SearchViewController: MKLocalSearchCompleterDelegate {
 }
 
 extension SearchViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        // if searchCompleter.queryFragment == "", want to show UserDefault locations
+        if searchResults.count > 0 || searchCompleter.queryFragment == "" {
+            self.searchResultsTableView.restore()
+            return 1
+        } else {
+            print("searchResults.count = \(searchResults.count)")
+            self.searchResultsTableView.setEmptyMessage("No matches!")
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
