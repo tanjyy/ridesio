@@ -62,7 +62,7 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
         
         if (departureLocationField.text!.isEmpty || arrivalLocationField.text!.isEmpty || rideDetailsTextView.text!.isEmpty || arrivalLocationCL == nil || departureLocationCL == nil) {
             let alert = UIAlertController(title: "Error", message: "All the fields are required", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
         else {
@@ -84,7 +84,7 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
             
             if (arrivalDateTime <= departureDateTime) {
                 let alert = UIAlertController(title: "Error", message: "Arrival cannot be in the past or the same as the departure", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                 self.present(alert, animated: true)
             }
             else {
@@ -101,8 +101,8 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
                         self.dismiss(animated: true, completion: nil)
                     } else {
                         print("\(String(describing: error?.localizedDescription))")
-                        let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+                        let alert = UIAlertController(title: "Error", message: "There was a problem posting the ride, please try again.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                         self.present(alert, animated: true)
                     }
                 }

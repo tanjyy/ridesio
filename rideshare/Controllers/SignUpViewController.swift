@@ -75,7 +75,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
         
         if (firstNameField.text!.isEmpty || lastNameField.text!.isEmpty) {
             let alert = UIAlertController(title: "Error", message: "First and Last Names are required", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
 
@@ -86,8 +86,8 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
             else {
                 print("Error: \(String(describing: error?.localizedDescription))")
                 
-                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+                let alert = UIAlertController(title: "Error", message: "There was an error signing in, please try again.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                 self.present(alert, animated: true)
             }
         }
