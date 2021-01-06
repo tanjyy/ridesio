@@ -20,12 +20,19 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onSignIn(_ sender: Any) {
+        
         PFUser.logInWithUsername(inBackground: emailField.text!, password: passwordField.text!) {
             (user: PFUser?, error: Error?) -> Void in
+            
             if user != nil {
                 self.transitionToMain()
             } else {
                 print("Error: \(String(describing: error?.localizedDescription))")
+                let alert = UIAlertController(title: "Error", message: "There was an error signing in, please try again.", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+
+                self.present(alert, animated: true)
             }
         }
     }
