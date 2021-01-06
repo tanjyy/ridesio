@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
                 self.transitionToMain()
             } else {
                 print("Error: \(String(describing: error?.localizedDescription))")
-                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let alert = UIAlertController(title: "Error", message: "There was an error signing in, please try again.", preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
 
