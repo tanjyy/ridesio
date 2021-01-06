@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
                 print("Error: \(String(describing: error?.localizedDescription))")
                 let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                 
-                alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
 
                 self.present(alert, animated: true)
             }
