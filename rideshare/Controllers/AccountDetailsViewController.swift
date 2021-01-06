@@ -41,7 +41,7 @@ class AccountDetailsViewController: UIViewController, UITableViewDataSource, UIT
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
-        picker.sourceType = .photoLibrary
+        picker.sourceType = sourceType
         self.present(picker, animated: true, completion: nil)
         
     }
