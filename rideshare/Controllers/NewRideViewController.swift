@@ -16,7 +16,6 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
     var arrivalLocationCL: MKMapItem?
     
     @IBOutlet weak var postNewRideButton: UIButton!
-    // TODO: implement onTapPickupLocation and onTapArrivalLocation
     
     @IBAction func onTapDepartureLocation(_ sender: Any) {
         transitionToSearchView("departure")
@@ -31,6 +30,7 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
         let vc = storyboard.instantiateViewController(identifier: "SearchView") as! SearchViewController
         vc.delegate = self
         vc.fieldName = fieldName
+        vc.displayDefaultLocations = true
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }

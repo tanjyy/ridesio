@@ -35,6 +35,9 @@
 		A33E37FF2568B33F0047D348 /* SettingsProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E37FE2568B33F0047D348 /* SettingsProfileCell.swift */; };
 		A34CDDF5254DB92900153A26 /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A34CDDF3254DB92900153A26 /* LoginScreen.storyboard */; };
 		A35CACA8256DECD40019C89E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CACA7256DECD40019C89E /* SignUpViewController.swift */; };
+		A367514325A51A7B00181384 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A367514225A51A7B00181384 /* Preferences.storyboard */; };
+		A367514D25A536AA00181384 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A367514C25A536AA00181384 /* PreferencesViewController.swift */; };
+		A367515225A56FAD00181384 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = A367515125A56FAD00181384 /* Place.swift */; };
 		A3A7066A2560668300A597BD /* Inter-Thin-slnt=0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3A706612560668200A597BD /* Inter-Thin-slnt=0.ttf */; };
 		A3A7066B2560668300A597BD /* Inter-ExtraBold-slnt=0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3A706622560668200A597BD /* Inter-ExtraBold-slnt=0.ttf */; };
 		A3A7066C2560668300A597BD /* Inter-Light-slnt=0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3A706632560668200A597BD /* Inter-Light-slnt=0.ttf */; };
@@ -109,6 +112,9 @@
 		A33E37FE2568B33F0047D348 /* SettingsProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileCell.swift; sourceTree = "<group>"; };
 		A34CDDF4254DB92900153A26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginScreen.storyboard; sourceTree = "<group>"; };
 		A35CACA7256DECD40019C89E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		A367514225A51A7B00181384 /* Preferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
+		A367514C25A536AA00181384 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		A367515125A56FAD00181384 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Place.swift; path = rideshare/Place.swift; sourceTree = SOURCE_ROOT; };
 		A3A706612560668200A597BD /* Inter-Thin-slnt=0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Thin-slnt=0.ttf"; path = "rideshare/Fonts/Inter-Thin-slnt=0.ttf"; sourceTree = SOURCE_ROOT; };
 		A3A706622560668200A597BD /* Inter-ExtraBold-slnt=0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-ExtraBold-slnt=0.ttf"; path = "rideshare/Fonts/Inter-ExtraBold-slnt=0.ttf"; sourceTree = SOURCE_ROOT; };
 		A3A706632560668200A597BD /* Inter-Light-slnt=0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Light-slnt=0.ttf"; path = "rideshare/Fonts/Inter-Light-slnt=0.ttf"; sourceTree = SOURCE_ROOT; };
@@ -216,6 +222,7 @@
 				A3F27EFE2580754000C7F424 /* LocationSearch.storyboard */,
 				481EE8A225801F960009B7D9 /* Legal.storyboard */,
 				481D304F259E524C009A1F5B /* SignupScreen.storyboard */,
+				A367514225A51A7B00181384 /* Preferences.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -233,6 +240,7 @@
 				A35CACA7256DECD40019C89E /* SignUpViewController.swift */,
 				A3F27F032580761F00C7F424 /* SearchViewController.swift */,
 				481EE8AF25801FE10009B7D9 /* LegalViewController.swift */,
+				A367514C25A536AA00181384 /* PreferencesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -242,6 +250,7 @@
 			children = (
 				A3DE1646256AEFF50048196E /* User.swift */,
 				A3DE164B256AF1330048196E /* Trip.swift */,
+				A367515125A56FAD00181384 /* Place.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -467,6 +476,7 @@
 				48D44A8B2563724800E02BB7 /* AccountDetails.storyboard in Resources */,
 				48D44A8A2563724800E02BB7 /* Profile.storyboard in Resources */,
 				A3A706702560668300A597BD /* Inter-Bold-slnt=0.ttf in Resources */,
+				A367514325A51A7B00181384 /* Preferences.storyboard in Resources */,
 				A3EBDC1D2547C3180019B31B /* Main.storyboard in Resources */,
 				A3A7066A2560668300A597BD /* Inter-Thin-slnt=0.ttf in Resources */,
 				A3A7066E2560668300A597BD /* Inter-SemiBold-slnt=0.ttf in Resources */,
@@ -598,6 +608,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A367514D25A536AA00181384 /* PreferencesViewController.swift in Sources */,
+				A367515225A56FAD00181384 /* Place.swift in Sources */,
 				A3C095D92572F48900328FEB /* UITableView+setEmptyMessage.swift in Sources */,
 				20AAD66B25608B8100DFB63F /* LoginViewController.swift in Sources */,
 				48D44A942563725800E02BB7 /* RideOfferingTableViewCell.swift in Sources */,

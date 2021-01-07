@@ -103,6 +103,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             let legal = UIStoryboard(name: "Legal", bundle: nil)
             let vc = legal.instantiateViewController(identifier: "LegalStoryboard")
             navigationController?.pushViewController(vc, animated: true)
+        } else if indexPath.row == 3 {
+            let pref = UIStoryboard(name: "Preferences", bundle: nil)
+            let vc = pref.instantiateViewController(identifier: "Preferences")
+            navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == cells.count + 1 { // last element in table view, i.e. logout button
             print("logout")
             
