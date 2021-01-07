@@ -110,7 +110,7 @@ extension SearchViewController: UITableViewDataSource {
         } else if displayDefaultLocations! {
             let place = places[indexPath.row]
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-            cell.textLabel?.text = place.name
+            cell.textLabel?.text = place.userGivenName
             return cell
         } else {
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
