@@ -101,7 +101,7 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
                         self.dismiss(animated: true, completion: nil)
                     } else {
                         print("\(String(describing: error?.localizedDescription))")
-                        let alert = UIAlertController(title: "Error", message: "There was a problem posting the ride, please try again.", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Error", message: "There was an error posting the ride, please try again.", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                         self.present(alert, animated: true)
                     }
