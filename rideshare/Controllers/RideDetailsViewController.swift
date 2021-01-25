@@ -20,7 +20,7 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var departureDateTimeLabel: UILabel!
     
-    @IBOutlet weak var returnDateTimeLabel: UILabel!
+    @IBOutlet weak var arrivalDateTimeLabel: UILabel!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
@@ -61,7 +61,7 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
         
         if ride == nil {
             
-            let tripInfo = TripInfo(pickupLocation: "", arrivalLocation: "", departureTime: Date(), returnTime: Date(), departureCoordinate: kCLLocationCoordinate2DInvalid, arrivalCoordinate: kCLLocationCoordinate2DInvalid)
+            let tripInfo = TripInfo(pickupLocation: "", arrivalLocation: "", departureTime: Date(), arrivalTime: Date(), departureCoordinate: kCLLocationCoordinate2DInvalid, arrivalCoordinate: kCLLocationCoordinate2DInvalid)
             ride = Trip(tripId: "", posterId: "", tripInfo: tripInfo, cost: "", description: "")
         }
         
@@ -69,7 +69,7 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
         arrivalLocationLabel.text = ride?.tripInfo.arrivalLocation
         
         let rawDepartureTime = ride!.tripInfo.departureTime
-        let rawArrivalTime = ride!.tripInfo.returnTime
+        let rawArrivalTime = ride!.tripInfo.arrivalTime
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d"
@@ -80,7 +80,7 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
         let depTimeStr = "\(dateFormatter.string(from: rawDepartureTime)) \(timeFormatter.string(from: rawDepartureTime))"
         let arrivTimeStr = "\(dateFormatter.string(from: rawArrivalTime)) \(timeFormatter.string(from: rawArrivalTime))"
         departureDateTimeLabel.text = depTimeStr
-        returnDateTimeLabel.text = arrivTimeStr
+        arrivalDateTimeLabel.text = arrivTimeStr
         
         descriptionLabel.text = ride?.description
         
