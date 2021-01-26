@@ -15,6 +15,8 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
     var departureLocationCL: MKMapItem?
     var arrivalLocationCL: MKMapItem?
     
+    let milesPerMeter = 0.000621371192
+    
     @IBOutlet weak var postNewRideButton: UIButton!
     
     @IBAction func onTapDepartureLocation(_ sender: Any) {
@@ -40,7 +42,6 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
     @IBOutlet weak var arrivalLocationField: UITextField!
     @IBOutlet weak var departureDatePicker: UIDatePicker!
     
-    @IBOutlet weak var arrivalDatePicker: UIDatePicker!
     @IBOutlet weak var rideDetailsTextView: UITextView!
     
     @IBAction func onDismiss(_ sender: Any) {
@@ -80,30 +81,45 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
 
             let departureDateTime = formatter.string(from: departureDatePicker.date)
-            let arrivalDateTime = formatter.string(from: arrivalDatePicker.date)
             
-            if (arrivalDateTime <= departureDateTime) {
-                let alert = UIAlertController(title: "Error", message: "Arrival cannot be in the past or the same as the departure", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-                self.present(alert, animated: true)
-            }
-            else {
-                ride["departureDateTime"] = departureDateTime
-                ride["arrivalDateTime"] = arrivalDateTime
+            let request = MKDirections.Request()
+            request.source = MKMapItem(placemark: MKPlacemark(coordinate: (departureLocationCL?.placemark.coordinate)!))
+            request.destination = MKMapItem(placemark: MKPlacemark(coordinate: (arrivalLocationCL?.placemark.coordinate)!))
+            request.requestsAlternateRoutes = true
+            request.transportType = .automobile
+            request.departureDate = departureDatePicker.date
+            
+            let directions = MKDirections(request: request)
+            
+            directions.calculate { (response, error) in
+                guard let unwrappedResponse = response else {return}
                 
-                ride["driverId"] = PFUser.current()
-                ride["rideDetails"] = rideDetailsTextView.text
-                ride.add(PFUser.current() as Any, forKey: "riders")
-                
-                ride.saveInBackground { (success, error)  in
-                    if (success) {
-                        print("ride posted successfully")
-                        self.dismiss(animated: true, completion: nil)
-                    } else {
-                        print("\(String(describing: error?.localizedDescription))")
-                        let alert = UIAlertController(title: "Error", message: "There was an error posting the ride, please try again.", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-                        self.present(alert, animated: true)
+                if let route = unwrappedResponse.routes.first {
+                    let travelTimeInSeconds = route.expectedTravelTime
+                    print("travel time in [s]: \(travelTimeInSeconds)")
+                    
+                    let arrivalDate = request.departureDate! + travelTimeInSeconds
+                    let arrivalDateTime = formatter.string(from: arrivalDate)
+                    ride["arrivalDateTime"] = arrivalDateTime
+                    
+                    print("arrivalDateTime = \(arrivalDateTime)")
+                    
+                    ride["departureDateTime"] = departureDateTime
+                    
+                    ride["driverId"] = PFUser.current()
+                    ride["rideDetails"] = self.rideDetailsTextView.text
+                    ride.add(PFUser.current() as Any, forKey: "riders")
+                    
+                    ride.saveInBackground { (success, error)  in
+                        if (success) {
+                            print("ride posted successfully")
+                            self.dismiss(animated: true, completion: nil)
+                        } else {
+                            print("\(String(describing: error?.localizedDescription))")
+                            let alert = UIAlertController(title: "Error", message: "There was an error posting the ride, please try again.", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                            self.present(alert, animated: true)
+                        }
                     }
                 }
             }
