@@ -27,12 +27,17 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var bookRideButton: UIButton!
     
+    @IBOutlet weak var testArrivalTime: UILabel!
+    
     // TODO: this should become a Ride object after the Ride class is created, used to pass information from table view to this details page
     var ride: Trip?
     var poster: User?
     
     // do this in one of the init methods
     let milesPerMeter = 0.000621371192
+    
+    let dateFormatter = DateFormatter()
+    let timeFormatter = DateFormatter()
     
     @IBAction func onPressOpenRide(_ sender: Any) {
         //create two dummy locations
@@ -71,16 +76,13 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
         let rawDepartureTime = ride!.tripInfo.departureTime
         let rawArrivalTime = ride!.tripInfo.arrivalTime
 
-        let dateFormatter = DateFormatter()
+        print("raw arrival time = \(rawArrivalTime)")
+        
         dateFormatter.dateFormat = "MMM d"
-
-        let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "h:mm a"
         
         let depTimeStr = "\(dateFormatter.string(from: rawDepartureTime)) \(timeFormatter.string(from: rawDepartureTime))"
-        let arrivTimeStr = "\(dateFormatter.string(from: rawArrivalTime)) \(timeFormatter.string(from: rawArrivalTime))"
         departureDateTimeLabel.text = depTimeStr
-        arrivalDateTimeLabel.text = arrivTimeStr
         
         descriptionLabel.text = ride?.description
         
@@ -113,6 +115,7 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: arrivalCoordinate, addressDictionary: nil))
         request.requestsAlternateRoutes = true
         request.transportType = .automobile
+        request.departureDate = ride?.tripInfo.departureTime
 
         let directions = MKDirections(request: request)
 
@@ -125,6 +128,11 @@ class RideDetailsViewController: UIViewController, MKMapViewDelegate {
                 let distanceInMiles = distanceInMeters * milesPerMeter
                 let travelTimeInSeconds = route.expectedTravelTime
                 print("travel time in [s]: \(travelTimeInSeconds)")
+                
+                let arrivalDate = request.departureDate! + travelTimeInSeconds
+                
+                arrivalDateTimeLabel.text = "\(dateFormatter.string(from: arrivalDate)) \(timeFormatter.string(from: arrivalDate))"
+                
                 var travelTimeStr: String
                 if travelTimeInSeconds > 3600 {
                     let remainder = Int(travelTimeInSeconds.rounded(.up)) % 3600
