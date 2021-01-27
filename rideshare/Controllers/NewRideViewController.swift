@@ -49,6 +49,10 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func onTapKeyboardDismiss(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let color : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)

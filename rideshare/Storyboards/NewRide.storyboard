@@ -147,12 +147,16 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="1y3-oj-LEV" firstAttribute="top" secondItem="uba-JW-5dp" secondAttribute="bottom" constant="10" id="JKZ-0b-xrq"/>
                                                     <constraint firstItem="1y3-oj-LEV" firstAttribute="leading" secondItem="vqY-cj-R6N" secondAttribute="leading" id="MGV-E3-RHX"/>
                                                     <constraint firstAttribute="trailing" secondItem="1y3-oj-LEV" secondAttribute="trailing" id="T28-KK-RBk"/>
                                                     <constraint firstItem="uba-JW-5dp" firstAttribute="leading" secondItem="vqY-cj-R6N" secondAttribute="leading" id="oaX-s6-R7G"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="dPg-F6-b66" appends="YES" id="kuo-hF-i3M"/>
+                                                </connections>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -209,6 +213,11 @@
                 <tapGestureRecognizer id="LNJ-UD-qfc" userLabel="Arrival Tap Gesture Recognizer">
                     <connections>
                         <action selector="onTapArrivalLocation:" destination="Bai-Qc-HNB" id="jpg-vP-BVa"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="dPg-F6-b66">
+                    <connections>
+                        <action selector="onTapKeyboardDismiss:" destination="Bai-Qc-HNB" id="ANc-ng-Auc"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
