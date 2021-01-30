@@ -9,12 +9,13 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 protocol SearchViewControllerDelegate : NSObjectProtocol{
     func passBack(location: MKMapItem, fieldName: String)
 }
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, CLLocationManagerDelegate {
     
     
     @IBAction func onCancel(_ sender: Any) {
@@ -36,13 +37,90 @@ class SearchViewController: UIViewController {
     
     var displayDefaultLocations: Bool?
     
+    var currentLocationDisplayed = false
+    
+    let locationManager = CLLocationManager()
+    
+    var userLocation: CLLocation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         searchCompleter.delegate = self
         
         places = Place.loadPlaces()
+        
+        // Add current location to list of places to show if displaying default locations. If displayDefaultLocations is not initialized, assume it's false
+        if displayDefaultLocations ?? false {
+            isAuthorizedToGetUserLocation()
+            
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            }
+            
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.startUpdatingLocation()
+            } else {
+                print("Couldn't request location")
+            }
+        }
+    }
+    
+    func isAuthorizedToGetUserLocation() {
+        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            print("User authorized accessing location")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("locationManager failed with error: \(error.localizedDescription)")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Location updated")
+        userLocation = locations[0]
+
+        print("user location; lat = \(userLocation!.coordinate.latitude)", terminator:"")
+        print("long = \(userLocation!.coordinate.longitude)")
+
+        if currentLocationDisplayed {
+            places.removeFirst()
+            currentLocationDisplayed = false
+        }
+        if let place = getCurrentLocation() {
+            if !currentLocationDisplayed {
+                places.insert(place, at: 0)
+                print(place)
+                currentLocationDisplayed = true
+                searchResultsTableView.reloadData()
+            }
+        }
+        print("places.count = \(places.count)")
+    }
+    
+    func getCurrentLocation() -> Place? {
+        var currLocation: Place?
+        if let locValue = userLocation {
+            print("Got current location from locationManager")
+            // TODO: https://stackoverflow.com/questions/41358423/swift-generate-an-address-format-from-reverse-geocoding
+            let currLocationName = "Current Location"
+            currLocation = Place(lat: locValue.coordinate.latitude, long: locValue.coordinate.longitude, userGivenName: "Current Location", name: currLocationName, description: "User's current location")
+        } else {
+            print("Couldn't get current location from locationManager")
+        }
+
+        return currLocation
     }
     
     override func viewDidAppear(_ animated: Bool) {
