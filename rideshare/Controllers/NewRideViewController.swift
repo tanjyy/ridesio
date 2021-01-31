@@ -44,8 +44,14 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
     
     @IBOutlet weak var rideDetailsTextView: UITextView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBAction func onDismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func onTapKeyboardDismiss(_ sender: Any) {
+        view.endEditing(true)
     }
     
     override func viewDidLoad() {
@@ -56,7 +62,27 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
         postNewRideButton.clipsToBounds = true
         postNewRideButton.layer.cornerRadius = 10
         postNewRideButton.addShadow(offset: CGSize.init(width: 2, height: 2), color: UIColor.black, radius: 2.0, opacity: 0.5)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func keyboardWillShow(notification:NSNotification) {
+
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView.contentInset = contentInset
+    }
+
+    @objc func keyboardWillHide(notification:NSNotification) {
+
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
     
     @IBAction func onPostRideButton(_ sender: Any) {
