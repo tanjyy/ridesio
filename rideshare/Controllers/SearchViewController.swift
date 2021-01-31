@@ -91,36 +91,41 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate {
         print("Location updated")
         userLocation = locations[0]
 
-        print("user location; lat = \(userLocation!.coordinate.latitude)", terminator:"")
+        print("user location; lat = \(userLocation!.coordinate.latitude), ", terminator:"")
         print("long = \(userLocation!.coordinate.longitude)")
-
-        if currentLocationDisplayed {
-            places.removeFirst()
-            currentLocationDisplayed = false
-        }
-        if let place = getCurrentLocation() {
-            if !currentLocationDisplayed {
-                places.insert(place, at: 0)
-                print(place)
-                currentLocationDisplayed = true
-                searchResultsTableView.reloadData()
+        
+        var currLocation: Place
+        if let locValue = userLocation {
+            currLocation = Place(lat: locValue.coordinate.latitude, long: locValue.coordinate.longitude, userGivenName: "Current Location", name: "", description: "User's current location")
+            CLGeocoder().reverseGeocodeLocation(locValue) { (placemarks, error) in
+                if error != nil {
+                    print("reverse geocode failed: \(error!.localizedDescription)")
+                }
+                let pm = (placemarks ?? [CLPlacemark]()) as [CLPlacemark]
+                
+                var addressString = ""
+                
+                if pm.count > 0 {
+                    let pm = placemarks![0]
+                    if let tf = pm.thoroughfare {
+                        addressString += tf
+                        if let aa = pm.administrativeArea {
+                            addressString += ", " + aa
+                        }
+                    }
+                    if addressString == "" {
+                        // Add sane default in the case that placemark attributes can't be accessed
+                        addressString = "Location"
+                    }
+                }
+                currLocation.name = addressString
+                
+                // Remove previous Current Location instances from places
+                self.places.removeAll(where: { $0.userGivenName == "Current Location" })
+                self.places.insert(currLocation, at: 0)
+                self.searchResultsTableView.reloadData()
             }
         }
-        print("places.count = \(places.count)")
-    }
-    
-    func getCurrentLocation() -> Place? {
-        var currLocation: Place?
-        if let locValue = userLocation {
-            print("Got current location from locationManager")
-            // TODO: https://stackoverflow.com/questions/41358423/swift-generate-an-address-format-from-reverse-geocoding
-            let currLocationName = "Current Location"
-            currLocation = Place(lat: locValue.coordinate.latitude, long: locValue.coordinate.longitude, userGivenName: "Current Location", name: currLocationName, description: "User's current location")
-        } else {
-            print("Couldn't get current location from locationManager")
-        }
-
-        return currLocation
     }
     
     override func viewDidAppear(_ animated: Bool) {

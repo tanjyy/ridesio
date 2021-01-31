@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class Place: Codable, Equatable, CustomStringConvertible {
     var latitude: Double
     var longitude: Double
