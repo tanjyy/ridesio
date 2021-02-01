@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="1122"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKr-Jf-IIg" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="671"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="580"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrb-g4-WN0">
                                                 <rect key="frame" x="369" y="0.0" width="30" height="30"/>
@@ -53,7 +53,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vqY-cj-R6N">
-                                                <rect key="frame" x="20" y="57" width="374" height="594"/>
+                                                <rect key="frame" x="20" y="57" width="374" height="503"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departing From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uba-JW-5dp">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
@@ -103,26 +103,14 @@
                                                             <constraint firstAttribute="height" constant="50" id="KZ7-d7-Aat"/>
                                                         </constraints>
                                                     </datePicker>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Arrival Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0M-Ds-Vwi">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHb-ZR-WrC">
                                                         <rect key="frame" x="0.0" y="273" width="374" height="21"/>
                                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mmA-kg-tga">
-                                                        <rect key="frame" x="0.0" y="304" width="374" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="sjW-EX-05s"/>
-                                                        </constraints>
-                                                    </datePicker>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHb-ZR-WrC">
-                                                        <rect key="frame" x="0.0" y="364" width="374" height="21"/>
-                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zHM-6N-OVK">
-                                                        <rect key="frame" x="0.0" y="395" width="374" height="139"/>
+                                                        <rect key="frame" x="0.0" y="304" width="374" height="139"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="374" id="AVS-f4-icu"/>
@@ -133,7 +121,7 @@
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0Z-16-f0d">
-                                                        <rect key="frame" x="0.0" y="544" width="374" height="50"/>
+                                                        <rect key="frame" x="0.0" y="453" width="374" height="50"/>
                                                         <color key="backgroundColor" red="0.1843137255" green="0.50196078430000002" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="S4D-85-4he"/>
@@ -195,7 +183,6 @@
                     </view>
                     <size key="freeformSize" width="414" height="1200"/>
                     <connections>
-                        <outlet property="arrivalDatePicker" destination="mmA-kg-tga" id="y7x-9C-A5f"/>
                         <outlet property="arrivalLocationField" destination="60t-tx-B1u" id="vtk-xM-PcR"/>
                         <outlet property="departureDatePicker" destination="IGG-XS-kpN" id="vRA-2o-DY3"/>
                         <outlet property="departureLocationField" destination="1y3-oj-LEV" id="bcg-wx-TTH"/>
