@@ -12,16 +12,16 @@ class TripInfo {
     var pickupLocation: String
     var arrivalLocation: String
     var departureTime: Date
-    var returnTime: Date
+    var arrivalTime: Date
     
     var departureCoordinate: CLLocationCoordinate2D
     var arrivalCoordinate: CLLocationCoordinate2D
     
-    init(pickupLocation: String, arrivalLocation: String, departureTime: Date, returnTime: Date, departureCoordinate: CLLocationCoordinate2D, arrivalCoordinate: CLLocationCoordinate2D) {
+    init(pickupLocation: String, arrivalLocation: String, departureTime: Date, arrivalTime: Date, departureCoordinate: CLLocationCoordinate2D, arrivalCoordinate: CLLocationCoordinate2D) {
         self.pickupLocation = pickupLocation
         self.arrivalLocation = arrivalLocation
         self.departureTime = departureTime
-        self.returnTime = returnTime
+        self.arrivalTime = arrivalTime
         self.departureCoordinate = departureCoordinate
         self.arrivalCoordinate = arrivalCoordinate
     }
