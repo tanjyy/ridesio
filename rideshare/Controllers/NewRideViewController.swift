@@ -15,8 +15,6 @@ class NewRideViewController: UIViewController, UINavigationControllerDelegate, S
     var departureLocationCL: MKMapItem?
     var arrivalLocationCL: MKMapItem?
     
-    let milesPerMeter = 0.000621371192
-    
     @IBOutlet weak var postNewRideButton: UIButton!
     
     @IBAction func onTapDepartureLocation(_ sender: Any) {
