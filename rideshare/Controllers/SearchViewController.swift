@@ -9,12 +9,13 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 protocol SearchViewControllerDelegate : NSObjectProtocol{
     func passBack(location: MKMapItem, fieldName: String)
 }
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, CLLocationManagerDelegate {
     
     
     @IBAction func onCancel(_ sender: Any) {
@@ -36,13 +37,95 @@ class SearchViewController: UIViewController {
     
     var displayDefaultLocations: Bool?
     
+    var currentLocationDisplayed = false
+    
+    let locationManager = CLLocationManager()
+    
+    var userLocation: CLLocation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         searchCompleter.delegate = self
         
         places = Place.loadPlaces()
+        
+        // Add current location to list of places to show if displaying default locations. If displayDefaultLocations is not initialized, assume it's false
+        if displayDefaultLocations ?? false {
+            isAuthorizedToGetUserLocation()
+            
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            }
+            
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.startUpdatingLocation()
+            } else {
+                print("Couldn't request location")
+            }
+        }
+    }
+    
+    func isAuthorizedToGetUserLocation() {
+        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            print("User authorized accessing location")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("locationManager failed with error: \(error.localizedDescription)")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Location updated")
+        userLocation = locations[0]
+
+        print("user location; lat = \(userLocation!.coordinate.latitude), ", terminator:"")
+        print("long = \(userLocation!.coordinate.longitude)")
+        
+        var currLocation: Place
+        if let locValue = userLocation {
+            currLocation = Place(lat: locValue.coordinate.latitude, long: locValue.coordinate.longitude, userGivenName: "Current Location", name: "", description: "User's current location")
+            CLGeocoder().reverseGeocodeLocation(locValue) { (placemarks, error) in
+                if error != nil {
+                    print("reverse geocode failed: \(error!.localizedDescription)")
+                }
+                let pm = (placemarks ?? [CLPlacemark]()) as [CLPlacemark]
+                
+                var addressString = ""
+                
+                if pm.count > 0 {
+                    let pm = placemarks![0]
+                    if let tf = pm.thoroughfare {
+                        addressString += tf
+                        if let aa = pm.administrativeArea {
+                            addressString += ", " + aa
+                        }
+                    }
+                    if addressString == "" {
+                        // Add sane default in the case that placemark attributes can't be accessed
+                        addressString = "Location"
+                    }
+                }
+                currLocation.name = addressString
+                
+                // Remove previous Current Location instances from places
+                self.places.removeAll(where: { $0.userGivenName == "Current Location" })
+                self.places.insert(currLocation, at: 0)
+                self.searchResultsTableView.reloadData()
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

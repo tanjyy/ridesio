@@ -7,8 +7,7 @@
 
 import Foundation
 
-
-class Place: Codable, Equatable {
+class Place: Codable, Equatable, CustomStringConvertible {
     var latitude: Double
     var longitude: Double
     var userGivenName: String
@@ -20,6 +19,7 @@ class Place: Codable, Equatable {
         self.longitude = long
         self.userGivenName = userGivenName
         self.name = name
+        // TODO: update this to a different name so that description can be used for string representation of the Place
         self.description = description
     }
     
@@ -47,4 +47,6 @@ class Place: Codable, Equatable {
             lhs.name == rhs.name &&
             lhs.description == rhs.description
     }
+    
+//    public var description: String { return "Place; userGivenName: \(userGivenName), name: \(name), description: \(description)" }
 }
